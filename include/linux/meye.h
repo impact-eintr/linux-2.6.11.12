@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2001-2003 Stelian Pop <stelian@popies.net>
  *
- * Copyright (C) 2001-2002 AlcÙve <www.alcove.com>
+ * Copyright (C) 2001-2002 AlcÈ≠êe <www.alcove.com>
  *
  * Copyright (C) 2000 Andrew Tridgell <tridge@valinux.com>
  *

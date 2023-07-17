@@ -79,8 +79,8 @@
  * 1 bits are decoded.
  */
 /**
- * PCIÉè±¸µÄIO¡¢ÄÚ´æ¿Õ¼äÅäÖÃ»ùµØÖ·¡£
- * ¶Ô64Î»×ÜÏßÀ´Ëµ£¬¿ÉÒÔÓÃÁ½¸öµØÖ·´ú±íÒ»¸öµØÖ·¿Õ¼ä¡£
+ * PCIè®¾å¤‡çš„IOã€å†…å­˜ç©ºé—´é…ç½®åŸºåœ°å€ã€‚
+ * å¯¹64ä½æ€»çº¿æ¥è¯´ï¼Œå¯ä»¥ç”¨ä¸¤ä¸ªåœ°å€ä»£è¡¨ä¸€ä¸ªåœ°å€ç©ºé—´ã€‚
  */
 #define PCI_BASE_ADDRESS_0	0x10	/* 32 bits */
 #define PCI_BASE_ADDRESS_1	0x14	/* 32 bits [htype 0,1 only] */
@@ -112,11 +112,11 @@
 
 /* 0x35-0x3b are reserved */
 /**
- * PCIÉè±¸´Ó´ËÅäÖÃ¼Ä´æÆ÷ÖÐ»ñµÃÖÐ¶ÏºÅ¡£
+ * PCIè®¾å¤‡ä»Žæ­¤é…ç½®å¯„å­˜å™¨ä¸­èŽ·å¾—ä¸­æ–­å·ã€‚
  */
 #define PCI_INTERRUPT_LINE	0x3c	/* 8 bits */
 /**
- * Èç¹ûÉè±¸²»Ö§³ÖÖÐ¶Ï£¬Ôò¸Ã¼Ä´æÆ÷Îª0.
+ * å¦‚æžœè®¾å¤‡ä¸æ”¯æŒä¸­æ–­ï¼Œåˆ™è¯¥å¯„å­˜å™¨ä¸º0.
  */
 #define PCI_INTERRUPT_PIN	0x3d	/* 8 bits */
 #define PCI_MIN_GNT		0x3e	/* 8 bits */
@@ -516,99 +516,99 @@ typedef int __bitwise pci_power_t;
  * The pci_dev structure is used to describe PCI devices.
  */
 /**
- * Ã¿¸öPCIÉè±¸¶¼»á·ÖÅäÒ»¸öpci_devÊµÀý£¬¾ÍÏñÃ¿¸öÍøÂçÉè±¸¶¼»á·ÖÅäÒ»¸önet_deviceÊµÀý¡£
- * ÄÚºËÊ¹ÓÃÕâ¸öÊý¾Ý½á¹¹À´ÒýÓÃÒ»¸öPCIÉè±¸¡£
- * ×¢Òâ£¬Õâ±íÊ¾Ò»¸öÂß¼­Éè±¸¡£Ò»¸öÎïÀíPCI¿¨ÔÚÄÚºËÖÐÓÃPCI²å²ÛÀ´±íÊ¾¡£
+ * æ¯ä¸ªPCIè®¾å¤‡éƒ½ä¼šåˆ†é…ä¸€ä¸ªpci_devå®žä¾‹ï¼Œå°±åƒæ¯ä¸ªç½‘ç»œè®¾å¤‡éƒ½ä¼šåˆ†é…ä¸€ä¸ªnet_deviceå®žä¾‹ã€‚
+ * å†…æ ¸ä½¿ç”¨è¿™ä¸ªæ•°æ®ç»“æž„æ¥å¼•ç”¨ä¸€ä¸ªPCIè®¾å¤‡ã€‚
+ * æ³¨æ„ï¼Œè¿™è¡¨ç¤ºä¸€ä¸ªé€»è¾‘è®¾å¤‡ã€‚ä¸€ä¸ªç‰©ç†PCIå¡åœ¨å†…æ ¸ä¸­ç”¨PCIæ’æ§½æ¥è¡¨ç¤ºã€‚
  */
 struct pci_dev {
-	/* Í¨¹ý´Ë×Ö¶ÎÁ´½Óµ½ËùÓÐPCIÉè±¸Á´±íÖÐ */
+	/* é€šè¿‡æ­¤å­—æ®µé“¾æŽ¥åˆ°æ‰€æœ‰PCIè®¾å¤‡é“¾è¡¨ä¸­ */
 	struct list_head global_list;	/* node in list of all PCI devices */
-	/* Í¨¹ý´Ë×Ö¶ÎÁ´½Óµ½ËùÊô×ÜÏßµÄÉè±¸Á´±íÖÐ */
+	/* é€šè¿‡æ­¤å­—æ®µé“¾æŽ¥åˆ°æ‰€å±žæ€»çº¿çš„è®¾å¤‡é“¾è¡¨ä¸­ */
 	struct list_head bus_list;	/* node in per-bus list */
-	/* Ö¸ÏòËùÊô×ÜÏßµÄÃèÊö·û */
+	/* æŒ‡å‘æ‰€å±žæ€»çº¿çš„æè¿°ç¬¦ */
 	struct pci_bus	*bus;		/* bus this device is on */
-	/* ¶ÔÇÅÉè±¸À´Ëµ£¬Ö¸ÏòËùÇÅ½ÓµÄÏÂ¼¶×ÜÏß */
+	/* å¯¹æ¡¥è®¾å¤‡æ¥è¯´ï¼ŒæŒ‡å‘æ‰€æ¡¥æŽ¥çš„ä¸‹çº§æ€»çº¿ */
 	struct pci_bus	*subordinate;	/* bus this device bridges to */
 
-	/* Ó²¼þ¼Ü¹¹Ïà¹ØµÄÌØ¶¨ÐÅÏ¢ */
+	/* ç¡¬ä»¶æž¶æž„ç›¸å…³çš„ç‰¹å®šä¿¡æ¯ */
 	void		*sysdata;	/* hook for sys-specific extension */
-	/* ¸ÃÉè±¸ÔÚ/proc/bus/pciÖÐµÄÄ¿Â¼Ïî */
+	/* è¯¥è®¾å¤‡åœ¨/proc/bus/pciä¸­çš„ç›®å½•é¡¹ */
 	struct proc_dir_entry *procent;	/* device entry in /proc/bus/pci */
 
-	/* PCIÉè±¸µÄ¹¦ÄÜºÅ£¬¼´Âß¼­Éè±¸ºÅ¡£¸ß5Î»Îª²å²ÛºÅ£¬µÍ3Î»Îª¹¦ÄÜºÅ */
+	/* PCIè®¾å¤‡çš„åŠŸèƒ½å·ï¼Œå³é€»è¾‘è®¾å¤‡å·ã€‚é«˜5ä½ä¸ºæ’æ§½å·ï¼Œä½Ž3ä½ä¸ºåŠŸèƒ½å· */
 	unsigned int	devfn;		/* encoded device & function index */
-	/* ÅäÖÃ¼Ä´æÆ÷ÖÐµÄ³§ÉÌID */
+	/* é…ç½®å¯„å­˜å™¨ä¸­çš„åŽ‚å•†ID */
 	unsigned short	vendor;
-	/* ÅäÖÃ¼Ä´æÆ÷ÖÐµÄÉè±¸ID */
+	/* é…ç½®å¯„å­˜å™¨ä¸­çš„è®¾å¤‡ID */
 	unsigned short	device;
-	/* ÅäÖÃ¼Ä´æÆ÷ÖÐµÄ×ÓÏµÍ³³§ÉÌID */
+	/* é…ç½®å¯„å­˜å™¨ä¸­çš„å­ç³»ç»ŸåŽ‚å•†ID */
 	unsigned short	subsystem_vendor;
-	/* ÅäÖÃ¼Ä´æÆ÷ÖÐµÄ×ÓÏµÍ³Éè±¸ID */
+	/* é…ç½®å¯„å­˜å™¨ä¸­çš„å­ç³»ç»Ÿè®¾å¤‡ID */
 	unsigned short	subsystem_device;
-	/* ÅäÖÃ¼Ä´æÆ÷ÖÐµÄÉè±¸ÀàÓò */
+	/* é…ç½®å¯„å­˜å™¨ä¸­çš„è®¾å¤‡ç±»åŸŸ */
 	unsigned int	class;		/* 3 bytes: (base,sub,prog-if) */
-	/* ÅäÖÃ¼Ä´æÆ÷ÖÐµÄÍ·ÀàÐÍÓòµÄµÍ7Î»£¬0±íÊ¾Ò»°ãµÄPCIÉè±¸£¬01±íÊ¾ÇÅÉè±¸ */
+	/* é…ç½®å¯„å­˜å™¨ä¸­çš„å¤´ç±»åž‹åŸŸçš„ä½Ž7ä½ï¼Œ0è¡¨ç¤ºä¸€èˆ¬çš„PCIè®¾å¤‡ï¼Œ01è¡¨ç¤ºæ¡¥è®¾å¤‡ */
 	u8		hdr_type;	/* PCI header type (`multi' flag masked out) */
-	/* ROM»ùµØÖ·¼Ä´æÆ÷ÔÚPCIÅäÖÃ¿Õ¼äÖÐµÄÎ»ÖÃ */
+	/* ROMåŸºåœ°å€å¯„å­˜å™¨åœ¨PCIé…ç½®ç©ºé—´ä¸­çš„ä½ç½® */
 	u8		rom_base_reg;	/* which config register controls the ROM */
 
-	/* ¹ØÁªµÄpci_driverÇý¶¯½á¹¹ */
+	/* å…³è”çš„pci_driveré©±åŠ¨ç»“æž„ */
 	struct pci_driver *driver;	/* which driver has allocated this device */
-	/* PCIÉè±¸µÄDMAÑÚÂë£¬±ØÒªÊ±£¬ÄÚºË¾Ý´Ë½¨Á¢µ¯ÐÔ»º³åÇø */
+	/* PCIè®¾å¤‡çš„DMAæŽ©ç ï¼Œå¿…è¦æ—¶ï¼Œå†…æ ¸æ®æ­¤å»ºç«‹å¼¹æ€§ç¼“å†²åŒº */
 	u64		dma_mask;	/* Mask of the bits of bus address this
 					   device implements.  Normally this is
 					   0xffffffff.  You only need to change
 					   this if your device has broken DMA
 					   or supports 64-bit transfers.  */
 
-	/* µ±Ç°µçÔ´¹¤×÷×´Ì¬¡£È¡ÖµÎªD0-D3 */
+	/* å½“å‰ç”µæºå·¥ä½œçŠ¶æ€ã€‚å–å€¼ä¸ºD0-D3 */
 	pci_power_t     current_state;  /* Current operating state. In ACPI-speak,
 					   this is D0-D3, D0 being fully functional,
 					   and D3 being off. */
 
-	/* ÄÚÇ¶µÄÍ¨ÓÃÉè±¸¶ÔÏó¡£ */
+	/* å†…åµŒçš„é€šç”¨è®¾å¤‡å¯¹è±¡ã€‚ */
 	struct	device	dev;		/* Generic device interface */
 
 	/* device is compatible with these IDs */
 	unsigned short vendor_compatible[DEVICE_COUNT_COMPATIBLE];
 	unsigned short device_compatible[DEVICE_COUNT_COMPATIBLE];
 
-	/* ÅäÖÃ¿Õ¼ä³¤¶È£¬Ò»°ãÎª256£¬¶ÔPCI-X2ºÍPCIeÉè±¸À´Ëµ£¬Îª4096 */
+	/* é…ç½®ç©ºé—´é•¿åº¦ï¼Œä¸€èˆ¬ä¸º256ï¼Œå¯¹PCI-X2å’ŒPCIeè®¾å¤‡æ¥è¯´ï¼Œä¸º4096 */
 	int		cfg_size;	/* Size of configuration space */
 
 	/*
 	 * Instead of touching interrupt line and base address registers
 	 * directly, use the values stored here. They might be different!
 	 */
-	/* ¸ÃÉè±¸µÄÖÐ¶ÏºÅ */
+	/* è¯¥è®¾å¤‡çš„ä¸­æ–­å· */
 	unsigned int	irq;
 	/**
-	 * Éè±¸µÄ×ÊÔ´Êý×é
-	 * ¶ÔÓÚPCIÉè±¸£¬µÚ0-5Ïî±íÊ¾IO»òÕßÄÚ´æÇø¼ä£¬µÚ6Ïî±íÊ¾À©Õ¹ROMÇø¼ä¡£
-	 * ¶ÔÓÚÇÅÉè±¸£¬µÚ0-1Ïî±íÊ¾×ÊÔ´Çø¼ä£¬µÚ2-5Ïî±íÊ¾IO¿Õ¼ä»òÕßÄÚ´æÇø¼ä¡£µÚ6Ïî±íÊ¾À©Õ¹ROMÇø¼ä¡£
-	 * ´ÓPCI_BRIDGE_RESOURCES¿ªÊ¼µÄÏî±íÊ¾×ÊÔ´´°¿Ú¡£
+	 * è®¾å¤‡çš„èµ„æºæ•°ç»„
+	 * å¯¹äºŽPCIè®¾å¤‡ï¼Œç¬¬0-5é¡¹è¡¨ç¤ºIOæˆ–è€…å†…å­˜åŒºé—´ï¼Œç¬¬6é¡¹è¡¨ç¤ºæ‰©å±•ROMåŒºé—´ã€‚
+	 * å¯¹äºŽæ¡¥è®¾å¤‡ï¼Œç¬¬0-1é¡¹è¡¨ç¤ºèµ„æºåŒºé—´ï¼Œç¬¬2-5é¡¹è¡¨ç¤ºIOç©ºé—´æˆ–è€…å†…å­˜åŒºé—´ã€‚ç¬¬6é¡¹è¡¨ç¤ºæ‰©å±•ROMåŒºé—´ã€‚
+	 * ä»ŽPCI_BRIDGE_RESOURCESå¼€å§‹çš„é¡¹è¡¨ç¤ºèµ„æºçª—å£ã€‚
 	 */
 	struct resource resource[DEVICE_COUNT_RESOURCE]; /* I/O and memory regions + expansion ROMs */
 
 	char *		slot_name;	/* pointer to dev.bus_id */
 
 	/* These fields are used by common fixups */
-	/* ÊÇ·ñÎªÍ¸Ã÷PCIÇÅ */
+	/* æ˜¯å¦ä¸ºé€æ˜ŽPCIæ¡¥ */
 	unsigned int	transparent:1;	/* Transparent PCI bridge */
-	/* ÊÇ·ñÎª¶à¹¦ÄÜÇÅµÄÒ»²¿·Ö */
+	/* æ˜¯å¦ä¸ºå¤šåŠŸèƒ½æ¡¥çš„ä¸€éƒ¨åˆ† */
 	unsigned int	multifunction:1;/* Part of multi-function device */
 	/* keep track of device state */
 	unsigned int	is_enabled:1;	/* pci_enable_device has been called */
-	/* ÊÇ·ñÎª×ÜÏßÖ÷¿ØÉè±¸ */
+	/* æ˜¯å¦ä¸ºæ€»çº¿ä¸»æŽ§è®¾å¤‡ */
 	unsigned int	is_busmaster:1; /* device is busmaster */
 
-	/* Éè±¸±»¹ÒÆðÊ±£¬±£´æÆäÅäÖÃ¿Õ¼ä */
+	/* è®¾å¤‡è¢«æŒ‚èµ·æ—¶ï¼Œä¿å­˜å…¶é…ç½®ç©ºé—´ */
 	u32		saved_config_space[16]; /* config space saved at suspend time */
-	/* ÓÃÓÚÔÚsysfsÖÐÎªÕâ¸öPCIÉè±¸Éú³ÉROMÊôÐÔÎÄ¼þ */
+	/* ç”¨äºŽåœ¨sysfsä¸­ä¸ºè¿™ä¸ªPCIè®¾å¤‡ç”ŸæˆROMå±žæ€§æ–‡ä»¶ */
 	struct bin_attribute *rom_attr; /* attribute descriptor for sysfs ROM entry */
-	/* ÊÇ·ñÔÊÐíÏÔÊ¾ROMÊôÐÔ */
+	/* æ˜¯å¦å…è®¸æ˜¾ç¤ºROMå±žæ€§ */
 	int rom_attr_enabled;		/* has display of the rom attribute been enabled? */
-	/* ÓÃÓÚÔÚsysfsÖÐÎªÕâ¸öÉè±¸Éú³É×ÊÔ´ÊôÐÔÎÄ¼þ */
+	/* ç”¨äºŽåœ¨sysfsä¸­ä¸ºè¿™ä¸ªè®¾å¤‡ç”Ÿæˆèµ„æºå±žæ€§æ–‡ä»¶ */
 	struct bin_attribute *res_attr[DEVICE_COUNT_RESOURCE]; /* sysfs file for resources */
 #ifdef CONFIG_PCI_NAMES
 #define PCI_NAME_SIZE	96
@@ -641,569 +641,20 @@ struct pci_dev {
 #define PCI_REGION_FLAG_MASK 0x0fU	/* These bits of resource flags tell us the PCI region flags */
 
 /**
- * PCI×ÜÏß£¬ÎÞÂÛÊÇ¸ù×ÜÏß£¬»¹ÊÇ·Ç¸ù×ÜÏß£¬¶¼¶ÔÓ¦Ò»¸öpci_busÃèÊö·û 
- * ×¢ÒâÓëpci_bus_typeµÄÇø±ð
+ * PCIæ€»çº¿ï¼Œæ— è®ºæ˜¯æ ¹æ€»çº¿ï¼Œè¿˜æ˜¯éžæ ¹æ€»çº¿ï¼Œéƒ½å¯¹åº”ä¸€ä¸ªpci_busæè¿°ç¬¦ 
+ * æ³¨æ„ä¸Žpci_bus_typeçš„åŒºåˆ«
  */
 struct pci_bus {
 	/**
-	 * ¶ÔÓÚ¸ùPCI×ÜÏß£¬Í¨¹ý´Ë×Ö¶Î¼ÓÈëµ½È«¾Ö¸ù×ÜÏßÁ´±í¡£
-	 * ¶ÔÓÚ·Ç¸ùPCI×ÜÏß£¬Í¨¹ý´Ë×Ö¶Î¼ÓÈëµ½¸¸×ÜÏßµÄÁ´±íÖÐ¡£
+	 * å¯¹äºŽæ ¹PCIæ€»çº¿ï¼Œé€šè¿‡æ­¤å­—æ®µåŠ å…¥åˆ°å…¨å±€æ ¹æ€»çº¿é“¾è¡¨ã€‚
+	 * å¯¹äºŽéžæ ¹PCIæ€»çº¿ï¼Œé€šè¿‡æ­¤å­—æ®µåŠ å…¥åˆ°çˆ¶æ€»çº¿çš„é“¾è¡¨ä¸­ã€‚
 	 */
 	struct list_head node;		/* node in list of buses */
 	/**
-	 * Ö¸Ïò¸ÃPCI×ÜÏßµÄ¸¸×ÜÏß£¬¼´PCIÇÅËùÔÚµÄ×ÜÏß¡£
+	 * æŒ‡å‘è¯¥PCIæ€»çº¿çš„çˆ¶æ€»çº¿ï¼Œå³PCIæ¡¥æ‰€åœ¨çš„æ€»çº¿ã€‚
 	 */
 	struct pci_bus	*parent;	/* parent bus this bridge is on */
-	/* ±¾×ÜÏßµÄ×Ó×ÜÏßÁ´±íÍ· */
+	/* æœ¬æ€»çº¿çš„å­æ€»çº¿é“¾è¡¨å¤´ */
 	struct list_head children;	/* list of child buses */
-	/* ±¾×ÜÏßµÄPCIÉè±¸Á´±íµÄ±íÍ· */
-	struct list_head devices;	§/* list of devices on this bus */
-	/**
-	 * ¶ÔÓÚ·Ç¸ùPCI×ÜÏß£¬ÎªÖ¸Ïò¸Ã×ÜÏßµÄÇÅÉè±¸µÄÃèÊö·û¡£
-	 * ¶ÔÓÚ¸ù×ÜÏß£¬ÆäÖµÎªNULL
-	 */
-	struct pci_dev	*self;		/* bridge device as seen by parent */
-	/**
-	 * ¶ÔÓÚ¸ù×ÜÏß£¬Ö¸Ïòioport_resource»òiomem_resource
-	 * ¶ÔÓÚ·Ç¸ù×ÜÏß£¬Ö¸ÏòÒý³öÕâÌõ×ÜÏßµÄÇÅÉè±¸µÄ×ÊÔ´´°¿ÚÊý×é¡£
-	 */
-	struct resource	*resource[PCI_BUS_NUM_RESOURCES];
-					/* address space routed to this bus */
-
-	/* ÅäÖÃ¿Õ¼ä·ÃÎÊº¯Êý */
-	struct pci_ops	*ops;		/* configuration access functions */
-	/* ÏµÍ³ÌØ¶¨µÄÀ©Õ¹¹³×Ó£¬ÓÃÀ´¼ÇÂ¼ËùÔÚ¸ù×ÜÏßÌØÓÐµÄÐÅÏ¢£¬ÍùÍùºÍ¼Ü¹¹Ïà¹Ø */
-	void		*sysdata;	/* hook for sys-specific extension */
-	/* ÕâÌõPCI×ÜÏßÔÚ/proc/bus/pciÖÐµÄÄ¿Â¼Ïî */
-	struct proc_dir_entry *procdir;	/* directory entry in /proc/bus/pci */
-
-	/* ×ÜÏß±àºÅ */
-	unsigned char	number;		/* bus number */
-	/* ÇÅÉè±¸µÄÖ÷±àºÅ */
-	unsigned char	primary;	/* number of primary bridge */
-	/* ÇÅÉè±¸µÄ´Î±àºÅ */
-	unsigned char	secondary;	/* number of secondary bridge */
-	/* ¸½Êô×ÜÏßµÄ×î´ó±àºÅ */
-	unsigned char	subordinate;	/* max number of subordinate buses */
-
-	/* ×ÜÏßÃû³Æ£¬ÈçPCI Bus #%02x */
-	char		name[48];
-
-	/* ÇÅÉè±¸µÄ¿ØÖÆ¼Ä´æÆ÷ */
-	unsigned short  bridge_ctl;	/* manage NO_ISA/FBB/et al behaviors */
-	unsigned short  pad2;
-	/**
-	 * ¶Ô¸ùPCI×ÜÏßÀ´Ëµ£¬ÎªÖ¸ÏòÐÂ´´½¨µÄÐéÄâÉè±¸Ö¸Õë
-	 * ¶Ô·Ç¸ùPCI×ÜÏßÀ´Ëµ£¬ÎªÖ¸ÏòÒý³öÕâÌõPCI×ÜÏßµÄÇÅÉè±¸ÄÚÇ¶µÄÉè±¸Ö¸Õë
-	 */
-	struct device		*bridge;
-	struct class_device	class_dev;
-	/* ÓÃÓÚÔÚsysfsÖÐÎªÕâÌõ×ÜÏßÉú³ÉIOÊôÐÔÎÄ¼þ */
-	struct bin_attribute	*legacy_io; /* legacy I/O for this bus */
-	/* ÓÃÓÚÔÚsysfsÖÐÎªÕâÌõ×ÜÏßÉú³ÉMEMÊôÐÔÎÄ¼þ */
-	struct bin_attribute	*legacy_mem; /* legacy mem */
-};
-
-#define pci_bus_b(n)	list_entry(n, struct pci_bus, node)
-#define to_pci_bus(n)	container_of(n, struct pci_bus, class_dev)
-
-/*
- * Error values that may be returned by PCI functions.
- */
-#define PCIBIOS_SUCCESSFUL		0x00
-#define PCIBIOS_FUNC_NOT_SUPPORTED	0x81
-#define PCIBIOS_BAD_VENDOR_ID		0x83
-#define PCIBIOS_DEVICE_NOT_FOUND	0x86
-#define PCIBIOS_BAD_REGISTER_NUMBER	0x87
-#define PCIBIOS_SET_FAILED		0x88
-#define PCIBIOS_BUFFER_TOO_SMALL	0x89
-
-/* Low-level architecture-dependent routines */
-
-/**
- * ·ÃÎÊPCIÉè±¸ÅäÖÃ¼Ä´æÆ÷µÄ»Øµ÷º¯Êý¡£
- */
-struct pci_ops {
-	int (*read)(struct pci_bus *bus, unsigned int devfn, int where, int size, u32 *val);
-	int (*write)(struct pci_bus *bus, unsigned int devfn, int where, int size, u32 val);
-};
-
-struct pci_raw_ops {
-	int (*read)(int dom, int bus, int devfn, int reg, int len, u32 *val);
-	int (*write)(int dom, int bus, int devfn, int reg, int len, u32 val);
-};
-
-extern struct pci_raw_ops *raw_pci_ops;
-
-struct pci_bus_region {
-	unsigned long start;
-	unsigned long end;
-};
-
-struct pci_dynids {
-	spinlock_t lock;            /* protects list, index */
-	struct list_head list;      /* for IDs added at runtime */
-	unsigned int use_driver_data:1; /* pci_driver->driver_data is used */
-};
-
-struct module;
-/**
- * pci_driver½á¹¹¶¨ÒåÁËÒ»¸öPCIÉè±¸Çý¶¯¡£
- */
-struct pci_driver {
-	struct list_head node;
-	/**
-	 * Éè±¸Çý¶¯³ÌÐòµÄÃû³Æ
-	 */
-	char *name;
-	struct module *owner;
-	/**
-	 * ÄÚºËÓÃÕâ¸öIDÊý×é¹ØÁªÏàÓ¦µÄÉè±¸¡£
-	 */
-	const struct pci_device_id *id_table;	/* must be non-NULL for probe to be called */
-	/**
-	 * µ±PCI×ÓÏµÍ³Í¨¹ýPCI IdÊý×éÕÒµ½ÏàÓ¦µÄPCIÉè±¸Çý¶¯Ê±»áµ÷ÓÃÕâ¸öº¯Êý¡£
-	 * Õâ¸öº¯ÊýÊ¹ÄÜÏàÓ¦µÄÓ²¼þ£¬³õÊ¼»¯²¢ÇÒ×¢²áÐÂÉè±¸¡£
-	 * ÔÚÇý¶¯ÖÐ»¹»á·ÖÅäÆäËûÒ»Ð©Êý¾Ý½á¹¹£¨±ÈÈç·¢ËÍºÍ½ÓÊÕÍøÂç±¨µÄ»º³åÇø£©£¬ÕâÐ©Êý¾Ý½á¹¹ÔÚÉè±¸ÖÐ»áÓÃµ½¡£
-	 * ·µ»Ø0±íÊ¾¸ÃÇý¶¯»á´¦Àíµ±Ç°Éè±¸£¬·ñÔòÓ¦µ±·µ»Ø¸ºÖµ¡£
-	 */
-	int  (*probe)  (struct pci_dev *dev, const struct pci_device_id *id);	/* New device inserted */
-	/**
-	 * µ±´ÓÏµÍ³ÖÐÉ¾³ýÒ»¸öÉè±¸»òÕßÈÈ²å°ÇÉè±¸±»°ÎÏÂÊ±£¬PCI×ÓÏµÍ³»áµ÷ÓÃÕâ¸öº¯Êý¡£
-	 * Õâ¸öº¯ÊýÓëprobeº¯ÊýÏà¶ÔÓ¦£¬ÔÚÕâ¸öº¯ÊýÖÐ»áÊÍ·ÅÏàÓ¦µÄÊý¾Ý½á¹¹¡£
-	 * ÍøÂçÉè±¸Çý¶¯µ÷ÓÃÕâ¸öº¯ÊýÊÍ·ÅÉè±¸³õÊ¼»¯Ê±·ÖÅäµÄI/O¶Ë¿ÚºÍI/OÄÚ´æ£¬ÊÍ·Ånet_device½á¹¹ÒÔ¼°¸¨ÖúµÄÒ»Ð©Êý¾Ý½á¹¹£¬ÕâÐ©Êý¾Ý½á¹¹Í¨³£ÊÇÔÚprobeº¯ÊýÖÐ·ÖÅäµÄ¡£
-	 */
-	void (*remove) (struct pci_dev *dev);	/* Device removed (NULL if not a hot-plug capable driver) */
-	/**
-	 * Õâ¸öº¯ÊýÔÚÉè±¸ÔÚÐÝÃß×´Ì¬ºÍ¼¤»î×´Ì¬Ö®¼äÇÐ»»Ê±µ÷ÓÃ¡£
-	 */
-	int  (*suspend) (struct pci_dev *dev, pm_message_t state);	/* Device suspended */
-	int  (*resume) (struct pci_dev *dev);	                /* Device woken up */
-	/**
-	 * Í¨¹ýÕâ¸öº¯Êý£¬Éè±¸Çý¶¯¿ÉÒÔÉú³ÉµçÔ´¹ÜÀíÐÅºÅÀ´¼¤»î»òÕß¹Ø±ÕÏµÍ³¡£
-	 */
-	int  (*enable_wake) (struct pci_dev *dev, u32 state, int enable);   /* Enable wake event */
-
-	struct device_driver	driver;
-	/**
-	 * ¶¯Ì¬id
-	 */
-	struct pci_dynids dynids;
-};
-
-#define	to_pci_driver(drv) container_of(drv,struct pci_driver, driver)
-
-/**
- * PCI_DEVICE - macro used to describe a specific pci device
- * @vend: the 16 bit PCI Vendor ID
- * @dev: the 16 bit PCI Device ID
- *
- * This macro is used to create a struct pci_device_id that matches a
- * specific device.  The subvendor and subdevice fields will be set to
- * PCI_ANY_ID.
- */
-/**
- * ´´½¨Ò»¸ö½öºÍÌØ¶¨³§ÉÌºÍÉè±¸IDÏàÆ¥ÅäµÄÉè±¸ID½á¹¹¡£
- */
-#define PCI_DEVICE(vend,dev) \
-	.vendor = (vend), .device = (dev), \
-	.subvendor = PCI_ANY_ID, .subdevice = PCI_ANY_ID
-
-/**
- * PCI_DEVICE_CLASS - macro used to describe a specific pci device class
- * @dev_class: the class, subclass, prog-if triple for this device
- * @dev_class_mask: the class mask for this device
- *
- * This macro is used to create a struct pci_device_id that matches a
- * specific PCI class.  The vendor, device, subvendor, and subdevice 
- * fields will be set to PCI_ANY_ID.
- */
-/**
- * ´´½¨Ò»¸öºÍÌØ¶¨PCIÀàÏàÆ¥ÅäµÄÉè±¸ID½á¹¹¡£
- */
-#define PCI_DEVICE_CLASS(dev_class,dev_class_mask) \
-	.class = (dev_class), .class_mask = (dev_class_mask), \
-	.vendor = PCI_ANY_ID, .device = PCI_ANY_ID, \
-	.subvendor = PCI_ANY_ID, .subdevice = PCI_ANY_ID
-
-/* 
- * pci_module_init is obsolete, this stays here till we fix up all usages of it
- * in the tree.
- */
-/**
- * Ò»Ð©Çý¶¯ÈÔÈ»Ê¹ÓÃpci_module_init×¢²á¡£
- */
-#define pci_module_init	pci_register_driver
-
-/* these external functions are only available when PCI support is enabled */
-#ifdef CONFIG_PCI
-
-extern struct bus_type pci_bus_type;
-
-/* Do NOT directly access these two variables, unless you are arch specific pci
- * code, or pci core code. */
-/* ËùÓÐ¸ù×ÜÏßÁ´±íµÄ±íÍ· */
-extern struct list_head pci_root_buses;	/* list of all known PCI buses */
-extern struct list_head pci_devices;	/* list of all devices */
-
-void pcibios_fixup_bus(struct pci_bus *);
-int pcibios_enable_device(struct pci_dev *, int mask);
-char *pcibios_setup (char *str);
-
-/* Used only when drivers/pci/setup.c is used */
-void pcibios_align_resource(void *, struct resource *,
-			    unsigned long, unsigned long);
-void pcibios_update_irq(struct pci_dev *, int irq);
-
-/* Generic PCI functions used internally */
-
-extern struct pci_bus *pci_find_bus(int domain, int busnr);
-struct pci_bus *pci_scan_bus_parented(struct device *parent, int bus, struct pci_ops *ops, void *sysdata);
-static inline struct pci_bus *pci_scan_bus(int bus, struct pci_ops *ops, void *sysdata)
-{
-	return pci_scan_bus_parented(NULL, bus, ops, sysdata);
-}
-int pci_scan_slot(struct pci_bus *bus, int devfn);
-struct pci_dev * pci_scan_single_device(struct pci_bus *bus, int devfn);
-unsigned int pci_scan_child_bus(struct pci_bus *bus);
-void pci_bus_add_device(struct pci_dev *dev);
-void pci_bus_add_devices(struct pci_bus *bus);
-void pci_name_device(struct pci_dev *dev);
-char *pci_class_name(u32 class);
-void pci_read_bridge_bases(struct pci_bus *child);
-struct resource *pci_find_parent_resource(const struct pci_dev *dev, struct resource *res);
-int pci_get_interrupt_pin(struct pci_dev *dev, struct pci_dev **bridge);
-extern struct pci_dev *pci_dev_get(struct pci_dev *dev);
-extern void pci_dev_put(struct pci_dev *dev);
-extern void pci_remove_bus(struct pci_bus *b);
-extern void pci_remove_bus_device(struct pci_dev *dev);
-
-/* Generic PCI functions exported to card drivers */
-
-struct pci_dev *pci_find_device (unsigned int vendor, unsigned int device, const struct pci_dev *from);
-struct pci_dev *pci_find_device_reverse (unsigned int vendor, unsigned int device, const struct pci_dev *from);
-struct pci_dev *pci_find_slot (unsigned int bus, unsigned int devfn);
-int pci_find_capability (struct pci_dev *dev, int cap);
-int pci_find_ext_capability (struct pci_dev *dev, int cap);
-struct pci_bus * pci_find_next_bus(const struct pci_bus *from);
-
-struct pci_dev *pci_get_device (unsigned int vendor, unsigned int device, struct pci_dev *from);
-struct pci_dev *pci_get_subsys (unsigned int vendor, unsigned int device,
-				unsigned int ss_vendor, unsigned int ss_device,
-				struct pci_dev *from);
-struct pci_dev *pci_get_slot (struct pci_bus *bus, unsigned int devfn);
-struct pci_dev *pci_get_class (unsigned int class, struct pci_dev *from);
-int pci_dev_present(const struct pci_device_id *ids);
-
-int pci_bus_read_config_byte (struct pci_bus *bus, unsigned int devfn, int where, u8 *val);
-int pci_bus_read_config_word (struct pci_bus *bus, unsigned int devfn, int where, u16 *val);
-int pci_bus_read_config_dword (struct pci_bus *bus, unsigned int devfn, int where, u32 *val);
-int pci_bus_write_config_byte (struct pci_bus *bus, unsigned int devfn, int where, u8 val);
-int pci_bus_write_config_word (struct pci_bus *bus, unsigned int devfn, int where, u16 val);
-int pci_bus_write_config_dword (struct pci_bus *bus, unsigned int devfn, int where, u32 val);
-
-/**
- * ·ÃÎÊPCIÉè±¸µÄÅäÖÃ¿Õ¼ä¡£»á½«¶ÁÈ¡µ½µÄÐ¡¶ËÖµ×ª»»³É´¦ÀíÆ÷×Ö½ÚÐò¡£
- */
-static inline int pci_read_config_byte(struct pci_dev *dev, int where, u8 *val)
-{
-	return pci_bus_read_config_byte (dev->bus, dev->devfn, where, val);
-}
-static inline int pci_read_config_word(struct pci_dev *dev, int where, u16 *val)
-{
-	return pci_bus_read_config_word (dev->bus, dev->devfn, where, val);
-}
-static inline int pci_read_config_dword(struct pci_dev *dev, int where, u32 *val)
-{
-	return pci_bus_read_config_dword (dev->bus, dev->devfn, where, val);
-}
-/**
- * ÏòÅäÖÃ¿Õ¼äÐ´ÈëÊý¾Ý¡£
- */
-static inline int pci_write_config_byte(struct pci_dev *dev, int where, u8 val)
-{
-	return pci_bus_write_config_byte (dev->bus, dev->devfn, where, val);
-}
-static inline int pci_write_config_word(struct pci_dev *dev, int where, u16 val)
-{
-	return pci_bus_write_config_word (dev->bus, dev->devfn, where, val);
-}
-static inline int pci_write_config_dword(struct pci_dev *dev, int where, u32 val)
-{
-	return pci_bus_write_config_dword (dev->bus, dev->devfn, where, val);
-}
-
-int pci_enable_device(struct pci_dev *dev);
-int pci_enable_device_bars(struct pci_dev *dev, int mask);
-void pci_disable_device(struct pci_dev *dev);
-void pci_set_master(struct pci_dev *dev);
-#define HAVE_PCI_SET_MWI
-int pci_set_mwi(struct pci_dev *dev);
-void pci_clear_mwi(struct pci_dev *dev);
-int pci_set_dma_mask(struct pci_dev *dev, u64 mask);
-int pci_dac_set_dma_mask(struct pci_dev *dev, u64 mask);
-int pci_set_consistent_dma_mask(struct pci_dev *dev, u64 mask);
-int pci_assign_resource(struct pci_dev *dev, int i);
-
-/* ROM control related routines */
-void __iomem *pci_map_rom(struct pci_dev *pdev, size_t *size);
-void __iomem *pci_map_rom_copy(struct pci_dev *pdev, size_t *size);
-void pci_unmap_rom(struct pci_dev *pdev, void __iomem *rom);
-void pci_remove_rom(struct pci_dev *pdev);
-
-/* Power management related routines */
-int pci_save_state(struct pci_dev *dev);
-int pci_restore_state(struct pci_dev *dev);
-int pci_set_power_state(struct pci_dev *dev, pci_power_t state);
-pci_power_t pci_choose_state(struct pci_dev *dev, pm_message_t state);
-int pci_enable_wake(struct pci_dev *dev, pci_power_t state, int enable);
-
-/* Helper functions for low-level code (drivers/pci/setup-[bus,res].c) */
-void pci_bus_assign_resources(struct pci_bus *bus);
-void pci_bus_size_bridges(struct pci_bus *bus);
-int pci_claim_resource(struct pci_dev *, int);
-void pci_assign_unassigned_resources(void);
-void pdev_enable_device(struct pci_dev *);
-void pdev_sort_resources(struct pci_dev *, struct resource_list *);
-void pci_fixup_irqs(u8 (*)(struct pci_dev *, u8 *),
-		    int (*)(struct pci_dev *, u8, u8));
-#define HAVE_PCI_REQ_REGIONS	2
-int pci_request_regions(struct pci_dev *, char *);
-void pci_release_regions(struct pci_dev *);
-int pci_request_region(struct pci_dev *, int, char *);
-void pci_release_region(struct pci_dev *, int);
-
-/* drivers/pci/bus.c */
-int pci_bus_alloc_resource(struct pci_bus *bus, struct resource *res,
-			   unsigned long size, unsigned long align,
-			   unsigned long min, unsigned int type_mask,
-			   void (*alignf)(void *, struct resource *,
-					  unsigned long, unsigned long),
-			   void *alignf_data);
-void pci_enable_bridges(struct pci_bus *bus);
-
-/* New-style probing supporting hot-pluggable devices */
-int pci_register_driver(struct pci_driver *);
-void pci_unregister_driver(struct pci_driver *);
-void pci_remove_behind_bridge(struct pci_dev *);
-struct pci_driver *pci_dev_driver(const struct pci_dev *);
-const struct pci_device_id *pci_match_device(const struct pci_device_id *ids, const struct pci_dev *dev);
-int pci_scan_bridge(struct pci_bus *bus, struct pci_dev * dev, int max, int pass);
-
-/* kmem_cache style wrapper around pci_alloc_consistent() */
-
-#include <linux/dmapool.h>
-
-#define	pci_pool dma_pool
-#define pci_pool_create(name, pdev, size, align, allocation) \
-		dma_pool_create(name, &pdev->dev, size, align, allocation)
-#define	pci_pool_destroy(pool) dma_pool_destroy(pool)
-#define	pci_pool_alloc(pool, flags, handle) dma_pool_alloc(pool, flags, handle)
-#define	pci_pool_free(pool, vaddr, addr) dma_pool_free(pool, vaddr, addr)
-
-#if defined(CONFIG_ISA) || defined(CONFIG_EISA)
-extern struct pci_dev *isa_bridge;
-#endif
-
-struct msix_entry {
-	u16 	vector;	/* kernel uses to write allocated vector */
-	u16	entry;	/* driver uses to specify entry, OS writes */
-};
-
-#ifndef CONFIG_PCI_MSI
-static inline void pci_scan_msi_device(struct pci_dev *dev) {}
-static inline int pci_enable_msi(struct pci_dev *dev) {return -1;}
-static inline void pci_disable_msi(struct pci_dev *dev) {}
-static inline int pci_enable_msix(struct pci_dev* dev,
-	struct msix_entry *entries, int nvec) {return -1;}
-static inline void pci_disable_msix(struct pci_dev *dev) {}
-static inline void msi_remove_pci_irq_vectors(struct pci_dev *dev) {}
-#else
-extern void pci_scan_msi_device(struct pci_dev *dev);
-extern int pci_enable_msi(struct pci_dev *dev);
-extern void pci_disable_msi(struct pci_dev *dev);
-extern int pci_enable_msix(struct pci_dev* dev,
-	struct msix_entry *entries, int nvec);
-extern void pci_disable_msix(struct pci_dev *dev);
-extern void msi_remove_pci_irq_vectors(struct pci_dev *dev);
-#endif
-
-#endif /* CONFIG_PCI */
-
-/* Include architecture-dependent settings and functions */
-
-#include <asm/pci.h>
-
-/*
- *  If the system does not have PCI, clearly these return errors.  Define
- *  these as simple inline functions to avoid hair in drivers.
- */
-
-#ifndef CONFIG_PCI
-#define _PCI_NOP(o,s,t) \
-	static inline int pci_##o##_config_##s (struct pci_dev *dev, int where, t val) \
-		{ return PCIBIOS_FUNC_NOT_SUPPORTED; }
-#define _PCI_NOP_ALL(o,x)	_PCI_NOP(o,byte,u8 x) \
-				_PCI_NOP(o,word,u16 x) \
-				_PCI_NOP(o,dword,u32 x)
-_PCI_NOP_ALL(read, *)
-_PCI_NOP_ALL(write,)
-
-static inline struct pci_dev *pci_find_device(unsigned int vendor, unsigned int device, const struct pci_dev *from)
-{ return NULL; }
-
-static inline struct pci_dev *pci_find_slot(unsigned int bus, unsigned int devfn)
-{ return NULL; }
-
-static inline struct pci_dev *pci_get_device (unsigned int vendor, unsigned int device, struct pci_dev *from)
-{ return NULL; }
-
-static inline struct pci_dev *pci_get_subsys (unsigned int vendor, unsigned int device,
-unsigned int ss_vendor, unsigned int ss_device, struct pci_dev *from)
-{ return NULL; }
-
-static inline struct pci_dev *pci_get_class(unsigned int class, struct pci_dev *from)
-{ return NULL; }
-
-#define pci_dev_present(ids)	(0)
-#define pci_dev_put(dev)	do { } while (0)
-
-static inline void pci_set_master(struct pci_dev *dev) { }
-static inline int pci_enable_device(struct pci_dev *dev) { return -EIO; }
-static inline void pci_disable_device(struct pci_dev *dev) { }
-static inline int pci_set_dma_mask(struct pci_dev *dev, u64 mask) { return -EIO; }
-static inline int pci_dac_set_dma_mask(struct pci_dev *dev, u64 mask) { return -EIO; }
-static inline int pci_assign_resource(struct pci_dev *dev, int i) { return -EBUSY;}
-static inline int pci_register_driver(struct pci_driver *drv) { return 0;}
-static inline void pci_unregister_driver(struct pci_driver *drv) { }
-static inline int pci_find_capability (struct pci_dev *dev, int cap) {return 0; }
-static inline int pci_find_ext_capability (struct pci_dev *dev, int cap) {return 0; }
-static inline const struct pci_device_id *pci_match_device(const struct pci_device_id *ids, const struct pci_dev *dev) { return NULL; }
-
-/* Power management related routines */
-static inline int pci_save_state(struct pci_dev *dev) { return 0; }
-static inline int pci_restore_state(struct pci_dev *dev) { return 0; }
-static inline int pci_set_power_state(struct pci_dev *dev, pci_power_t state) { return 0; }
-static inline pci_power_t pci_choose_state(struct pci_dev *dev, u32 state) { return PCI_D0; }
-static inline int pci_enable_wake(struct pci_dev *dev, pci_power_t state, int enable) { return 0; }
-
-#define	isa_bridge	((struct pci_dev *)NULL)
-
-#else
-
-/*
- * PCI domain support.  Sometimes called PCI segment (eg by ACPI),
- * a PCI domain is defined to be a set of PCI busses which share
- * configuration space.
- */
-#ifndef CONFIG_PCI_DOMAINS
-static inline int pci_domain_nr(struct pci_bus *bus) { return 0; }
-static inline int pci_name_bus(char *name, struct pci_bus *bus)
-{
-	sprintf(name, "%02x", bus->number);
-	return 0;
-}
-#endif
-
-#endif /* !CONFIG_PCI */
-
-/* these helpers provide future and backwards compatibility
- * for accessing popular PCI BAR info */
-/**
- * ·µ»Ø6¸öPCI IOÇøÓòÖ®Ò»µÄÊ×µØÖ·¡£
- */
-#define pci_resource_start(dev,bar)   ((dev)->resource[(bar)].start)
-/**
- * ·µ»Ø6¸öPCI IOÇøÓòÖ®Ò»µÄ½áÊøµØÖ·¡£
- */
-#define pci_resource_end(dev,bar)     ((dev)->resource[(bar)].end)
-/**
- * ·µ»ØPCI IOÇøÓò¹ØÁªµÄ±êÖ¾¡£±êÖ¾ÖµÈç:IORESOURCE_IO
- */
-#define pci_resource_flags(dev,bar)   ((dev)->resource[(bar)].flags)
-#define pci_resource_len(dev,bar) \
-	((pci_resource_start((dev),(bar)) == 0 &&	\
-	  pci_resource_end((dev),(bar)) ==		\
-	  pci_resource_start((dev),(bar))) ? 0 :	\
-	  						\
-	 (pci_resource_end((dev),(bar)) -		\
-	  pci_resource_start((dev),(bar)) + 1))
-
-/* Similar to the helpers above, these manipulate per-pci_dev
- * driver-specific data.  They are really just a wrapper around
- * the generic device structure functions of these calls.
- */
-static inline void *pci_get_drvdata (struct pci_dev *pdev)
-{
-	return dev_get_drvdata(&pdev->dev);
-}
-
-static inline void pci_set_drvdata (struct pci_dev *pdev, void *data)
-{
-	dev_set_drvdata(&pdev->dev, data);
-}
-
-/* If you want to know what to call your pci_dev, ask this function.
- * Again, it's a wrapper around the generic device.
- */
-static inline char *pci_name(struct pci_dev *pdev)
-{
-	return pdev->dev.bus_id;
-}
-
-/* Some archs want to see the pretty pci name, so use this macro */
-#ifdef CONFIG_PCI_NAMES
-#define pci_pretty_name(dev) ((dev)->pretty_name)
-#else
-#define pci_pretty_name(dev) ""
-#endif
-
-/*
- *  The world is not perfect and supplies us with broken PCI devices.
- *  For at least a part of these bugs we need a work-around, so both
- *  generic (drivers/pci/quirks.c) and per-architecture code can define
- *  fixup hooks to be called for particular buggy devices.
- */
-
-struct pci_fixup {
-	u16 vendor, device;	/* You can use PCI_ANY_ID here of course */
-	void (*hook)(struct pci_dev *dev);
-};
-
-enum pci_fixup_pass {
-	pci_fixup_early,	/* Before probing BARs */
-	pci_fixup_header,	/* After reading configuration header */
-	pci_fixup_final,	/* Final phase of device fixups */
-	pci_fixup_enable,	/* pci_enable_device() time */
-};
-
-/* Anonymous variables would be nice... */
-#define DECLARE_PCI_FIXUP_SECTION(section, name, vendor, device, hook)	\
-	static struct pci_fixup __pci_fixup_##name __attribute_used__	\
-	__attribute__((__section__(#section))) = { vendor, device, hook };
-#define DECLARE_PCI_FIXUP_EARLY(vendor, device, hook)			\
-	DECLARE_PCI_FIXUP_SECTION(.pci_fixup_early,			\
-			vendor##device##hook, vendor, device, hook)
-#define DECLARE_PCI_FIXUP_HEADER(vendor, device, hook)			\
-	DECLARE_PCI_FIXUP_SECTION(.pci_fixup_header,			\
-			vendor##device##hook, vendor, device, hook)
-#define DECLARE_PCI_FIXUP_FINAL(vendor, device, hook)			\
-	DECLARE_PCI_FIXUP_SECTION(.pci_fixup_final,			\
-			vendor##device##hook, vendor, device, hook)
-#define DECLARE_PCI_FIXUP_ENABLE(vendor, device, hook)			\
-	DECLARE_PCI_FIXUP_SECTION(.pci_fixup_enable,			\
-			vendor##device##hook, vendor, device, hook)
-
-
-void pci_fixup_device(enum pci_fixup_pass pass, struct pci_dev *dev);
-
-extern int pci_pci_problems;
-#define PCIPCI_FAIL		1
-#define PCIPCI_TRITON		2
-#define PCIPCI_NATOMA		4
-#define PCIPCI_VIAETBF		8
-#define PCIPCI_VSFX		16
-#define PCIPCI_ALIMAGIK		32
-
-#endif /* __KERNEL__ */
-#endif /* LINUX_PCI_H */
+	/* æœ¬æ€»çº¿çš„PCIè®¾å¤‡é“¾è¡¨çš„è¡¨å¤´ */
+	struct list_head devices;	

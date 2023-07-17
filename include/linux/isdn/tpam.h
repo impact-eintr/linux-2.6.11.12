@@ -2,7 +2,7 @@
  *
  * Turbo PAM ISDN driver for Linux. (Kernel Driver)
  *
- * Copyright 2001 Stelian Pop <stelian.pop@fr.alcove.com>, AlcÙve
+ * Copyright 2001 Stelian Pop <stelian.pop@fr.alcove.com>, AlcÈ≠êe
  *
  * For all support questions please contact: <support@auvertech.fr>
  *

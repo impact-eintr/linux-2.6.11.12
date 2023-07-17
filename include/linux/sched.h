@@ -40,75 +40,75 @@ struct exec_domain;
  */
 #define CSIGNAL		0x000000ff	/* signal mask to be sent at exit */
 /**
- * ¹²ÏíÄÚ´æÃèÊö·ûºÍËùÓĞÒ³±í
+ * å…±äº«å†…å­˜æè¿°ç¬¦å’Œæ‰€æœ‰é¡µè¡¨
  */
 #define CLONE_VM	0x00000100	/* set if VM shared between processes */
 /**
- * ¹²Ïí¸ùÄ¿Â¼ºÍµ±Ç°¹¤×÷Ä¿Â¼ËùÔÚµÄ±í£¬ÒÔ¼°ÓÃÓÚÆÁ±ÎĞÂÎÄ¼ş³õÊ¼Ğí¿ÉÈ¨µÄÎ»ÑÚÂëÖµ
+ * å…±äº«æ ¹ç›®å½•å’Œå½“å‰å·¥ä½œç›®å½•æ‰€åœ¨çš„è¡¨ï¼Œä»¥åŠç”¨äºå±è”½æ–°æ–‡ä»¶åˆå§‹è®¸å¯æƒçš„ä½æ©ç å€¼
  */
 #define CLONE_FS	0x00000200	/* set if fs info shared between processes */
 /**
- * ¹²Ïí´ò¿ªÎÄ¼ş±í
+ * å…±äº«æ‰“å¼€æ–‡ä»¶è¡¨
  */
 #define CLONE_FILES	0x00000400	/* set if open files shared between processes */
 /**
- * ¹²ÏíĞÅºÅ´¦Àí³ÌĞòµÄ±í¡¢×èÈûĞÅºÅ±íºÍ¹ÒÆğĞÅºÅ±í
- * Èç¹û¸Ã±êÖ¾Îª1£¬ÄÇÃ´Ò»¶¨ÒªÉèÖÃCLONE_VM
+ * å…±äº«ä¿¡å·å¤„ç†ç¨‹åºçš„è¡¨ã€é˜»å¡ä¿¡å·è¡¨å’ŒæŒ‚èµ·ä¿¡å·è¡¨
+ * å¦‚æœè¯¥æ ‡å¿—ä¸º1ï¼Œé‚£ä¹ˆä¸€å®šè¦è®¾ç½®CLONE_VM
  */
 #define CLONE_SIGHAND	0x00000800	/* set if signal handlers and blocked signals shared */
 /**
- * Èç¹û¸¸½ø³Ì±»¸ú×Ù£¬ÄÇÃ´£¬×Ó½ø³ÌÒ²±»¸ú×Ù¡£
- * ÓÈÆäÊÇ£¬debugger³ÌĞò¿ÉÄÜÏ£ÍûÒÔ×Ô¼º×÷Îª¸¸½ø³ÌÀ´¸ú×Ù×Ó½ø³Ì¡£ÔÚÕâÖÖÇé¿öÏÂ£¬ÄÚºË°Ñ¸Ã±êÖ¾Ç¿ÉèÎª1
+ * å¦‚æœçˆ¶è¿›ç¨‹è¢«è·Ÿè¸ªï¼Œé‚£ä¹ˆï¼Œå­è¿›ç¨‹ä¹Ÿè¢«è·Ÿè¸ªã€‚
+ * å°¤å…¶æ˜¯ï¼Œdebuggerç¨‹åºå¯èƒ½å¸Œæœ›ä»¥è‡ªå·±ä½œä¸ºçˆ¶è¿›ç¨‹æ¥è·Ÿè¸ªå­è¿›ç¨‹ã€‚åœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œå†…æ ¸æŠŠè¯¥æ ‡å¿—å¼ºè®¾ä¸º1
  */
 #define CLONE_PTRACE	0x00002000	/* set if we want to let tracing continue on the child too */
 /**
- * ÔÚ·¢³övforkÏµÍ³µ÷ÓÃÊ±ÉèÖÃ
+ * åœ¨å‘å‡ºvforkç³»ç»Ÿè°ƒç”¨æ—¶è®¾ç½®
  */
 #define CLONE_VFORK	0x00004000	/* set if the parent wants the child to wake it up on mm_release */
 /**
- * ÉèÖÃ×Ó½ø³ÌµÄ¸¸½ø³ÌÎªµ÷ÓÃ½ø³ÌµÄ¸¸½ø³Ì¡£
+ * è®¾ç½®å­è¿›ç¨‹çš„çˆ¶è¿›ç¨‹ä¸ºè°ƒç”¨è¿›ç¨‹çš„çˆ¶è¿›ç¨‹ã€‚
  */
 #define CLONE_PARENT	0x00008000	/* set if we want to have the same parent as the cloner */
 /**
- * °Ñ×Ó½ø³Ì²åÈëµ½¸¸½ø³ÌµÄÍ¬Ò»Ïß³Ì×éÖĞ¡£²¢Ê¹×Ó½ø³Ì¹²Ïí¸¸½ø³ÌµÄĞÅºÅÃèÊö·û¡£Òò´ËÒ²ÉèÖÃ×Ó½ø³ÌµÄtgid×Ö¶ÎºÍgroup_leader×Ö¶Î¡£
- * Èç¹ûÕâ¸ö±êÖ¾Î»Îª1£¬Ôò±ØĞëÉèÖÃCLONE_SIGHAND±êÖ¾¡£
+ * æŠŠå­è¿›ç¨‹æ’å…¥åˆ°çˆ¶è¿›ç¨‹çš„åŒä¸€çº¿ç¨‹ç»„ä¸­ã€‚å¹¶ä½¿å­è¿›ç¨‹å…±äº«çˆ¶è¿›ç¨‹çš„ä¿¡å·æè¿°ç¬¦ã€‚å› æ­¤ä¹Ÿè®¾ç½®å­è¿›ç¨‹çš„tgidå­—æ®µå’Œgroup_leaderå­—æ®µã€‚
+ * å¦‚æœè¿™ä¸ªæ ‡å¿—ä½ä¸º1ï¼Œåˆ™å¿…é¡»è®¾ç½®CLONE_SIGHANDæ ‡å¿—ã€‚
  */
 #define CLONE_THREAD	0x00010000	/* Same thread group? */
 /**
- * µ±cloneĞèÒª×Ô¼ºµÄÃüÃû¿Õ¼äÊ±£¬ÉèÖÃ¸Ã±êÖ¾¡£²»ÄÜÍ¬Ê±ÉèÖÃ±¾±êÖ¾ºÍCLONE_FS¡£
+ * å½“cloneéœ€è¦è‡ªå·±çš„å‘½åç©ºé—´æ—¶ï¼Œè®¾ç½®è¯¥æ ‡å¿—ã€‚ä¸èƒ½åŒæ—¶è®¾ç½®æœ¬æ ‡å¿—å’ŒCLONE_FSã€‚
  */
 #define CLONE_NEWNS	0x00020000	/* New namespace group? */
 /**
- * ¹²ÏíSystem V IPCÈ¡ÏûĞÅºÅÁ¿µÄ²Ù×÷¡£
+ * å…±äº«System V IPCå–æ¶ˆä¿¡å·é‡çš„æ“ä½œã€‚
  */
 #define CLONE_SYSVSEM	0x00040000	/* share system V SEM_UNDO semantics */
 /**
- * ÎªÇáÁ¿¼¶½ø³Ì´´½¨ĞÂµÄÏß³Ì¾Ö²¿´æ´¢¶Î£¨TLS£©£¬¸Ã¶ÎÓÉ²ÎÊıtlsËùÖ¸ÏòµÄ½á¹¹½øĞĞÃèÊö¡£
+ * ä¸ºè½»é‡çº§è¿›ç¨‹åˆ›å»ºæ–°çš„çº¿ç¨‹å±€éƒ¨å­˜å‚¨æ®µï¼ˆTLSï¼‰ï¼Œè¯¥æ®µç”±å‚æ•°tlsæ‰€æŒ‡å‘çš„ç»“æ„è¿›è¡Œæè¿°ã€‚
  */
 #define CLONE_SETTLS	0x00080000	/* create a new TLS for the child */
 /**
- * °Ñ×Ó½ø³ÌµÄPIDĞ´ÈëÓÉptid²ÎÊıËùÖ¸ÏòµÄ¸¸½ø³ÌµÄÓÃ»§Ì¬±äÁ¿¡£
+ * æŠŠå­è¿›ç¨‹çš„PIDå†™å…¥ç”±ptidå‚æ•°æ‰€æŒ‡å‘çš„çˆ¶è¿›ç¨‹çš„ç”¨æˆ·æ€å˜é‡ã€‚
  */
 #define CLONE_PARENT_SETTID	0x00100000	/* set the TID in the parent */
 /**
- * Èç¹û¸Ã±êÖ¾±»ÉèÖÃ£¬ÔòÄÚºË½¨Á¢Ò»ÖÖ´¥·¢»úÖÆ£¬ÓÃÔÚ×Ó½ø³ÌÒªÍË³ö»òÒª¿ªÊ¼Ö´ĞĞĞÂ³ÌĞò¡£
- * ÔÚÕâĞ©Çé¿öÏÂ£¬ÄÚºË½«Çå³ıÓÉ²ÎÊıctidËùÖ¸ÏòµÄÓÃ»§Ì¬±äÁ¿£¬²¢»½ĞÑµÈ´ıÕâ¸öÊÂ¼şµÄÈÎºÎ½ø³Ì
+ * å¦‚æœè¯¥æ ‡å¿—è¢«è®¾ç½®ï¼Œåˆ™å†…æ ¸å»ºç«‹ä¸€ç§è§¦å‘æœºåˆ¶ï¼Œç”¨åœ¨å­è¿›ç¨‹è¦é€€å‡ºæˆ–è¦å¼€å§‹æ‰§è¡Œæ–°ç¨‹åºã€‚
+ * åœ¨è¿™äº›æƒ…å†µä¸‹ï¼Œå†…æ ¸å°†æ¸…é™¤ç”±å‚æ•°ctidæ‰€æŒ‡å‘çš„ç”¨æˆ·æ€å˜é‡ï¼Œå¹¶å”¤é†’ç­‰å¾…è¿™ä¸ªäº‹ä»¶çš„ä»»ä½•è¿›ç¨‹
  */
 #define CLONE_CHILD_CLEARTID	0x00200000	/* clear the TID in the child */
 /**
- * ÒÅÁô±êÖ¾£¬½«±»ÄÚºËºöÂÔ
+ * é—ç•™æ ‡å¿—ï¼Œå°†è¢«å†…æ ¸å¿½ç•¥
  */
 #define CLONE_DETACHED		0x00400000	/* Unused, ignored */
 /**
- * ÄÚºËÉèÖÃÕâ¸ö±êÖ¾ÒÔÊ¹CLONE_PTRACE±êÖ¾ÍÆ¶¯×÷ÓÃ£¨½ûÖ¹ÄÚºËÏß³Ì¸ú×Ù½ø³Ì£©
+ * å†…æ ¸è®¾ç½®è¿™ä¸ªæ ‡å¿—ä»¥ä½¿CLONE_PTRACEæ ‡å¿—æ¨åŠ¨ä½œç”¨ï¼ˆç¦æ­¢å†…æ ¸çº¿ç¨‹è·Ÿè¸ªè¿›ç¨‹ï¼‰
  */
 #define CLONE_UNTRACED		0x00800000	/* set if the tracing process can't force CLONE_PTRACE on this clone */
 /**
- * °Ñ×Ó½ø³ÌµÄPIDĞ´ÈëÓÉctid²ÎÊıËùÖ¸ÏòµÄ×Ó½ø³ÌµÄÓÃ»§Ì¬±äÁ¿ÖĞ
+ * æŠŠå­è¿›ç¨‹çš„PIDå†™å…¥ç”±ctidå‚æ•°æ‰€æŒ‡å‘çš„å­è¿›ç¨‹çš„ç”¨æˆ·æ€å˜é‡ä¸­
  */
 #define CLONE_CHILD_SETTID	0x01000000	/* set the TID in the child */
 /**
- * Ç¿ÆÈ×Ó½ø³Ì¿ªÊ¼ÓÚTASK_STOPPED×´Ì¬
+ * å¼ºè¿«å­è¿›ç¨‹å¼€å§‹äºTASK_STOPPEDçŠ¶æ€
  */
 #define CLONE_STOPPED		0x02000000	/* Start in stopped state */
 
@@ -159,48 +159,48 @@ extern unsigned long nr_iowait(void);
 #include <asm/processor.h>
 
 /**
- * ½ø³ÌÒªÃ´ÔÚCPUÉÏÖ´ĞĞ£¬ÒªÃ´×¼±¸Ö´ĞĞ¡£
+ * è¿›ç¨‹è¦ä¹ˆåœ¨CPUä¸Šæ‰§è¡Œï¼Œè¦ä¹ˆå‡†å¤‡æ‰§è¡Œã€‚
  */
 #define TASK_RUNNING		0
 /**
- * ¿ÉÖĞ¶ÏµÄµÈ´ı×´Ì¬¡£
+ * å¯ä¸­æ–­çš„ç­‰å¾…çŠ¶æ€ã€‚
  */
 #define TASK_INTERRUPTIBLE	1
 /**
- * ²»¿ÉÖĞ¶ÏµÄµÈ´ı×´Ì¬¡£
- * ÕâÖÖÇé¿öºÜÉÙ£¬µ«ÊÇÓĞÊ±Ò²ÓĞÓÃ£º±ÈÈç½ø³Ì´ò¿ªÒ»¸öÉè±¸ÎÄ¼ş£¬ÆäÏàÓ¦µÄÇı¶¯³ÌĞòÔÚÌ½²âÓ²¼şÉè±¸Ê±£¬¾ÍÊÇÕâÖÖ×´Ì¬¡£
- * ÔÚÌ½²âÍê³ÉÇ°£¬Éè±¸Çı¶¯³ÌĞòÈç¹û±»ÖĞ¶Ï£¬ÄÇÃ´Ó²¼şÉè±¸µÄ×´Ì¬¿ÉÄÜ»á´¦ÓÚ²»¿ÉÔ¤Öª×´Ì¬¡£
+ * ä¸å¯ä¸­æ–­çš„ç­‰å¾…çŠ¶æ€ã€‚
+ * è¿™ç§æƒ…å†µå¾ˆå°‘ï¼Œä½†æ˜¯æœ‰æ—¶ä¹Ÿæœ‰ç”¨ï¼šæ¯”å¦‚è¿›ç¨‹æ‰“å¼€ä¸€ä¸ªè®¾å¤‡æ–‡ä»¶ï¼Œå…¶ç›¸åº”çš„é©±åŠ¨ç¨‹åºåœ¨æ¢æµ‹ç¡¬ä»¶è®¾å¤‡æ—¶ï¼Œå°±æ˜¯è¿™ç§çŠ¶æ€ã€‚
+ * åœ¨æ¢æµ‹å®Œæˆå‰ï¼Œè®¾å¤‡é©±åŠ¨ç¨‹åºå¦‚æœè¢«ä¸­æ–­ï¼Œé‚£ä¹ˆç¡¬ä»¶è®¾å¤‡çš„çŠ¶æ€å¯èƒ½ä¼šå¤„äºä¸å¯é¢„çŸ¥çŠ¶æ€ã€‚
  */
 #define TASK_UNINTERRUPTIBLE	2
 /**
- * ÔİÍ£×´Ì¬¡£µ±ÊÕµ½SIGSTOP,SIGTSTP,SIGTTIN»òÕßSIGTTOUĞÅºÅºó£¬»á½øÈë´Ë×´Ì¬¡£
+ * æš‚åœçŠ¶æ€ã€‚å½“æ”¶åˆ°SIGSTOP,SIGTSTP,SIGTTINæˆ–è€…SIGTTOUä¿¡å·åï¼Œä¼šè¿›å…¥æ­¤çŠ¶æ€ã€‚
  */
 #define TASK_STOPPED		4
 /**
- * ±»¸ú×Ù×´Ì¬¡£µ±½ø³Ì±»ÁíÍâÒ»¸ö½ø³Ì¼à¿ØÊ±£¬ÈÎºÎĞÅºÅ¶¼¿ÉÒÔ°ÑÕâ¸öÖÃÓÚ¸Ã
+ * è¢«è·Ÿè¸ªçŠ¶æ€ã€‚å½“è¿›ç¨‹è¢«å¦å¤–ä¸€ä¸ªè¿›ç¨‹ç›‘æ§æ—¶ï¼Œä»»ä½•ä¿¡å·éƒ½å¯ä»¥æŠŠè¿™ä¸ªç½®äºè¯¥
  */
 #define TASK_TRACED		8
 /**
- * ½©ËÀ×´Ì¬¡£½ø³ÌµÄÖ´ĞĞ±»ÖÕÖ¹£¬µ«ÊÇ£¬¸¸½ø³Ì»¹Ã»ÓĞµ÷ÓÃÍêwait4ºÍwaitpidÀ´·µ»ØÓĞ¹Ø
- * ËÀÍö½ø³ÌµÄĞÅÏ¢¡£ÔÚ´ËÊ±£¬ÄÚºË²»ÄÜÊÍ·ÅÏà¹ØÊı¾İ½á¹¹£¬ÒòÎª¸¸½ø³Ì¿ÉÄÜ»¹ĞèÒªËü¡£
+ * åƒµæ­»çŠ¶æ€ã€‚è¿›ç¨‹çš„æ‰§è¡Œè¢«ç»ˆæ­¢ï¼Œä½†æ˜¯ï¼Œçˆ¶è¿›ç¨‹è¿˜æ²¡æœ‰è°ƒç”¨å®Œwait4å’Œwaitpidæ¥è¿”å›æœ‰å…³
+ * æ­»äº¡è¿›ç¨‹çš„ä¿¡æ¯ã€‚åœ¨æ­¤æ—¶ï¼Œå†…æ ¸ä¸èƒ½é‡Šæ”¾ç›¸å…³æ•°æ®ç»“æ„ï¼Œå› ä¸ºçˆ¶è¿›ç¨‹å¯èƒ½è¿˜éœ€è¦å®ƒã€‚
  */
 #define EXIT_ZOMBIE		16
 /**
- * ÔÚ¸¸½ø³Ìµ÷ÓÃwait4ºó£¬É¾³ıÇ°£¬Îª±ÜÃâÆäËû½ø³ÌÔÚÍ¬Ò»½ø³ÌÉÏÒ²Ö´ĞĞwait4µ÷ÓÃ
- * ½«Æä×´Ì¬ÓÉEXIT_ZOMBIE×ªÎªEXIT_DEAD£¬¼´½©ËÀ³·Ïú×´Ì¬¡£
+ * åœ¨çˆ¶è¿›ç¨‹è°ƒç”¨wait4åï¼Œåˆ é™¤å‰ï¼Œä¸ºé¿å…å…¶ä»–è¿›ç¨‹åœ¨åŒä¸€è¿›ç¨‹ä¸Šä¹Ÿæ‰§è¡Œwait4è°ƒç”¨
+ * å°†å…¶çŠ¶æ€ç”±EXIT_ZOMBIEè½¬ä¸ºEXIT_DEADï¼Œå³åƒµæ­»æ’¤é”€çŠ¶æ€ã€‚
  */
 #define EXIT_DEAD		32
 
 #define __set_task_state(tsk, state_value)		\
 	do { (tsk)->state = (state_value); } while (0)
 /**
- * ÉèÖÃ½ø³Ì×´Ì¬¡£Í¬Ê±»á¼ÓÉÏÄÚ´æÆÁÕÏ¡£
+ * è®¾ç½®è¿›ç¨‹çŠ¶æ€ã€‚åŒæ—¶ä¼šåŠ ä¸Šå†…å­˜å±éšœã€‚
  */
 #define set_task_state(tsk, state_value)		\
 	set_mb((tsk)->state, (state_value))
 
 /**
- * ÉèÖÃµ±Ç°½ø³Ì×´Ì¬¡£Í¬Ê±»á¼ÓÉÏÄÚ´æÆÁÕÏ¡£
+ * è®¾ç½®å½“å‰è¿›ç¨‹çŠ¶æ€ã€‚åŒæ—¶ä¼šåŠ ä¸Šå†…å­˜å±éšœã€‚
  */
 #define __set_current_state(state_value)			\
 	do { current->state = (state_value); } while (0)
@@ -233,7 +233,7 @@ struct sched_param {
  */
 extern rwlock_t tasklist_lock;
 /**
- * ±£»¤¶ÔÄÚ´æÃèÊö·ûÁ´±íµÄ·ÃÎÊ¡£
+ * ä¿æŠ¤å¯¹å†…å­˜æè¿°ç¬¦é“¾è¡¨çš„è®¿é—®ã€‚
  */
 extern spinlock_t mmlist_lock;
 
@@ -294,68 +294,68 @@ extern void arch_unmap_area_topdown(struct vm_area_struct *area);
 
 
 /**
- * ÄÚ´æÃèÊö·û¡£task_structµÄmm×Ö¶ÎÖ¸ÏòËü¡£
- * Ëü°üº¬ÁË½ø³ÌµØÖ·¿Õ¼äÓĞ¹ØµÄÈ«²¿ĞÅÏ¢¡£
+ * å†…å­˜æè¿°ç¬¦ã€‚task_structçš„mmå­—æ®µæŒ‡å‘å®ƒã€‚
+ * å®ƒåŒ…å«äº†è¿›ç¨‹åœ°å€ç©ºé—´æœ‰å…³çš„å…¨éƒ¨ä¿¡æ¯ã€‚
  */
 struct mm_struct {
 	/**
-	 * Ö¸ÏòÏßĞÔÇø¶ÔÏóµÄÁ´±íÍ·¡£
+	 * æŒ‡å‘çº¿æ€§åŒºå¯¹è±¡çš„é“¾è¡¨å¤´ã€‚
 	 */
 	struct vm_area_struct * mmap;		/* list of VMAs */
 	/**
-	 * Ö¸ÏòÏßĞÔÇø¶ÔÏóµÄºì-ºÚÊ÷µÄ¸ù
+	 * æŒ‡å‘çº¿æ€§åŒºå¯¹è±¡çš„çº¢-é»‘æ ‘çš„æ ¹
 	 */
 	struct rb_root mm_rb;
 	/**
-	 * Ö¸Ïò×îºóÒ»¸öÒıÓÃµÄÏßĞÔÇø¶ÔÏó¡£
+	 * æŒ‡å‘æœ€åä¸€ä¸ªå¼•ç”¨çš„çº¿æ€§åŒºå¯¹è±¡ã€‚
 	 */
 	struct vm_area_struct * mmap_cache;	/* last find_vma result */
 	/**
-	 * ÔÚ½ø³ÌµØÖ·¿Õ¼äÖĞËÑË÷ÓĞĞ§ÏßĞÔµØÖ·ÇøµÄ·½·¨¡£
+	 * åœ¨è¿›ç¨‹åœ°å€ç©ºé—´ä¸­æœç´¢æœ‰æ•ˆçº¿æ€§åœ°å€åŒºçš„æ–¹æ³•ã€‚
 	 */
 	unsigned long (*get_unmapped_area) (struct file *filp,
 				unsigned long addr, unsigned long len,
 				unsigned long pgoff, unsigned long flags);
 	/**
-	 * ÊÍ·ÅÏßĞÔµØÖ·Çø¼äÊ±µ÷ÓÃµÄ·½·¨¡£
+	 * é‡Šæ”¾çº¿æ€§åœ°å€åŒºé—´æ—¶è°ƒç”¨çš„æ–¹æ³•ã€‚
 	 */
 	void (*unmap_area) (struct vm_area_struct *area);
 	/**
-	 * ±êÊ¶µÚÒ»¸ö·ÖÅäµÄÄäÃûÏßĞÔÇø»òÎÄ¼şÄÚ´æÓ³ÉäµÄÏßĞÔµØÖ·¡£
+	 * æ ‡è¯†ç¬¬ä¸€ä¸ªåˆ†é…çš„åŒ¿åçº¿æ€§åŒºæˆ–æ–‡ä»¶å†…å­˜æ˜ å°„çš„çº¿æ€§åœ°å€ã€‚
 	 */
 	unsigned long mmap_base;		/* base of mmap area */
 	/**
-	 * ÄÚºË´ÓÕâ¸öµØÖ·¿ªÊ¼ËÑË÷½ø³ÌµØÖ·¿Õ¼äÖĞÏßĞÔµØÖ·µÄ¿Õ¼äÇø¼ä¡£
+	 * å†…æ ¸ä»è¿™ä¸ªåœ°å€å¼€å§‹æœç´¢è¿›ç¨‹åœ°å€ç©ºé—´ä¸­çº¿æ€§åœ°å€çš„ç©ºé—´åŒºé—´ã€‚
 	 */
 	unsigned long free_area_cache;		/* first hole */
 	/**
-	 * Ö¸ÏòÒ³È«¾ÖÄ¿Â¼¡£
+	 * æŒ‡å‘é¡µå…¨å±€ç›®å½•ã€‚
 	 */
 	pgd_t * pgd;
 	/**
-	 * ´ÎÊ¹ÓÃ¼ÆÊıÆ÷¡£´æ·Å¹²Ïímm_structÊı¾İ½á¹¹µÄÇáÁ¿¼¶½ø³ÌµÄ¸öÊı¡£
+	 * æ¬¡ä½¿ç”¨è®¡æ•°å™¨ã€‚å­˜æ”¾å…±äº«mm_structæ•°æ®ç»“æ„çš„è½»é‡çº§è¿›ç¨‹çš„ä¸ªæ•°ã€‚
 	 */
 	atomic_t mm_users;			/* How many users with user space? */
 	/**
-	 * Ö÷Ê¹ÓÃ¼ÆÊıÆ÷¡£Ã¿µ±mm_countµİ¼õÊ±£¬ÄÚºË¶¼Òª¼ì²éËüÊÇ·ñ±äÎª0,Èç¹ûÊÇ£¬¾ÍÒª½â³ıÕâ¸öÄÚ´æÃèÊö·û¡£
+	 * ä¸»ä½¿ç”¨è®¡æ•°å™¨ã€‚æ¯å½“mm_counté€’å‡æ—¶ï¼Œå†…æ ¸éƒ½è¦æ£€æŸ¥å®ƒæ˜¯å¦å˜ä¸º0,å¦‚æœæ˜¯ï¼Œå°±è¦è§£é™¤è¿™ä¸ªå†…å­˜æè¿°ç¬¦ã€‚
 	 */
 	atomic_t mm_count;			/* How many references to "struct mm_struct" (users count as 1) */
 	/**
-	 * ÏßĞÔÇøµÄ¸öÊı¡£
+	 * çº¿æ€§åŒºçš„ä¸ªæ•°ã€‚
 	 */
 	int map_count;				/* number of VMAs */
 	/**
-	 * ÄÚ´æÃèÊö·ûµÄ¶ÁĞ´ĞÅºÅÁ¿¡£
-	 * ÓÉÓÚÃèÊö·û¿ÉÄÜÔÚ¼¸¸öÇáÁ¿¼¶½ø³Ì¼ä¹²Ïí£¬Í¨¹ıÕâ¸öĞÅºÅÁ¿¿ÉÒÔ±ÜÃâ¾ºÕùÌõ¼ş¡£
+	 * å†…å­˜æè¿°ç¬¦çš„è¯»å†™ä¿¡å·é‡ã€‚
+	 * ç”±äºæè¿°ç¬¦å¯èƒ½åœ¨å‡ ä¸ªè½»é‡çº§è¿›ç¨‹é—´å…±äº«ï¼Œé€šè¿‡è¿™ä¸ªä¿¡å·é‡å¯ä»¥é¿å…ç«äº‰æ¡ä»¶ã€‚
 	 */
 	struct rw_semaphore mmap_sem;
 	/**
-	 * ÏßĞÔÇøºÍÒ³±íµÄ×ÔĞıËø¡£
+	 * çº¿æ€§åŒºå’Œé¡µè¡¨çš„è‡ªæ—‹é”ã€‚
 	 */
 	spinlock_t page_table_lock;		/* Protects page tables, mm->rss, mm->anon_rss */
 
 	/**
-	 * Ö¸ÏòÄÚ´æÃèÊö·ûÁ´±íÖĞµÄÏàÁÚÔªËØ¡£
+	 * æŒ‡å‘å†…å­˜æè¿°ç¬¦é“¾è¡¨ä¸­çš„ç›¸é‚»å…ƒç´ ã€‚
 	 */
 	struct list_head mmlist;		/* List of maybe swapped mm's.  These are globally strung
 						 * together off init_mm.mmlist, and are protected
@@ -363,123 +363,123 @@ struct mm_struct {
 						 */
 
 	/**
-	 * start_code-¿ÉÖ´ĞĞ´úÂëµÄÆğÊ¼µØÖ·¡£
-	 * end_code-¿ÉÖ´ĞĞ´úÂëµÄ×îºóµØÖ·¡£
-	 * start_data-ÒÑ³õÊ¼»¯Êı¾İµÄÆğÊ¼µØÖ·¡£
-	 * end_data--ÒÑ³õÊ¼»¯Êı¾İµÄ½áÊøµØÖ·¡£
+	 * start_code-å¯æ‰§è¡Œä»£ç çš„èµ·å§‹åœ°å€ã€‚
+	 * end_code-å¯æ‰§è¡Œä»£ç çš„æœ€ååœ°å€ã€‚
+	 * start_data-å·²åˆå§‹åŒ–æ•°æ®çš„èµ·å§‹åœ°å€ã€‚
+	 * end_data--å·²åˆå§‹åŒ–æ•°æ®çš„ç»“æŸåœ°å€ã€‚
 	 */
 	unsigned long start_code, end_code, start_data, end_data;
 	/**
-	 * start_brk-¶ÑµÄ³¬Ê¼µØÖ·¡£
-	 * brk-¶ÑµÄµ±Ç°×îºóµØÖ·¡£
-	 * start_stack-ÓÃ»§Ì¬¶ÑÕ»µÄÆğÊ¼µØÖ·¡£
+	 * start_brk-å †çš„è¶…å§‹åœ°å€ã€‚
+	 * brk-å †çš„å½“å‰æœ€ååœ°å€ã€‚
+	 * start_stack-ç”¨æˆ·æ€å †æ ˆçš„èµ·å§‹åœ°å€ã€‚
 	 */
 	unsigned long start_brk, brk, start_stack;
 	/**
-	 * arg_start-ÃüÁîĞĞ²ÎÊıµÄÆğÊ¼µØÖ·¡£
-	 * arg_end-ÃüÁîĞĞ²ÎÊıµÄ½áÊøµØÖ·¡£
-	 * env_start-»·¾³±äÁ¿µÄÆğÊ¼µØÖ·¡£
-	 * env_end-»·¾³±äÁ¿µÄ½áÊøµØÖ·¡£
+	 * arg_start-å‘½ä»¤è¡Œå‚æ•°çš„èµ·å§‹åœ°å€ã€‚
+	 * arg_end-å‘½ä»¤è¡Œå‚æ•°çš„ç»“æŸåœ°å€ã€‚
+	 * env_start-ç¯å¢ƒå˜é‡çš„èµ·å§‹åœ°å€ã€‚
+	 * env_end-ç¯å¢ƒå˜é‡çš„ç»“æŸåœ°å€ã€‚
 	 */
 	unsigned long arg_start, arg_end, env_start, env_end;
 	/**
-	 * rss-·ÖÅä¸ø½ø³ÌµÄÒ³¿ò×ÜÊı
-	 * anon_rss-·ÖÅä¸øÄäÃûÄÚ´æÓ³ÉäµÄÒ³¿òÊı¡£s
-	 * total_vm-½ø³ÌµØÖ·¿Õ¼äµÄ´óĞ¡(Ò³¿òÊı)
-	 * locked_vm-Ëø×¡¶ø²»ÄÜ»»³öµÄÒ³µÄ¸öÊı¡£
-	 * shared_vm-¹²ÏíÎÄ¼şÄÚ´æÓ³ÉäÖĞµÄÒ³Êı¡£
+	 * rss-åˆ†é…ç»™è¿›ç¨‹çš„é¡µæ¡†æ€»æ•°
+	 * anon_rss-åˆ†é…ç»™åŒ¿åå†…å­˜æ˜ å°„çš„é¡µæ¡†æ•°ã€‚s
+	 * total_vm-è¿›ç¨‹åœ°å€ç©ºé—´çš„å¤§å°(é¡µæ¡†æ•°)
+	 * locked_vm-é”ä½è€Œä¸èƒ½æ¢å‡ºçš„é¡µçš„ä¸ªæ•°ã€‚
+	 * shared_vm-å…±äº«æ–‡ä»¶å†…å­˜æ˜ å°„ä¸­çš„é¡µæ•°ã€‚
 	 */
 	unsigned long rss, anon_rss, total_vm, locked_vm, shared_vm;
 	/**
-	 * exec_vm-¿ÉÖ´ĞĞÄÚ´æÓ³ÉäµÄÒ³Êı¡£
-	 * stack_vm-ÓÃ»§Ì¬¶ÑÕ»ÖĞµÄÒ³Êı¡£
-	 * reserved_vm-ÔÚ±£ÁôÇøÖĞµÄÒ³Êı»òÔÚÌØÊâÏßĞÔÇøÖĞµÄÒ³Êı¡£
-	 * def_flags-ÏßĞÔÇøÄ¬ÈÏµÄ·ÃÎÊ±êÖ¾¡£
-	 * nr_ptes-this½ø³ÌµÄÒ³±íÊı¡£
+	 * exec_vm-å¯æ‰§è¡Œå†…å­˜æ˜ å°„çš„é¡µæ•°ã€‚
+	 * stack_vm-ç”¨æˆ·æ€å †æ ˆä¸­çš„é¡µæ•°ã€‚
+	 * reserved_vm-åœ¨ä¿ç•™åŒºä¸­çš„é¡µæ•°æˆ–åœ¨ç‰¹æ®Šçº¿æ€§åŒºä¸­çš„é¡µæ•°ã€‚
+	 * def_flags-çº¿æ€§åŒºé»˜è®¤çš„è®¿é—®æ ‡å¿—ã€‚
+	 * nr_ptes-thisè¿›ç¨‹çš„é¡µè¡¨æ•°ã€‚
 	 */
 	unsigned long exec_vm, stack_vm, reserved_vm, def_flags, nr_ptes;
 
 	/**
-	 * ¿ªÊ¼Ö´ĞĞelf³ÌĞòÊ±Ê¹ÓÃ¡£
+	 * å¼€å§‹æ‰§è¡Œelfç¨‹åºæ—¶ä½¿ç”¨ã€‚
 	 */
 	unsigned long saved_auxv[42]; /* for /proc/PID/auxv */
 
 	/**
-	 * ±íÊ¾ÊÇ·ñ¿ÉÒÔ²úÉúÄÚ´æĞÅÏ¢×ª´¢µÄ±êÖ¾¡£
+	 * è¡¨ç¤ºæ˜¯å¦å¯ä»¥äº§ç”Ÿå†…å­˜ä¿¡æ¯è½¬å‚¨çš„æ ‡å¿—ã€‚
 	 */
 	unsigned dumpable:1;
 	/**
-	 * ÀÁ¶èTLB½»»»µÄÎ»ÑÚÂë¡£
+	 * æ‡’æƒ°TLBäº¤æ¢çš„ä½æ©ç ã€‚
 	 */
 	cpumask_t cpu_vm_mask;
 
 	/* Architecture-specific MM context */
 	/**
-	 * ÌØÊâÌåÏµ½á¹¹ĞÅÏ¢µÄ±í¡£
-	 * Èç80X86Æ½Ì¨ÉÏµÄLDTµØÖ·¡£
+	 * ç‰¹æ®Šä½“ç³»ç»“æ„ä¿¡æ¯çš„è¡¨ã€‚
+	 * å¦‚80X86å¹³å°ä¸Šçš„LDTåœ°å€ã€‚
 	 */
 	mm_context_t context;
 
 	/* Token based thrashing protection. */
 	/**
-	 * ½ø³ÌÓĞ×Ê¸ñ»ñµÃ½»»»±ê¼ÇµÄÊ±¼ä¡£
+	 * è¿›ç¨‹æœ‰èµ„æ ¼è·å¾—äº¤æ¢æ ‡è®°çš„æ—¶é—´ã€‚
 	 */
 	unsigned long swap_token_time;
 	/**
-	 * Èç¹û×î½ü·¢ÉúÁËÖ÷È±Ò³¡£ÔòÉèÖÃ¸Ã±êÖ¾¡£
+	 * å¦‚æœæœ€è¿‘å‘ç”Ÿäº†ä¸»ç¼ºé¡µã€‚åˆ™è®¾ç½®è¯¥æ ‡å¿—ã€‚
 	 */
 	char recent_pagein;
 
 	/* coredumping support */
 	/**
-	 * ÕıÔÚ°Ñ½ø³ÌµØÖ·¿Õ¼äµÄÄÚÈİĞ¶ÔØµ½×ª´¢ÎÄ¼şÖĞµÄÇáÁ¿¼¶½ø³ÌµÄÊıÁ¿¡£
+	 * æ­£åœ¨æŠŠè¿›ç¨‹åœ°å€ç©ºé—´çš„å†…å®¹å¸è½½åˆ°è½¬å‚¨æ–‡ä»¶ä¸­çš„è½»é‡çº§è¿›ç¨‹çš„æ•°é‡ã€‚
 	 */
 	int core_waiters;
 	/**
-	 * core_startup_done-Ö¸Ïò´´½¨ÄÚ´æ×ª´¢ÎÄ¼şÊ±µÄ²¹³äÔ­Óï¡£
-	 * core_done-´´½¨ÄÚ´æ×ª´¢ÎÄ¼şÊ±Ê¹ÓÃµÄ²¹³äÔ­Óï¡£
+	 * core_startup_done-æŒ‡å‘åˆ›å»ºå†…å­˜è½¬å‚¨æ–‡ä»¶æ—¶çš„è¡¥å……åŸè¯­ã€‚
+	 * core_done-åˆ›å»ºå†…å­˜è½¬å‚¨æ–‡ä»¶æ—¶ä½¿ç”¨çš„è¡¥å……åŸè¯­ã€‚
 	 */
 	struct completion *core_startup_done, core_done;
 
 	/* aio bits */
 	/**
-	 * ÓÃÓÚ±£»¤Òì²½IOÉÏÏÂÎÄÁ´±íµÄËø¡£
+	 * ç”¨äºä¿æŠ¤å¼‚æ­¥IOä¸Šä¸‹æ–‡é“¾è¡¨çš„é”ã€‚
 	 */
 	rwlock_t		ioctx_list_lock;
 	/**
-	 * Òì²½IOÉÏÏÂÎÄÁ´±í¡£
+	 * å¼‚æ­¥IOä¸Šä¸‹æ–‡é“¾è¡¨ã€‚
 	 */
 	struct kioctx		*ioctx_list;
 
 	/**
-	 * Ä¬ÈÏµÄÒì²½IOÉÏÏÂÎÄ¡£
+	 * é»˜è®¤çš„å¼‚æ­¥IOä¸Šä¸‹æ–‡ã€‚
 	 */
 	struct kioctx		default_kioctx;
 
 	/**
-	 * ½ø³ÌËùÓµÓĞµÄ×î´óÒ³¿òÊı¡£
+	 * è¿›ç¨‹æ‰€æ‹¥æœ‰çš„æœ€å¤§é¡µæ¡†æ•°ã€‚
 	 */
 	unsigned long hiwater_rss;	/* High-water RSS usage */
 	/**
-	 * ½ø³ÌÏßĞÔÇøÖĞµÄ×î´óÒ³Êı¡£
+	 * è¿›ç¨‹çº¿æ€§åŒºä¸­çš„æœ€å¤§é¡µæ•°ã€‚
 	 */
 	unsigned long hiwater_vm;	/* High-water virtual memory usage */
 };
 
 /**
- * ĞÅºÅ´¦Àí³ÌĞòÃèÊö·û
+ * ä¿¡å·å¤„ç†ç¨‹åºæè¿°ç¬¦
  */
 struct sighand_struct {
 	/**
-	 * ĞÅºÅ´¦Àí³ÌĞòÃèÊöµÄÊ¹ÓÃ¼ÆÊıÆ÷¡£
+	 * ä¿¡å·å¤„ç†ç¨‹åºæè¿°çš„ä½¿ç”¨è®¡æ•°å™¨ã€‚
 	 */
 	atomic_t		count;
 	/**
-	 * ËµÃ÷ÔÚËù´«µİĞÅºÅÉÏÖ´ĞĞ²Ù×÷µÄ½á¹¹Êı×é¡£
+	 * è¯´æ˜åœ¨æ‰€ä¼ é€’ä¿¡å·ä¸Šæ‰§è¡Œæ“ä½œçš„ç»“æ„æ•°ç»„ã€‚
 	 */
 	struct k_sigaction	action[_NSIG];
 	/**
-	 * ±£»¤ĞÅºÅÃèÊö·ûºÍĞÅºÅ´¦Àí³ÌĞòÃèÊö·ûµÄ×ÔĞıËø¡£
+	 * ä¿æŠ¤ä¿¡å·æè¿°ç¬¦å’Œä¿¡å·å¤„ç†ç¨‹åºæè¿°ç¬¦çš„è‡ªæ—‹é”ã€‚
 	 */
 	spinlock_t		siglock;
 };
@@ -492,38 +492,38 @@ struct sighand_struct {
  * the locking of signal_struct.
  */
 /**
- * ĞÅºÅÃèÊö·û£¬±»ÊôÓÚÍ¬Ò»Ïß³Ì×éµÄËùÓĞ½ø³Ì¹²Ïí¡£
+ * ä¿¡å·æè¿°ç¬¦ï¼Œè¢«å±äºåŒä¸€çº¿ç¨‹ç»„çš„æ‰€æœ‰è¿›ç¨‹å…±äº«ã€‚
  */
 struct signal_struct {
 	/**
-	 * ÃèÊö·ûµÄÊ¹ÓÃ¼ÆÊı¡£
+	 * æè¿°ç¬¦çš„ä½¿ç”¨è®¡æ•°ã€‚
 	 */
 	atomic_t		count;
 	/**
-	 * Ïß³Ì×éÖĞ»î¶¯½ø³ÌµÄÊıÁ¿¡£
+	 * çº¿ç¨‹ç»„ä¸­æ´»åŠ¨è¿›ç¨‹çš„æ•°é‡ã€‚
 	 */
 	atomic_t		live;
 
 	/**
-	 * ÔÚÏµÍ³µ÷ÓÃwait4ÖĞË¯ÃßµÄ½ø³ÌµÄµÈ´ı¶ÓÁĞ¡£
+	 * åœ¨ç³»ç»Ÿè°ƒç”¨wait4ä¸­ç¡çœ çš„è¿›ç¨‹çš„ç­‰å¾…é˜Ÿåˆ—ã€‚
 	 */
 	wait_queue_head_t	wait_chldexit;	/* for wait4() */
 
 	/* current thread group signal load-balancing target: */
 	/**
-	 * ½ÓÊÕĞÅºÅµÄÏß³Ì×éÖĞ£¬×îºóÒ»¸ö½ø³ÌµÄÃèÊö·û¡£
+	 * æ¥æ”¶ä¿¡å·çš„çº¿ç¨‹ç»„ä¸­ï¼Œæœ€åä¸€ä¸ªè¿›ç¨‹çš„æè¿°ç¬¦ã€‚
 	 */
 	task_t			*curr_target;
 
 	/* shared signal handling: */
 	/**
-	 * ´æ·Å¹²Ïí¹ÒÆğĞÅºÅµÄÊı¾İ½á¹¹¡£
+	 * å­˜æ”¾å…±äº«æŒ‚èµ·ä¿¡å·çš„æ•°æ®ç»“æ„ã€‚
 	 */
 	struct sigpending	shared_pending;
 
 	/* thread group exit support */
 	/**
-	 * Ïß³Ì×éµÄ½ø³ÌÖÕÖ¹´úÂë
+	 * çº¿ç¨‹ç»„çš„è¿›ç¨‹ç»ˆæ­¢ä»£ç 
 	 */
 	int			group_exit_code;
 	/* overloaded:
@@ -532,21 +532,21 @@ struct signal_struct {
 	 *   of fatal signals, group_exit_task processes the signal.
 	 */
 	/**
-	 * É±ËÀÕû¸öÏß³Ì×éµÄÊ±ºòÊ¹ÓÃ
+	 * æ€æ­»æ•´ä¸ªçº¿ç¨‹ç»„çš„æ—¶å€™ä½¿ç”¨
 	 */
 	struct task_struct	*group_exit_task;
 	/**
-	 * É±ËÀÕû¸öÏß³Ì×éµÄÊ±ºòÊ¹ÓÃ
+	 * æ€æ­»æ•´ä¸ªçº¿ç¨‹ç»„çš„æ—¶å€™ä½¿ç”¨
 	 */
 	int			notify_count;
 
 	/* thread group stop support, overloads group_exit_code too */
 	/**
-	 * Í£Ö¹Õû¸öÏß³Ì×éµÄÊ±ºòÊ¹ÓÃ
+	 * åœæ­¢æ•´ä¸ªçº¿ç¨‹ç»„çš„æ—¶å€™ä½¿ç”¨
 	 */
 	int			group_stop_count;
 	/**
-	 * ÔÚ´«µİĞŞ¸Ä½ø³Ì×´Ì¬µÄĞÅºÅÊ±Ê¹ÓÃµÄ±êÖ¾¡£
+	 * åœ¨ä¼ é€’ä¿®æ”¹è¿›ç¨‹çŠ¶æ€çš„ä¿¡å·æ—¶ä½¿ç”¨çš„æ ‡å¿—ã€‚
 	 */
 	unsigned int		flags; /* see SIGNAL_* flags below */
 
@@ -555,19 +555,19 @@ struct signal_struct {
 
 	/* job control IDs */
 	/**
-	 * ×éÁìÍ·½ø³Ì
+	 * ç»„é¢†å¤´è¿›ç¨‹
 	 */
 	pid_t pgrp;
 	pid_t tty_old_pgrp;
 	/**
-	 * »á»°ÁìÍ·½ø³Ì¡£
+	 * ä¼šè¯é¢†å¤´è¿›ç¨‹ã€‚
 	 */
 	pid_t session;
 	/* boolean value for session group leader */
 	int leader;
 	
 	/**
-	 * Óë½ø³ÌÏà¹ØµÄtty.
+	 * ä¸è¿›ç¨‹ç›¸å…³çš„tty.
 	 */
 	struct tty_struct *tty; /* NULL if no tty */
 
@@ -591,7 +591,7 @@ struct signal_struct {
 	 * have no need to disable irqs.
 	 */
 	/**
-	 * ×ÊÔ´ÏŞÖÆÊı×é
+	 * èµ„æºé™åˆ¶æ•°ç»„
 	 */
 	struct rlimit rlim[RLIM_NLIMITS];
 };
@@ -694,7 +694,7 @@ enum idle_type
 #define SD_SHARE_CPUPOWER	64	/* Domain members share cpu power */
 
 /**
- * µ÷¶ÈÓòµÄ×é
+ * è°ƒåº¦åŸŸçš„ç»„
  */
 struct sched_group {
 	struct sched_group *next;	/* Must be a circular list */
@@ -708,16 +708,16 @@ struct sched_group {
 };
 
 /**
- * µ÷¶ÈÓò
+ * è°ƒåº¦åŸŸ
  */
 struct sched_domain {
 	/* These fields must be setup */
 	/**
-	 * ¸¸µ÷¶ÈÓò¡£
+	 * çˆ¶è°ƒåº¦åŸŸã€‚
 	 */
 	struct sched_domain *parent;	/* top domain must be null terminated */
 	/**
-	 * ×éÃèÊö·ûµÄµÚÒ»¸öÔªËØ¡£
+	 * ç»„æè¿°ç¬¦çš„ç¬¬ä¸€ä¸ªå…ƒç´ ã€‚
 	 */
 	struct sched_group *groups;	/* the balancing groups of the domain */
 	cpumask_t span;			/* span of all CPUs in this domain */
@@ -804,11 +804,11 @@ struct mempolicy;
 
 struct task_struct {
 	/**
-	 * ½ø³Ì×´Ì¬¡£
+	 * è¿›ç¨‹çŠ¶æ€ã€‚
 	 */
 	volatile long state;	/* -1 unrunnable, 0 runnable, >0 stopped */
 	/**
-	 * ½ø³ÌµÄ»ù±¾ĞÅÏ¢¡£
+	 * è¿›ç¨‹çš„åŸºæœ¬ä¿¡æ¯ã€‚
 	 */
 	struct thread_info *thread_info;
 	atomic_t usage;
@@ -818,50 +818,50 @@ struct task_struct {
 	int lock_depth;		/* Lock depth */
 
 	/**
-	 * ½øĞĞµÄ¶¯Ì¬ÓÅÏÈÈ¨ºÍ¾²Ì¬ÓÅÏÈÈ¨
+	 * è¿›è¡Œçš„åŠ¨æ€ä¼˜å…ˆæƒå’Œé™æ€ä¼˜å…ˆæƒ
 	 */
 	int prio, static_prio;
 	/**
-	 * ½ø³ÌËùÔÚÔËĞĞ¶ÓÁĞ¡£Ã¿¸öÓÅÏÈ¼¶¶ÔÓ¦Ò»¸öÔËĞĞ¶ÓÁĞ¡£
+	 * è¿›ç¨‹æ‰€åœ¨è¿è¡Œé˜Ÿåˆ—ã€‚æ¯ä¸ªä¼˜å…ˆçº§å¯¹åº”ä¸€ä¸ªè¿è¡Œé˜Ÿåˆ—ã€‚
 	 */
 	struct list_head run_list;
 	/**
-	 * Ö¸Ïòµ±Ç°ÔËĞĞ¶ÓÁĞµÄprio_array_t
+	 * æŒ‡å‘å½“å‰è¿è¡Œé˜Ÿåˆ—çš„prio_array_t
 	 */
 	prio_array_t *array;
 
 	/**
-	 * ½ø³ÌµÄÆ½¾ùË¯ÃßÊ±¼ä
+	 * è¿›ç¨‹çš„å¹³å‡ç¡çœ æ—¶é—´
 	 */
 	unsigned long sleep_avg;
 	/**
-	 * timestamp-½ø³Ì×î½ü²åÈëÔËĞĞ¶ÓÁĞµÄÊ±¼ä¡£»òÉæ¼°±¾½ø³ÌµÄ×î½üÒ»´Î½ø³ÌÇĞ»»µÄÊ±¼ä
-	 * last_ran-×î½üÒ»´ÎÌæ»»±¾½ø³ÌµÄ½ø³ÌÇĞ»»Ê±¼ä¡£
+	 * timestamp-è¿›ç¨‹æœ€è¿‘æ’å…¥è¿è¡Œé˜Ÿåˆ—çš„æ—¶é—´ã€‚æˆ–æ¶‰åŠæœ¬è¿›ç¨‹çš„æœ€è¿‘ä¸€æ¬¡è¿›ç¨‹åˆ‡æ¢çš„æ—¶é—´
+	 * last_ran-æœ€è¿‘ä¸€æ¬¡æ›¿æ¢æœ¬è¿›ç¨‹çš„è¿›ç¨‹åˆ‡æ¢æ—¶é—´ã€‚
 	 */
 	unsigned long long timestamp, last_ran;
 	/**
-	 * ½ø³Ì±»»½ĞÑÊ±ËùÊ¹ÓÃµÄ´úÂë¡£
-	 *     0:½ø³Ì´¦ÓÚTASK_RUNNING×´Ì¬¡£
-	 *     1:½ø³Ì´¦ÓÚTASK_INTERRUPTIBLE»òÕßTASK_STOPPED×´Ì¬£¬¶øÇÒÕıÔÚ±»ÏµÍ³µ÷ÓÃ·şÎñÀı³Ì»òÄÚºËÏß³Ì»½ĞÑ¡£
-	 *     2:½ø³Ì´¦ÓÚTASK_INTERRUPTIBLE»òÕßTASK_STOPPED×´Ì¬£¬¶øÇÒÕıÔÚ±»ISR»òÕß¿ÉÑÓ³Ùº¯Êı»½ĞÑ¡£
-	 *     -1:±íÊ¾´ÓUNINTERRUPTIBLE×´Ì¬±»»½ĞÑ
+	 * è¿›ç¨‹è¢«å”¤é†’æ—¶æ‰€ä½¿ç”¨çš„ä»£ç ã€‚
+	 *     0:è¿›ç¨‹å¤„äºTASK_RUNNINGçŠ¶æ€ã€‚
+	 *     1:è¿›ç¨‹å¤„äºTASK_INTERRUPTIBLEæˆ–è€…TASK_STOPPEDçŠ¶æ€ï¼Œè€Œä¸”æ­£åœ¨è¢«ç³»ç»Ÿè°ƒç”¨æœåŠ¡ä¾‹ç¨‹æˆ–å†…æ ¸çº¿ç¨‹å”¤é†’ã€‚
+	 *     2:è¿›ç¨‹å¤„äºTASK_INTERRUPTIBLEæˆ–è€…TASK_STOPPEDçŠ¶æ€ï¼Œè€Œä¸”æ­£åœ¨è¢«ISRæˆ–è€…å¯å»¶è¿Ÿå‡½æ•°å”¤é†’ã€‚
+	 *     -1:è¡¨ç¤ºä»UNINTERRUPTIBLEçŠ¶æ€è¢«å”¤é†’
 	 */
 	int activated;
 
 	/**
-	 * ½ø³ÌµÄµ÷¶ÈÀàĞÍ:sched_normal,sched_rr»òÕßsched_fifo
+	 * è¿›ç¨‹çš„è°ƒåº¦ç±»å‹:sched_normal,sched_rræˆ–è€…sched_fifo
 	 */
 	unsigned long policy;
 	/**
-	 * ÄÜÖ´ĞĞ½ø³ÌµÄCPUµÄÎ»ÑÚÂë
+	 * èƒ½æ‰§è¡Œè¿›ç¨‹çš„CPUçš„ä½æ©ç 
 	 */
 	cpumask_t cpus_allowed;
 	/**
-	 * time_slice-ÔÚ½ø³ÌµÄÊ±¼äÆ¬ÖĞ£¬»¹Ê£ÓàµÄÊ±ÖÓ½ÚÅÄÊı¡£
-	 * first_time_slice-Èç¹û½ø³Ì¿Ï¶¨²»»áÓÃÍêÆäÊ±¼äÆ¬£¬¾Í°Ñ¸Ã±êÖ¾ÉèÖÃÎª1.
-	 *            xie.baoyou×¢:Ô­ÎÄÈç´Ë,Ó¦¸ÃÊÇ±íÊ¾ÈÎÎñÊÇ·ñÊÇµÚÒ»´ÎÖ´ĞĞ¡£ÕâÑù£¬Èç¹ûÊÇµÚÒ»´ÎÖ´ĞĞ£¬²¢ÇÒÔÚ¿ªÊ¼ÔËĞĞ
-	 *                         µÄµÚÒ»¸öÊ±¼äÆ¬ÄÚ¾ÍÔËĞĞÍê±Ï£¬ÄÇÃ´¾Í½«Ê£ÓàµÄÊ±¼äÆ¬»¹¸ø¸¸½ø³Ì¡£Ö÷ÒªÊÇ¿¼ÂÇµ½ÓĞ½ø³Ì
-	 *                         »á´óÁ¿µÄ¶¯Ì¬´´½¨×Ó½ø³ÌÊ±£¬¶ø×Ó½ø³Ì»áÁ¢¼´ÍË³öÕâÖÖÇé¿ö¡£Èç¹û²»»¹¸ø¸¸½ø³ÌÊ±¼äÆ¬£¬»á¶ÔÕâÖÖ½ø³Ì²»¹«Æ½¡£
+	 * time_slice-åœ¨è¿›ç¨‹çš„æ—¶é—´ç‰‡ä¸­ï¼Œè¿˜å‰©ä½™çš„æ—¶é’ŸèŠ‚æ‹æ•°ã€‚
+	 * first_time_slice-å¦‚æœè¿›ç¨‹è‚¯å®šä¸ä¼šç”¨å®Œå…¶æ—¶é—´ç‰‡ï¼Œå°±æŠŠè¯¥æ ‡å¿—è®¾ç½®ä¸º1.
+	 *            xie.baoyouæ³¨:åŸæ–‡å¦‚æ­¤,åº”è¯¥æ˜¯è¡¨ç¤ºä»»åŠ¡æ˜¯å¦æ˜¯ç¬¬ä¸€æ¬¡æ‰§è¡Œã€‚è¿™æ ·ï¼Œå¦‚æœæ˜¯ç¬¬ä¸€æ¬¡æ‰§è¡Œï¼Œå¹¶ä¸”åœ¨å¼€å§‹è¿è¡Œ
+	 *                         çš„ç¬¬ä¸€ä¸ªæ—¶é—´ç‰‡å†…å°±è¿è¡Œå®Œæ¯•ï¼Œé‚£ä¹ˆå°±å°†å‰©ä½™çš„æ—¶é—´ç‰‡è¿˜ç»™çˆ¶è¿›ç¨‹ã€‚ä¸»è¦æ˜¯è€ƒè™‘åˆ°æœ‰è¿›ç¨‹
+	 *                         ä¼šå¤§é‡çš„åŠ¨æ€åˆ›å»ºå­è¿›ç¨‹æ—¶ï¼Œè€Œå­è¿›ç¨‹ä¼šç«‹å³é€€å‡ºè¿™ç§æƒ…å†µã€‚å¦‚æœä¸è¿˜ç»™çˆ¶è¿›ç¨‹æ—¶é—´ç‰‡ï¼Œä¼šå¯¹è¿™ç§è¿›ç¨‹ä¸å…¬å¹³ã€‚
 	 */
 	unsigned int time_slice, first_time_slice;
 
@@ -870,7 +870,7 @@ struct task_struct {
 #endif
 
 	/**
-	 * Í¨¹ı´ËÁ´±í°ÑËùÓĞ½ø³ÌÁ´½Óµ½Ò»¸öË«ÏòÁ´±íÖĞ¡£
+	 * é€šè¿‡æ­¤é“¾è¡¨æŠŠæ‰€æœ‰è¿›ç¨‹é“¾æ¥åˆ°ä¸€ä¸ªåŒå‘é“¾è¡¨ä¸­ã€‚
 	 */
 	struct list_head tasks;
 	/*
@@ -878,16 +878,16 @@ struct task_struct {
 	 * that were stolen by a ptracer.
 	 */
 	/**
-	 * Á´±íµÄÍ·¡£¸ÃÁ´±í°üº¬ËùÓĞ±»debugger³ÌĞò¸ú×ÙµÄPµÄ×Ó½ø³Ì¡£
+	 * é“¾è¡¨çš„å¤´ã€‚è¯¥é“¾è¡¨åŒ…å«æ‰€æœ‰è¢«debuggerç¨‹åºè·Ÿè¸ªçš„Pçš„å­è¿›ç¨‹ã€‚
 	 */
 	struct list_head ptrace_children;
 	/**
-	 * Ö¸ÏòËù¸ú×Ù½ø³ÌÆäÊµ¼Ê¸¸½ø³ÌÁ´±íµÄÇ°Ò»¸öÏÂÒ»¸öÔªËØ¡£
+	 * æŒ‡å‘æ‰€è·Ÿè¸ªè¿›ç¨‹å…¶å®é™…çˆ¶è¿›ç¨‹é“¾è¡¨çš„å‰ä¸€ä¸ªä¸‹ä¸€ä¸ªå…ƒç´ ã€‚
 	 */
 	struct list_head ptrace_list;
 
 	/**
-	 * mm:Ö¸ÏòÄÚ´æÇøÃèÊö·ûµÄÖ¸Õë
+	 * mm:æŒ‡å‘å†…å­˜åŒºæè¿°ç¬¦çš„æŒ‡é’ˆ
 	 */
 	struct mm_struct *mm, *active_mm;
 
@@ -899,15 +899,15 @@ struct task_struct {
 	/* ??? */
 	unsigned long personality;
 	/**
-	 * ½ø³Ì·¢³öexecveÏµÍ³µ÷ÓÃµÄ´ÎÊı¡£
+	 * è¿›ç¨‹å‘å‡ºexecveç³»ç»Ÿè°ƒç”¨çš„æ¬¡æ•°ã€‚
 	 */
 	unsigned did_exec:1;
 	/**
-	 * ½ø³ÌPID
+	 * è¿›ç¨‹PID
 	 */
 	pid_t pid;
 	/**
-	 * Ïß³Ì×éÁìÍ·Ïß³ÌµÄPID¡£
+	 * çº¿ç¨‹ç»„é¢†å¤´çº¿ç¨‹çš„PIDã€‚
 	 */
 	pid_t tgid;
 	/* 
@@ -916,15 +916,15 @@ struct task_struct {
 	 * p->parent->pid)
 	 */
 	/**
-	 * Ö¸Ïò´´½¨½ø³ÌµÄ½ø³ÌµÄÃèÊö·û¡£
-	 * Èç¹û½ø³ÌµÄ¸¸½ø³Ì²»ÔÙ´æÔÚ£¬¾ÍÖ¸Ïò½ø³Ì1µÄÃèÊö·û¡£
-	 * Òò´Ë£¬Èç¹ûÓÃ»§ÔËĞĞÒ»¸öºóÌ¨½ø³Ì¶øÇÒÍË³öÁËshell£¬ºóÌ¨½ø³Ì¾Í»á³ÉÎªinitµÄ×Ó½ø³Ì¡£
+	 * æŒ‡å‘åˆ›å»ºè¿›ç¨‹çš„è¿›ç¨‹çš„æè¿°ç¬¦ã€‚
+	 * å¦‚æœè¿›ç¨‹çš„çˆ¶è¿›ç¨‹ä¸å†å­˜åœ¨ï¼Œå°±æŒ‡å‘è¿›ç¨‹1çš„æè¿°ç¬¦ã€‚
+	 * å› æ­¤ï¼Œå¦‚æœç”¨æˆ·è¿è¡Œä¸€ä¸ªåå°è¿›ç¨‹è€Œä¸”é€€å‡ºäº†shellï¼Œåå°è¿›ç¨‹å°±ä¼šæˆä¸ºinitçš„å­è¿›ç¨‹ã€‚
 	 */
 	struct task_struct *real_parent; /* real parent process (when being debugged) */
 	/**
-	 * Ö¸Ïò½ø³ÌµÄµ±Ç°¸¸½ø³Ì¡£ÕâÖÖ½ø³ÌµÄ×Ó½ø³ÌÖÕÖ¹Ê±£¬±ØĞëÏò¸¸½ø³Ì·¢ĞÅºÅ¡£
-	 * ËüµÄÖµÍ¨³£Óëreal_parentÒ»ÖÂ¡£
-	 * µ«Å¼¶ûÒ²¿ÉÒÔ²»Í¬¡£ÀıÈç£ºµ±ÁíÒ»¸ö½ø³Ì·¢³ö¼à¿Ø½ø³ÌµÄptraceÏµÍ³µ÷ÓÃÇëÇóÊ±¡£
+	 * æŒ‡å‘è¿›ç¨‹çš„å½“å‰çˆ¶è¿›ç¨‹ã€‚è¿™ç§è¿›ç¨‹çš„å­è¿›ç¨‹ç»ˆæ­¢æ—¶ï¼Œå¿…é¡»å‘çˆ¶è¿›ç¨‹å‘ä¿¡å·ã€‚
+	 * å®ƒçš„å€¼é€šå¸¸ä¸real_parentä¸€è‡´ã€‚
+	 * ä½†å¶å°”ä¹Ÿå¯ä»¥ä¸åŒã€‚ä¾‹å¦‚ï¼šå½“å¦ä¸€ä¸ªè¿›ç¨‹å‘å‡ºç›‘æ§è¿›ç¨‹çš„ptraceç³»ç»Ÿè°ƒç”¨è¯·æ±‚æ—¶ã€‚
 	 */
 	struct task_struct *parent;	/* parent process */
 	/*
@@ -932,50 +932,50 @@ struct task_struct {
 	 * tasks I'm ptracing.
 	 */
 	/**
-	 * Á´±íÍ·²¿¡£Á´±íÖ¸ÏòµÄËùÓĞÔªËØ¶¼ÊÇ½ø³Ì´´½¨µÄ×Ó½ø³Ì¡£
+	 * é“¾è¡¨å¤´éƒ¨ã€‚é“¾è¡¨æŒ‡å‘çš„æ‰€æœ‰å…ƒç´ éƒ½æ˜¯è¿›ç¨‹åˆ›å»ºçš„å­è¿›ç¨‹ã€‚
 	 */
 	struct list_head children;	/* list of my children */
 	/**
-	 * Ö¸ÏòĞÖµÜ½ø³ÌÁ´±íµÄÏÂÒ»¸öÔªËØ»òÇ°Ò»¸öÔªËØµÄÖ¸Õë¡£
+	 * æŒ‡å‘å…„å¼Ÿè¿›ç¨‹é“¾è¡¨çš„ä¸‹ä¸€ä¸ªå…ƒç´ æˆ–å‰ä¸€ä¸ªå…ƒç´ çš„æŒ‡é’ˆã€‚
 	 */
 	struct list_head sibling;	/* linkage in my parent's children list */
 	/**
-	 * PËùÔÚ½ø³Ì×éµÄÁìÍ·½ø³ÌµÄÃèÊö·ûÖ¸Õë¡£
+	 * Pæ‰€åœ¨è¿›ç¨‹ç»„çš„é¢†å¤´è¿›ç¨‹çš„æè¿°ç¬¦æŒ‡é’ˆã€‚
 	 */
 	struct task_struct *group_leader;	/* threadgroup leader */
 
 	/* PID/PID hash table linkage. */
 	/**
-	 * PIDÉ¢ÁĞ±í¡£Í¨¹ıÕâËÄ¸ö±í£¬¿ÉÒÔ·½±ãµÄ²éÕÒÍ¬Ò»Ïß³Ì×éµÄÆäËûÏß³Ì£¬Í¬Ò»»á»°µÄÆäËû½ø³ÌµÈµÈ¡£
+	 * PIDæ•£åˆ—è¡¨ã€‚é€šè¿‡è¿™å››ä¸ªè¡¨ï¼Œå¯ä»¥æ–¹ä¾¿çš„æŸ¥æ‰¾åŒä¸€çº¿ç¨‹ç»„çš„å…¶ä»–çº¿ç¨‹ï¼ŒåŒä¸€ä¼šè¯çš„å…¶ä»–è¿›ç¨‹ç­‰ç­‰ã€‚
 	 */
 	struct pid pids[PIDTYPE_MAX];
 
 	struct completion *vfork_done;		/* for vfork() */
 	/**
-	 * ×Ó½ø³ÌÔÚÓÃ»§Ì¬µÄµØÖ·¡£ÕâĞ©ÓÃ»§Ì¬µØÖ·µÄÖµ½«±»ÉèÖÃ»òÕßÇå³ı¡£
-	 * ÔÚdo_forkÊ±¼ÇÂ¼ÕâĞ©µØÖ·£¬ÉÔºóÔÙÉèÖÃ»òÕßÇå³ıËüÃÇµÄÖµ¡£
+	 * å­è¿›ç¨‹åœ¨ç”¨æˆ·æ€çš„åœ°å€ã€‚è¿™äº›ç”¨æˆ·æ€åœ°å€çš„å€¼å°†è¢«è®¾ç½®æˆ–è€…æ¸…é™¤ã€‚
+	 * åœ¨do_forkæ—¶è®°å½•è¿™äº›åœ°å€ï¼Œç¨åå†è®¾ç½®æˆ–è€…æ¸…é™¤å®ƒä»¬çš„å€¼ã€‚
 	 */
 	int __user *set_child_tid;		/* CLONE_CHILD_SETTID */
 	int __user *clear_child_tid;		/* CLONE_CHILD_CLEARTID */
 
 	/**
-	 * ½ø³ÌµÄÊµÊ±ÓÅÏÈ¼¶¡£
+	 * è¿›ç¨‹çš„å®æ—¶ä¼˜å…ˆçº§ã€‚
 	 */
 	unsigned long rt_priority;
 	/**
-	 * ÒÔÏÂÈı¶ÔÖµÓÃÓÚÓÃ»§Ì¬µÄ¶¨Ê±Æ÷¡£µ±¶¨Ê±Æ÷µ½ÆÚÊ±£¬»áÏòÓÃ»§Ì¬½ø³Ì·¢ËÍĞÅºÅ¡£
-	 * Ã¿Ò»¶ÔÖµ·Ö±ğ´æ·ÅÁËÁ½¸öĞÅºÅÖ®¼äÒÔ½ÚÅÄÎªµ¥Î»µÄ¼ä¸ô£¬¼°¶¨Ê±Æ÷µÄµ±Ç°Öµ¡£
+	 * ä»¥ä¸‹ä¸‰å¯¹å€¼ç”¨äºç”¨æˆ·æ€çš„å®šæ—¶å™¨ã€‚å½“å®šæ—¶å™¨åˆ°æœŸæ—¶ï¼Œä¼šå‘ç”¨æˆ·æ€è¿›ç¨‹å‘é€ä¿¡å·ã€‚
+	 * æ¯ä¸€å¯¹å€¼åˆ†åˆ«å­˜æ”¾äº†ä¸¤ä¸ªä¿¡å·ä¹‹é—´ä»¥èŠ‚æ‹ä¸ºå•ä½çš„é—´éš”ï¼ŒåŠå®šæ—¶å™¨çš„å½“å‰å€¼ã€‚
 	 */
 	unsigned long it_real_value, it_real_incr;
 	cputime_t it_virt_value, it_virt_incr;
 	cputime_t it_prof_value, it_prof_incr;
 	/**
-	 * Ã¿¸ö½ø³ÌµÄ¶¯Ì¬¶¨Ê±Æ÷¡£ÓÃÓÚÊµÏÖITIMER_REALÀàĞÍµÄ¼ä¸ô¶¨Ê±Æ÷¡£
-	 * ÓÉsettimerÏµÍ³µ÷ÓÃ³õÊ¼»¯¡£
+	 * æ¯ä¸ªè¿›ç¨‹çš„åŠ¨æ€å®šæ—¶å™¨ã€‚ç”¨äºå®ç°ITIMER_REALç±»å‹çš„é—´éš”å®šæ—¶å™¨ã€‚
+	 * ç”±settimerç³»ç»Ÿè°ƒç”¨åˆå§‹åŒ–ã€‚
 	 */
 	struct timer_list real_timer;
 	/**
-	 * ½ø³ÌÔÚÓÃ»§Ì¬ºÍÄÚºËÌ¬ÏÂ¾­¹ıµÄ½ÚÅÄÊı
+	 * è¿›ç¨‹åœ¨ç”¨æˆ·æ€å’Œå†…æ ¸æ€ä¸‹ç»è¿‡çš„èŠ‚æ‹æ•°
 	 */
 	cputime_t utime, stime;
 	unsigned long nvcsw, nivcsw; /* context switch counts */
@@ -998,9 +998,9 @@ struct task_struct {
 	char comm[TASK_COMM_LEN];
 /* file system info */
 	/**
-	 * ÎÄ¼şÏµÍ³ÔÚ²éÕÒÂ·¾¶Ê±Ê¹ÓÃ£¬±ÜÃâ·ûºÅÁ´½Ó²éÕÒÉî¶È¹ıÉî£¬µ¼ÖÂËÀÑ­»·¡£
-	 * link_countÊÇ__do_follow_linkµİ¹éµ÷ÓÃµÄ²ã´Î¡£
-	 * total_link_countµ÷ÓÃ__do_follow_linkµÄ×Ü´ÎÊı¡£
+	 * æ–‡ä»¶ç³»ç»Ÿåœ¨æŸ¥æ‰¾è·¯å¾„æ—¶ä½¿ç”¨ï¼Œé¿å…ç¬¦å·é“¾æ¥æŸ¥æ‰¾æ·±åº¦è¿‡æ·±ï¼Œå¯¼è‡´æ­»å¾ªç¯ã€‚
+	 * link_countæ˜¯__do_follow_linké€’å½’è°ƒç”¨çš„å±‚æ¬¡ã€‚
+	 * total_link_countè°ƒç”¨__do_follow_linkçš„æ€»æ¬¡æ•°ã€‚
 	 */
 	int link_count, total_link_count;
 /* ipc stuff */
@@ -1009,50 +1009,50 @@ struct task_struct {
 	struct thread_struct thread;
 /* filesystem information */
 	/**
-	 * ÓëÎÄ¼şÏµÍ³Ïà¹ØµÄĞÅÏ¢¡£Èçµ±Ç°Ä¿Â¼¡£
+	 * ä¸æ–‡ä»¶ç³»ç»Ÿç›¸å…³çš„ä¿¡æ¯ã€‚å¦‚å½“å‰ç›®å½•ã€‚
 	 */
 	struct fs_struct *fs;
 /* open file information */
 	/**
-	 * Ö¸ÏòÎÄ¼şÃèÊö·ûµÄÖ¸Õë
+	 * æŒ‡å‘æ–‡ä»¶æè¿°ç¬¦çš„æŒ‡é’ˆ
 	 */
 	struct files_struct *files;
 /* namespace */
 	struct namespace *namespace;
 /* signal handlers */
 	/**
-	 * Ö¸Ïò½ø³ÌµÄĞÅºÅÃèÊö·ûµÄÖ¸Õë
+	 * æŒ‡å‘è¿›ç¨‹çš„ä¿¡å·æè¿°ç¬¦çš„æŒ‡é’ˆ
 	 */
 	struct signal_struct *signal;
 	/**
-	 * Ö¸Ïò½ø³ÌµÄĞÅºÅ´¦Àí³ÌĞòÃèÊö·ûµÄÖ¸Õë
+	 * æŒ‡å‘è¿›ç¨‹çš„ä¿¡å·å¤„ç†ç¨‹åºæè¿°ç¬¦çš„æŒ‡é’ˆ
 	 */
 	struct sighand_struct *sighand;
 
 	/**
-	 * blocked-±»×èÈûµÄĞÅºÅµÄÑÚÂë
-	 * real_blocked-±»×èÈûĞÅºÅµÄÁÙÊ±ÑÚÂë£¨ÓÉrt_sigtimedwaitÏµÍ³µ÷ÓÃÊ¹ÓÃ£©
+	 * blocked-è¢«é˜»å¡çš„ä¿¡å·çš„æ©ç 
+	 * real_blocked-è¢«é˜»å¡ä¿¡å·çš„ä¸´æ—¶æ©ç ï¼ˆç”±rt_sigtimedwaitç³»ç»Ÿè°ƒç”¨ä½¿ç”¨ï¼‰
 	 */
 	sigset_t blocked, real_blocked;
 	/**
-	 * ´æ·ÅË½ÓĞ¹ÒÆğĞÅºÅµÄÊı¾İ½á¹¹
+	 * å­˜æ”¾ç§æœ‰æŒ‚èµ·ä¿¡å·çš„æ•°æ®ç»“æ„
 	 */
 	struct sigpending pending;
 
 	/**
-	 * ĞÅºÅ´¦Àí³ÌĞò±¸ÓÃ¶ÑÕ»µÄµØÖ·
+	 * ä¿¡å·å¤„ç†ç¨‹åºå¤‡ç”¨å †æ ˆçš„åœ°å€
 	 */
 	unsigned long sas_ss_sp;
 	/**
-	 * ĞÅºÅ´¦Àí³ÌĞò±¸ÓÃ¶ÑÕ»µÄ´óĞ¡
+	 * ä¿¡å·å¤„ç†ç¨‹åºå¤‡ç”¨å †æ ˆçš„å¤§å°
 	 */
 	size_t sas_ss_size;
 	/**
-	 * Ö¸ÏòÒ»¸öº¯ÊıµÄÖ¸Õë£¬Éè±¸Çı¶¯³ÌĞòÊ¹ÓÃÕâ¸öº¯Êı×èÈû½ø³ÌµÄÄ³Ğ©ĞÅºÅ
+	 * æŒ‡å‘ä¸€ä¸ªå‡½æ•°çš„æŒ‡é’ˆï¼Œè®¾å¤‡é©±åŠ¨ç¨‹åºä½¿ç”¨è¿™ä¸ªå‡½æ•°é˜»å¡è¿›ç¨‹çš„æŸäº›ä¿¡å·
 	 */
 	int (*notifier)(void *priv);
 	/**
-	 * Ö¸Ïònotifierº¯Êı¿ÉÄÜÊ¹ÓÃµÄÊı¾İ
+	 * æŒ‡å‘notifierå‡½æ•°å¯èƒ½ä½¿ç”¨çš„æ•°æ®
 	 */
 	void *notifier_data;
 	sigset_t *notifier_mask;
@@ -1072,595 +1072,6 @@ struct task_struct {
 
 /* journalling filesystem info */
 	/**
-	 * µ±Ç°»î¶¯ÈÕÖ¾²Ù×÷´¦ÀíµÄµØÖ·¡£
-	 */
-	void *journal_info;
-
-/* VM state */
-	struct reclaim_state *reclaim_state;
-
-	struct dentry *proc_dentry;
-	struct backing_dev_info *backing_dev_info;
-
-	struct io_context *io_context;
-
-	unsigned long ptrace_message;
-	siginfo_t *last_siginfo; /* For ptrace use.  */
-/*
- * current io wait handle: wait queue entry to use for io waits
- * If this thread is processing aio, this points at the waitqueue
- * inside the currently handled kiocb. It may be NULL (i.e. default
- * to a stack based synchronous wait) if its doing sync IO.
- */
-	wait_queue_t *io_wait;
-/* i/o counters(bytes read/written, #syscalls */
-	u64 rchar, wchar, syscr, syscw;
-#if defined(CONFIG_BSD_PROCESS_ACCT)
-	u64 acct_rss_mem1;	/* accumulated rss usage */
-	u64 acct_vm_mem1;	/* accumulated virtual memory usage */
-	clock_t acct_stimexpd;	/* clock_t-converted stime since last update */
-#endif
-#ifdef CONFIG_NUMA
-  	struct mempolicy *mempolicy;
-	short il_next;
-#endif
-};
-
-static inline pid_t process_group(struct task_struct *tsk)
-{
-	return tsk->signal->pgrp;
-}
-
-/**
- * pid_alive - check that a task structure is not stale
- * @p: Task structure to be checked.
- *
- * Test if a process is not yet dead (at most zombie state)
- * If pid_alive fails, then pointers within the task structure
- * can be stale and must not be dereferenced.
- */
-static inline int pid_alive(struct task_struct *p)
-{
-	return p->pids[PIDTYPE_PID].nr != 0;
-}
-
-extern void free_task(struct task_struct *tsk);
-extern void __put_task_struct(struct task_struct *tsk);
-#define get_task_struct(tsk) do { atomic_inc(&(tsk)->usage); } while(0)
-#define put_task_struct(tsk) \
-do { if (atomic_dec_and_test(&(tsk)->usage)) __put_task_struct(tsk); } while(0)
-
-/*
- * Per process flags
- */
-#define PF_ALIGNWARN	0x00000001	/* Print alignment warning msgs */
-					/* Not implemented yet, only for 486*/
-#define PF_STARTING	0x00000002	/* being created */
-#define PF_EXITING	0x00000004	/* getting shut down */
-#define PF_DEAD		0x00000008	/* Dead */
-/**
- * ½ø³Ì»¹Ã»ÓĞ·¢³ö¹ıexecveÏµÍ³µ÷ÓÃ
- */
-#define PF_FORKNOEXEC	0x00000040	/* forked but didn't exec */
-/**
- * ½ø³ÌÊÇ·ñÊ¹ÓÃÁËÄ³ÖÖ³¬¼¶ÓÃ»§È¨ÏŞ
- */
-#define PF_SUPERPRIV	0x00000100	/* used super-user privileges */
-#define PF_DUMPCORE	0x00000200	/* dumped core */
-#define PF_SIGNALED	0x00000400	/* killed by a signal */
-#define PF_MEMALLOC	0x00000800	/* Allocating memory */
-#define PF_FLUSHER	0x00001000	/* responsible for disk writeback */
-/**
- * 
- */
-#define PF_USED_MATH	0x00002000	/* if unset the fpu must be initialized before use */
-#define PF_FREEZE	0x00004000	/* this task is being frozen for suspend now */
-#define PF_NOFREEZE	0x00008000	/* this thread should not be frozen */
-#define PF_FROZEN	0x00010000	/* frozen for system suspend */
-#define PF_FSTRANS	0x00020000	/* inside a filesystem transaction */
-#define PF_KSWAPD	0x00040000	/* I am kswapd */
-/**
- * ÉèÖÃ¸Ã±êÖ¾Î»ºó£¬ÔÚÒ³¿òÑÏÖØ²»×ãÊ±£¬OOMµ÷ÓÃselect_bad_process»áÇ¿ÖÆÑ¡Ôñ½«É¾³ı¸Ã½ø³Ì¡£
- */
-#define PF_SWAPOFF	0x00080000	/* I am in swapoff */
-#define PF_LESS_THROTTLE 0x00100000	/* Throttle me less: I clean memory */
-#define PF_SYNCWRITE	0x00200000	/* I am doing a sync write */
-#define PF_BORROWED_MM	0x00400000	/* I am a kthread doing use_mm */
-
-/*
- * Only the _current_ task can read/write to tsk->flags, but other
- * tasks can access tsk->flags in readonly mode for example
- * with tsk_used_math (like during threaded core dumping).
- * There is however an exception to this rule during ptrace
- * or during fork: the ptracer task is allowed to write to the
- * child->flags of its traced child (same goes for fork, the parent
- * can write to the child->flags), because we're guaranteed the
- * child is not running and in turn not changing child->flags
- * at the same time the parent does it.
- */
-#define clear_stopped_child_used_math(child) do { (child)->flags &= ~PF_USED_MATH; } while (0)
-#define set_stopped_child_used_math(child) do { (child)->flags |= PF_USED_MATH; } while (0)
-#define clear_used_math() clear_stopped_child_used_math(current)
-#define set_used_math() set_stopped_child_used_math(current)
-#define conditional_stopped_child_used_math(condition, child) \
-	do { (child)->flags &= ~PF_USED_MATH, (child)->flags |= (condition) ? PF_USED_MATH : 0; } while (0)
-#define conditional_used_math(condition) \
-	conditional_stopped_child_used_math(condition, current)
-#define copy_to_stopped_child_used_math(child) \
-	do { (child)->flags &= ~PF_USED_MATH, (child)->flags |= current->flags & PF_USED_MATH; } while (0)
-/* NOTE: this will return 0 or PF_USED_MATH, it will never return 1 */
-#define tsk_used_math(p) ((p)->flags & PF_USED_MATH)
-#define used_math() tsk_used_math(current)
-
-#ifdef CONFIG_SMP
-extern int set_cpus_allowed(task_t *p, cpumask_t new_mask);
-#else
-static inline int set_cpus_allowed(task_t *p, cpumask_t new_mask)
-{
-	if (!cpus_intersects(new_mask, cpu_online_map))
-		return -EINVAL;
-	return 0;
-}
-#endif
-
-extern unsigned long long sched_clock(void);
-
-/* sched_exec is called by processes performing an exec */
-#ifdef CONFIG_SMP
-extern void sched_exec(void);
-#else
-#define sched_exec()   {}
-#endif
-
-#ifdef CONFIG_HOTPLUG_CPU
-extern void idle_task_exit(void);
-#else
-static inline void idle_task_exit(void) {}
-#endif
-
-extern void sched_idle_next(void);
-extern void set_user_nice(task_t *p, long nice);
-extern int task_prio(const task_t *p);
-extern int task_nice(const task_t *p);
-extern int task_curr(const task_t *p);
-extern int idle_cpu(int cpu);
-extern int sched_setscheduler(struct task_struct *, int, struct sched_param *);
-extern task_t *idle_task(int cpu);
-
-void yield(void);
-
-/*
- * The default (Linux) execution domain.
- */
-extern struct exec_domain	default_exec_domain;
-
-/**
- * ÄÚºËÕ»Óëthread_infoµÄÁªºÏÌå¡£
- */
-union thread_union {
-	struct thread_info thread_info;
-	unsigned long stack[THREAD_SIZE/sizeof(long)];
-};
-
-#ifndef __HAVE_ARCH_KSTACK_END
-static inline int kstack_end(void *addr)
-{
-	/* Reliable end of stack detection:
-	 * Some APM bios versions misalign the stack
-	 */
-	return !(((unsigned long)addr+sizeof(void*)-1) & (THREAD_SIZE-sizeof(void*)));
-}
-#endif
-
-extern union thread_union init_thread_union;
-extern struct task_struct init_task;
-
-extern struct   mm_struct init_mm;
-
-#define find_task_by_pid(nr)	find_task_by_pid_type(PIDTYPE_PID, nr)
-extern struct task_struct *find_task_by_pid_type(int type, int pid);
-extern void set_special_pids(pid_t session, pid_t pgrp);
-extern void __set_special_pids(pid_t session, pid_t pgrp);
-
-/* per-UID process charging. */
-extern struct user_struct * alloc_uid(uid_t);
-static inline struct user_struct *get_uid(struct user_struct *u)
-{
-	atomic_inc(&u->__count);
-	return u;
-}
-extern void free_uid(struct user_struct *);
-extern void switch_uid(struct user_struct *);
-
-#include <asm/current.h>
-
-extern void do_timer(struct pt_regs *);
-
-extern int FASTCALL(wake_up_state(struct task_struct * tsk, unsigned int state));
-extern int FASTCALL(wake_up_process(struct task_struct * tsk));
-extern void FASTCALL(wake_up_new_task(struct task_struct * tsk,
-						unsigned long clone_flags));
-#ifdef CONFIG_SMP
- extern void kick_process(struct task_struct *tsk);
-#else
- static inline void kick_process(struct task_struct *tsk) { }
-#endif
-extern void FASTCALL(sched_fork(task_t * p));
-extern void FASTCALL(sched_exit(task_t * p));
-
-extern int in_group_p(gid_t);
-extern int in_egroup_p(gid_t);
-
-extern void proc_caches_init(void);
-extern void flush_signals(struct task_struct *);
-extern void flush_signal_handlers(struct task_struct *, int force_default);
-extern int dequeue_signal(struct task_struct *tsk, sigset_t *mask, siginfo_t *info);
-
-static inline int dequeue_signal_lock(struct task_struct *tsk, sigset_t *mask, siginfo_t *info)
-{
-	unsigned long flags;
-	int ret;
-
-	spin_lock_irqsave(&tsk->sighand->siglock, flags);
-	ret = dequeue_signal(tsk, mask, info);
-	spin_unlock_irqrestore(&tsk->sighand->siglock, flags);
-
-	return ret;
-}	
-
-extern void block_all_signals(int (*notifier)(void *priv), void *priv,
-			      sigset_t *mask);
-extern void unblock_all_signals(void);
-extern void release_task(struct task_struct * p);
-extern int send_sig_info(int, struct siginfo *, struct task_struct *);
-extern int send_group_sig_info(int, struct siginfo *, struct task_struct *);
-extern int force_sigsegv(int, struct task_struct *);
-extern int force_sig_info(int, struct siginfo *, struct task_struct *);
-extern int __kill_pg_info(int sig, struct siginfo *info, pid_t pgrp);
-extern int kill_pg_info(int, struct siginfo *, pid_t);
-extern int kill_proc_info(int, struct siginfo *, pid_t);
-extern void do_notify_parent(struct task_struct *, int);
-extern void force_sig(int, struct task_struct *);
-extern void force_sig_specific(int, struct task_struct *);
-extern int send_sig(int, struct task_struct *, int);
-extern void zap_other_threads(struct task_struct *p);
-extern int kill_pg(pid_t, int, int);
-extern int kill_sl(pid_t, int, int);
-extern int kill_proc(pid_t, int, int);
-extern struct sigqueue *sigqueue_alloc(void);
-extern void sigqueue_free(struct sigqueue *);
-extern int send_sigqueue(int, struct sigqueue *,  struct task_struct *);
-extern int send_group_sigqueue(int, struct sigqueue *,  struct task_struct *);
-extern int do_sigaction(int, const struct k_sigaction *, struct k_sigaction *);
-extern int do_sigaltstack(const stack_t __user *, stack_t __user *, unsigned long);
-
-/* These can be the second arg to send_sig_info/send_group_sig_info.  */
-#define SEND_SIG_NOINFO ((struct siginfo *) 0)
-#define SEND_SIG_PRIV	((struct siginfo *) 1)
-#define SEND_SIG_FORCED	((struct siginfo *) 2)
-
-/* True if we are on the alternate signal stack.  */
-
-static inline int on_sig_stack(unsigned long sp)
-{
-	return (sp - current->sas_ss_sp < current->sas_ss_size);
-}
-
-static inline int sas_ss_flags(unsigned long sp)
-{
-	return (current->sas_ss_size == 0 ? SS_DISABLE
-		: on_sig_stack(sp) ? SS_ONSTACK : 0);
-}
-
-
-#ifdef CONFIG_SECURITY
-/* code is in security.c */
-extern int capable(int cap);
-#else
-/**
- * ¼ì²éµ±Ç°½ø³ÌÊÇ·ñÓĞÄ³ÖÖÈ¨ÄÜ
- */
-static inline int capable(int cap)
-{
-	if (cap_raised(current->cap_effective, cap)) {
-		current->flags |= PF_SUPERPRIV;
-		return 1;
-	}
-	return 0;
-}
-#endif
-
-/*
- * Routines for handling mm_structs
- */
-extern struct mm_struct * mm_alloc(void);
-
-/* mmdrop drops the mm and the page tables */
-extern void FASTCALL(__mmdrop(struct mm_struct *));
-static inline void mmdrop(struct mm_struct * mm)
-{
-	if (atomic_dec_and_test(&mm->mm_count))
-		__mmdrop(mm);
-}
-
-/* mmput gets rid of the mappings and all user-space */
-extern void mmput(struct mm_struct *);
-/* Grab a reference to a task's mm, if it is not already going away */
-extern struct mm_struct *get_task_mm(struct task_struct *task);
-/* Remove the current tasks stale references to the old mm_struct */
-extern void mm_release(struct task_struct *, struct mm_struct *);
-
-extern int  copy_thread(int, unsigned long, unsigned long, unsigned long, struct task_struct *, struct pt_regs *);
-extern void flush_thread(void);
-extern void exit_thread(void);
-
-extern void exit_mm(struct task_struct *);
-extern void exit_files(struct task_struct *);
-extern void exit_signal(struct task_struct *);
-extern void __exit_signal(struct task_struct *);
-extern void exit_sighand(struct task_struct *);
-extern void __exit_sighand(struct task_struct *);
-extern void exit_itimers(struct signal_struct *);
-
-extern NORET_TYPE void do_group_exit(int);
-
-extern void reparent_to_init(void);
-extern void daemonize(const char *, ...);
-extern int allow_signal(int);
-extern int disallow_signal(int);
-extern task_t *child_reaper;
-
-extern int do_execve(char *, char __user * __user *, char __user * __user *, struct pt_regs *);
-extern long do_fork(unsigned long, unsigned long, struct pt_regs *, unsigned long, int __user *, int __user *);
-task_t *fork_idle(int);
-
-extern void set_task_comm(struct task_struct *tsk, char *from);
-extern void get_task_comm(char *to, struct task_struct *tsk);
-
-#ifdef CONFIG_SMP
-extern void wait_task_inactive(task_t * p);
-#else
-#define wait_task_inactive(p)	do { } while (0)
-#endif
-
-#define remove_parent(p)	list_del_init(&(p)->sibling)
-#define add_parent(p, parent)	list_add_tail(&(p)->sibling,&(parent)->children)
-
-/**
- * ½«½ø³Ì´ÓÁ´±íÖĞÉ¾³ı¡£
- */
-#define REMOVE_LINKS(p) do {					\
-	if (thread_group_leader(p))				\
-		list_del_init(&(p)->tasks);			\
-	remove_parent(p);					\
-	} while (0)
-
-/**
- * ½«½ø³Ì²åÈëµ½½ø³ÌÁ´±íÖĞ¡£
- */
-#define SET_LINKS(p) do {					\
-	if (thread_group_leader(p))				\
-		list_add_tail(&(p)->tasks,&init_task.tasks);	\
-	add_parent(p, (p)->parent);				\
-	} while (0)
-
-#define next_task(p)	list_entry((p)->tasks.next, struct task_struct, tasks)
-#define prev_task(p)	list_entry((p)->tasks.prev, struct task_struct, tasks)
-
-#define for_each_process(p) \
-	for (p = &init_task ; (p = next_task(p)) != &init_task ; )
-
-/*
- * Careful: do_each_thread/while_each_thread is a double loop so
- *          'break' will not work as expected - use goto instead.
- */
-#define do_each_thread(g, t) \
-	for (g = t = &init_task ; (g = t = next_task(g)) != &init_task ; ) do
-
-#define while_each_thread(g, t) \
-	while ((t = next_thread(t)) != g)
-
-extern task_t * FASTCALL(next_thread(const task_t *p));
-
-#define thread_group_leader(p)	(p->pid == p->tgid)
-
-static inline int thread_group_empty(task_t *p)
-{
-	return list_empty(&p->pids[PIDTYPE_TGID].pid_list);
-}
-
-#define delay_group_leader(p) \
-		(thread_group_leader(p) && !thread_group_empty(p))
-
-extern void unhash_process(struct task_struct *p);
-
-/*
- * Protects ->fs, ->files, ->mm, ->ptrace, ->group_info, ->comm, keyring
- * subscriptions and synchronises with wait4().  Also used in procfs.
- *
- * Nests both inside and outside of read_lock(&tasklist_lock).
- * It must not be nested with write_lock_irq(&tasklist_lock),
- * neither inside nor outside.
- */
-static inline void task_lock(struct task_struct *p)
-{
-	spin_lock(&p->alloc_lock);
-}
-
-static inline void task_unlock(struct task_struct *p)
-{
-	spin_unlock(&p->alloc_lock);
-}
-
-/* set thread flags in other task's structures
- * - see asm/thread_info.h for TIF_xxxx flags available
- */
-static inline void set_tsk_thread_flag(struct task_struct *tsk, int flag)
-{
-	set_ti_thread_flag(tsk->thread_info,flag);
-}
-
-static inline void clear_tsk_thread_flag(struct task_struct *tsk, int flag)
-{
-	clear_ti_thread_flag(tsk->thread_info,flag);
-}
-
-static inline int test_and_set_tsk_thread_flag(struct task_struct *tsk, int flag)
-{
-	return test_and_set_ti_thread_flag(tsk->thread_info,flag);
-}
-
-static inline int test_and_clear_tsk_thread_flag(struct task_struct *tsk, int flag)
-{
-	return test_and_clear_ti_thread_flag(tsk->thread_info,flag);
-}
-
-static inline int test_tsk_thread_flag(struct task_struct *tsk, int flag)
-{
-	return test_ti_thread_flag(tsk->thread_info,flag);
-}
-
-static inline void set_tsk_need_resched(struct task_struct *tsk)
-{
-	set_tsk_thread_flag(tsk,TIF_NEED_RESCHED);
-}
-
-static inline void clear_tsk_need_resched(struct task_struct *tsk)
-{
-	clear_tsk_thread_flag(tsk,TIF_NEED_RESCHED);
-}
-
-/**
- * Èç¹û½ø³ÌÃèÊö·ûËù±íÊ¾µÄ½ø³ÌÓĞ·Ç×èÈûµÄ¹ÒÆğĞÅºÅ£¬¾Í·µ»Ø1¡£·ñÔò·µ»Ø0¡£
- * ¸Ãº¯ÊıÖ»ÊÇÍ¨¹ı¼ì²é½ø³ÌµÄTIF_SIGPENDING±êÖ¾¡£
- */
-static inline int signal_pending(struct task_struct *p)
-{
-	return unlikely(test_tsk_thread_flag(p,TIF_SIGPENDING));
-}
-  
-static inline int need_resched(void)
-{
-	return unlikely(test_thread_flag(TIF_NEED_RESCHED));
-}
-
-/*
- * cond_resched() and cond_resched_lock(): latency reduction via
- * explicit rescheduling in places that are safe. The return
- * value indicates whether a reschedule was done in fact.
- * cond_resched_lock() will drop the spinlock before scheduling,
- * cond_resched_softirq() will enable bhs before scheduling.
- */
-extern int cond_resched(void);
-extern int cond_resched_lock(spinlock_t * lock);
-extern int cond_resched_softirq(void);
-
-/*
- * Does a critical section need to be broken due to another
- * task waiting?:
- */
-#if defined(CONFIG_PREEMPT) && defined(CONFIG_SMP)
-# define need_lockbreak(lock) ((lock)->break_lock)
-#else
-# define need_lockbreak(lock) 0
-#endif
-
-/*
- * Does a critical section need to be broken due to another
- * task waiting or preemption being signalled:
- */
-static inline int lock_need_resched(spinlock_t *lock)
-{
-	if (need_lockbreak(lock) || need_resched())
-		return 1;
-	return 0;
-}
-
-/* Reevaluate whether the task has signals pending delivery.
-   This is required every time the blocked sigset_t changes.
-   callers must hold sighand->siglock.  */
-
-extern FASTCALL(void recalc_sigpending_tsk(struct task_struct *t));
-extern void recalc_sigpending(void);
-
-extern void signal_wake_up(struct task_struct *t, int resume_stopped);
-
-/*
- * Wrappers for p->thread_info->cpu access. No-op on UP.
- */
-#ifdef CONFIG_SMP
-
-static inline unsigned int task_cpu(const struct task_struct *p)
-{
-	return p->thread_info->cpu;
-}
-
-static inline void set_task_cpu(struct task_struct *p, unsigned int cpu)
-{
-	p->thread_info->cpu = cpu;
-}
-
-#else
-
-static inline unsigned int task_cpu(const struct task_struct *p)
-{
-	return 0;
-}
-
-static inline void set_task_cpu(struct task_struct *p, unsigned int cpu)
-{
-}
-
-#endif /* CONFIG_SMP */
-
-#ifdef HAVE_ARCH_PICK_MMAP_LAYOUT
-extern void arch_pick_mmap_layout(struct mm_struct *mm);
-#else
-static inline void arch_pick_mmap_layout(struct mm_struct *mm)
-{
-	mm->mmap_base = TASK_UNMAPPED_BASE;
-	mm->get_unmapped_area = arch_get_unmapped_area;
-	mm->unmap_area = arch_unmap_area;
-}
-#endif
-
-extern long sched_setaffinity(pid_t pid, cpumask_t new_mask);
-extern long sched_getaffinity(pid_t pid, cpumask_t *mask);
-
-#ifdef CONFIG_MAGIC_SYSRQ
-
-extern void normalize_rt_tasks(void);
-
-#endif
-
-/* try_to_freeze
- *
- * Checks whether we need to enter the refrigerator
- * and returns 1 if we did so.
- */
-#ifdef CONFIG_PM
-extern void refrigerator(unsigned long);
-extern int freeze_processes(void);
-extern void thaw_processes(void);
-
-static inline int try_to_freeze(unsigned long refrigerator_flags)
-{
-	if (unlikely(current->flags & PF_FREEZE)) {
-		refrigerator(refrigerator_flags);
-		return 1;
-	} else
-		return 0;
-}
-#else
-static inline void refrigerator(unsigned long flag) {}
-static inline int freeze_processes(void) { BUG(); return 0; }
-static inline void thaw_processes(void) {}
-
-static inline int try_to_freeze(unsigned long refrigerator_flags)
-{
-	return 0;
-}
-#endif /* CONFIG_PM */
-#endif /* __KERNEL__ */
-
-#endif
+	 * å½“å‰æ´»åŠ¨æ—¥å¿—ncr;
+	/**
+	 * å§£å¿é‡œæ©æ¶šâ–¼é¨å‹«å§©é¬ä½¸ç•¾éƒè·ºæ«’éŠ†å‚œæ•¤æµœåº¡ç–„éœç™TIMER_REALç»«è¯²ç€·é¨å‹¯æ£¿é—…æ–¿ç•¾éƒè·ºæ«’éŠ†

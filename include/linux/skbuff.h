@@ -34,24 +34,24 @@
 #define SLAB_SKB 		/* Slabified skbuffs 	   */
 
 /**
- * ÔÚ½ÓÊÕÊ±£¬csumÖĞµÄĞ£ÑéºÍÎŞĞ§£¬Ô­Òò¿ÉÄÜÓĞÒÔÏÂ¼¸ÖÖ£º
- *		Éè±¸²»Ìá¹©Ó²¼şĞ£ÑéºÍ¼ÆËã¡£
- *		Éè±¸¼ÆËãÁËÓ²¼şĞ£ÑéºÍ£¬²¢ÇÒÇı¶¯·¢ÏÖ¸ÃÊı¾İÖ¡ÒÑËğ»µ¡£
- *		Ğ£ÑéºÍ±ØĞëÖØËã²¢ÖØĞÂÑéÖ¤¡£
- * ÔÚ´«ÊäÊ±£¬±íÊ¾Ğ­ÒéÒÑ¾­´¦ÀíÁËĞ£ÑéºÍ£¬Éè±¸²»ĞèÒª×öÈÎºÎÊÂÇé¡£µ±×ª·¢Ò»¸ö³ö¿ÚÊı¾İÖ¡Ê±£¬L4Ğ£ÑéºÍÒÑ¾­×¼±¸ºÃ£¬ÒòÎªÒÑ¾­ÓÉ´«ËÍ¶ËÖ÷»ú¼ÆËãºÃÁË£¬Òò´ËÃ»ÓĞ±ØÒªÔÙ¼ÆËãËü¡£
+ * åœ¨æ¥æ”¶æ—¶ï¼Œcsumä¸­çš„æ ¡éªŒå’Œæ— æ•ˆï¼ŒåŸå› å¯èƒ½æœ‰ä»¥ä¸‹å‡ ç§ï¼š
+ *		è®¾å¤‡ä¸æä¾›ç¡¬ä»¶æ ¡éªŒå’Œè®¡ç®—ã€‚
+ *		è®¾å¤‡è®¡ç®—äº†ç¡¬ä»¶æ ¡éªŒå’Œï¼Œå¹¶ä¸”é©±åŠ¨å‘ç°è¯¥æ•°æ®å¸§å·²æŸåã€‚
+ *		æ ¡éªŒå’Œå¿…é¡»é‡ç®—å¹¶é‡æ–°éªŒè¯ã€‚
+ * åœ¨ä¼ è¾“æ—¶ï¼Œè¡¨ç¤ºåè®®å·²ç»å¤„ç†äº†æ ¡éªŒå’Œï¼Œè®¾å¤‡ä¸éœ€è¦åšä»»ä½•äº‹æƒ…ã€‚å½“è½¬å‘ä¸€ä¸ªå‡ºå£æ•°æ®å¸§æ—¶ï¼ŒL4æ ¡éªŒå’Œå·²ç»å‡†å¤‡å¥½ï¼Œå› ä¸ºå·²ç»ç”±ä¼ é€ç«¯ä¸»æœºè®¡ç®—å¥½äº†ï¼Œå› æ­¤æ²¡æœ‰å¿…è¦å†è®¡ç®—å®ƒã€‚
  */
 #define CHECKSUM_NONE 0
 /**
- * ÔÚ½ÓÊÕÊ±£¬±íÊ¾NICÒÔL4±¨Í·ºÍÓĞĞ§ÔØºÉ¼ÆËãÁËĞ£ÑéºÍ£¬È»ºó°ÑĞ£ÑéºÍ¿½±´µ½skb->csum×Ö¶Î¡£
- * Èí¼ş£¨ÈçL4½ÓÊÕº¯Êı£©²»½ö±ØĞë°ÑÎ±±¨Í·µÄĞ£ÑéºÍ¼ÓÖÁskb->csum£¬»¹±ØĞëÑéÖ¤×îºóËùµÃµÄĞ£ÑéºÍ¡£
- * ÔÚ´«ÊäÊ±£¬±íÊ¾Ğ­ÒéÖ»°ÑÎ±±¨Í·µÄĞ£ÑéºÍ´æ´¢ÖÁ±¨Í·ÄÚ£¬¶øÉè±¸Ó¦¸ÃÍ¨¹ıÌí¼ÓL4±¨Í·ºÍÓĞĞ§¸ºÔØµÄĞ£ÑéºÍÀ´Íê³ÉÆäËû¹¤×÷¡£
+ * åœ¨æ¥æ”¶æ—¶ï¼Œè¡¨ç¤ºNICä»¥L4æŠ¥å¤´å’Œæœ‰æ•ˆè½½è·è®¡ç®—äº†æ ¡éªŒå’Œï¼Œç„¶åæŠŠæ ¡éªŒå’Œæ‹·è´åˆ°skb->csumå­—æ®µã€‚
+ * è½¯ä»¶ï¼ˆå¦‚L4æ¥æ”¶å‡½æ•°ï¼‰ä¸ä»…å¿…é¡»æŠŠä¼ªæŠ¥å¤´çš„æ ¡éªŒå’ŒåŠ è‡³skb->csumï¼Œè¿˜å¿…é¡»éªŒè¯æœ€åæ‰€å¾—çš„æ ¡éªŒå’Œã€‚
+ * åœ¨ä¼ è¾“æ—¶ï¼Œè¡¨ç¤ºåè®®åªæŠŠä¼ªæŠ¥å¤´çš„æ ¡éªŒå’Œå­˜å‚¨è‡³æŠ¥å¤´å†…ï¼Œè€Œè®¾å¤‡åº”è¯¥é€šè¿‡æ·»åŠ L4æŠ¥å¤´å’Œæœ‰æ•ˆè´Ÿè½½çš„æ ¡éªŒå’Œæ¥å®Œæˆå…¶ä»–å·¥ä½œã€‚
  */
 #define CHECKSUM_HW 1
 /**
- * ÔÚ½ÓÊÕÊ±£¬±íÊ¾NICÒÑ¾­¼ÆËã²¢ÑéÖ¤ÁËL4±¨Í·ÒÔ¼°Î±±¨Í·µÄĞ£ÑéºÍ£¨Î±±¨Í·µÄĞ£ÑéºÍ¿ÉÒÔÓÉÉè±¸Çı¶¯³ÌĞòÔÚÈí¼şÖĞ¼ÆËã£©£¬ËùÒÔ£¬Èí¼şÎŞĞè¶ÔL4Ğ£ÑéÓëÑéÖ¤¹¤×÷ÔÙ×öÈÎºÎÊÂÇé¡£
- * µ±´íÎóµÄ·¢Éú¸ÅÂÊºÜµÍ£¬²»ÖµµÃÀË·ÑÊ±¼äºÍCPUÔËËãÄÜÁ¦È¥¼ÆËã¼°ÑéÖ¤L4Ğ£ÑéºÍÊ±£¬Ò²¿ÉÉè¶¨CHECKSUM_UNNECESSARY¡£
- * ÊµÀıÖ®Ò»¾ÍÊÇ»Ø»·Éè±¸.
- * ÔÚ´«ÊäÊ±£¬²»Ê¹ÓÃ´Ë±êÖ¾¡£
+ * åœ¨æ¥æ”¶æ—¶ï¼Œè¡¨ç¤ºNICå·²ç»è®¡ç®—å¹¶éªŒè¯äº†L4æŠ¥å¤´ä»¥åŠä¼ªæŠ¥å¤´çš„æ ¡éªŒå’Œï¼ˆä¼ªæŠ¥å¤´çš„æ ¡éªŒå’Œå¯ä»¥ç”±è®¾å¤‡é©±åŠ¨ç¨‹åºåœ¨è½¯ä»¶ä¸­è®¡ç®—ï¼‰ï¼Œæ‰€ä»¥ï¼Œè½¯ä»¶æ— éœ€å¯¹L4æ ¡éªŒä¸éªŒè¯å·¥ä½œå†åšä»»ä½•äº‹æƒ…ã€‚
+ * å½“é”™è¯¯çš„å‘ç”Ÿæ¦‚ç‡å¾ˆä½ï¼Œä¸å€¼å¾—æµªè´¹æ—¶é—´å’ŒCPUè¿ç®—èƒ½åŠ›å»è®¡ç®—åŠéªŒè¯L4æ ¡éªŒå’Œæ—¶ï¼Œä¹Ÿå¯è®¾å®šCHECKSUM_UNNECESSARYã€‚
+ * å®ä¾‹ä¹‹ä¸€å°±æ˜¯å›ç¯è®¾å¤‡.
+ * åœ¨ä¼ è¾“æ—¶ï¼Œä¸ä½¿ç”¨æ­¤æ ‡å¿—ã€‚
  */
 #define CHECKSUM_UNNECESSARY 2
 
@@ -131,22 +131,22 @@ struct nf_bridge_info {
 #endif
 
 /**
- * sk_buffË«ÏòÁ´±íÍ·½áµã¡£
+ * sk_buffåŒå‘é“¾è¡¨å¤´ç»“ç‚¹ã€‚
  */
 struct sk_buff_head {
 	/* These two members must be first. */
 	/**
-	 * Í·½áµãµÄÇ°ºóÖ¸Õë±ØĞëÓësk_buffÒ»Ñù£¬·Åµ½½á¹¹µÄÇ°Ãæ¡£
+	 * å¤´ç»“ç‚¹çš„å‰åæŒ‡é’ˆå¿…é¡»ä¸sk_buffä¸€æ ·ï¼Œæ”¾åˆ°ç»“æ„çš„å‰é¢ã€‚
 	 */
 	struct sk_buff	*next;
 	struct sk_buff	*prev;
 
 	/**
-	 * Õû¸öÁ´±íµÄ³¤¶È¡£
+	 * æ•´ä¸ªé“¾è¡¨çš„é•¿åº¦ã€‚
 	 */
 	__u32		qlen;
 	/**
-	 * ±£»¤Á´±íµÄ×ÔĞıËø¡£
+	 * ä¿æŠ¤é“¾è¡¨çš„è‡ªæ—‹é”ã€‚
 	 */
 	spinlock_t	lock;
 };
@@ -159,19 +159,19 @@ struct sk_buff;
 typedef struct skb_frag_struct skb_frag_t;
 
 /**
- * µ±Éè±¸Ö§³Ö·ÖÉ¢/¾Û¼¯IOÊ±£¬¸Ã½á¹¹±íÊ¾Ò»¶ÎÊı¾İÆ¬¶ÎÔÚÄÚ´æÖĞµÄÎ»ÖÃ¼°´óĞ¡¡£
+ * å½“è®¾å¤‡æ”¯æŒåˆ†æ•£/èšé›†IOæ—¶ï¼Œè¯¥ç»“æ„è¡¨ç¤ºä¸€æ®µæ•°æ®ç‰‡æ®µåœ¨å†…å­˜ä¸­çš„ä½ç½®åŠå¤§å°ã€‚
  */
 struct skb_frag_struct {
 	/**
-	 * Êı¾İÆ¬¶ÎÔÚÄÄ¸öÒ³ÃæÖĞ¡£
+	 * æ•°æ®ç‰‡æ®µåœ¨å“ªä¸ªé¡µé¢ä¸­ã€‚
 	 */
 	struct page *page;
 	/**
-	 * ÔÚÒ³ÃæÖĞµÄÆ«ÒÆ¡£
+	 * åœ¨é¡µé¢ä¸­çš„åç§»ã€‚
 	 */
 	__u16 page_offset;
 	/**
-	 * Æ¬¶Î³¤¶È¡£
+	 * ç‰‡æ®µé•¿åº¦ã€‚
 	 */
 	__u16 size;
 };
@@ -180,29 +180,29 @@ struct skb_frag_struct {
  * the end of the header data, ie. at skb->end.
  */
 /**
- * sk_buff¶ÔÓ¦µÄÊı¾İÇøµÄ¸½¼ÓĞÅÏ¢£¬ÔÚ»º³åÇøÊı¾İµÄÄ©Î²¡£
- * Õâ¸öÊı¾İ½á¹¹½ô¸úÔÚendÖ¸ÕëËùÖ¸µÄµØÖ·Ö®ºó£¨endÖ¸ÕëÖ¸Ê¾Êı¾İµÄÄ©Î²£©
+ * sk_buffå¯¹åº”çš„æ•°æ®åŒºçš„é™„åŠ ä¿¡æ¯ï¼Œåœ¨ç¼“å†²åŒºæ•°æ®çš„æœ«å°¾ã€‚
+ * è¿™ä¸ªæ•°æ®ç»“æ„ç´§è·Ÿåœ¨endæŒ‡é’ˆæ‰€æŒ‡çš„åœ°å€ä¹‹åï¼ˆendæŒ‡é’ˆæŒ‡ç¤ºæ•°æ®çš„æœ«å°¾ï¼‰
  */
 struct skb_shared_info {
 	/**
-	 * Êı¾İ¿éµÄ"ÓÃ»§"Êı,ÓÃÓÚ¿ËÂ¡ºÍ¿½±´»º³åÇø
+	 * æ•°æ®å—çš„"ç”¨æˆ·"æ•°,ç”¨äºå…‹éš†å’Œæ‹·è´ç¼“å†²åŒº
 	 */
 	atomic_t	dataref;
 	/**
-	 * ·ÖÉ¢/¾Û¼¯IOµÄÒ³ÃæÊı¡£
+	 * åˆ†æ•£/èšé›†IOçš„é¡µé¢æ•°ã€‚
 	 */
 	unsigned int	nr_frags;
 	/**
-	 * ÓÃÓÚTCP¶ÎĞ¶ÔØ£¨TSO£©
+	 * ç”¨äºTCPæ®µå¸è½½ï¼ˆTSOï¼‰
 	 */
 	unsigned short	tso_size;
 	unsigned short	tso_segs;
 	/**
-	 * ´æ´¢IP·ÖÆ¬
+	 * å­˜å‚¨IPåˆ†ç‰‡
 	 */
 	struct sk_buff	*frag_list;
 	/**
-	 * ·ÖÉ¢/¾Û¼¯IOÆôÓÃÊ±£¬Ö¸ÏòËùÓĞÒ³Ãæ¡£
+	 * åˆ†æ•£/èšé›†IOå¯ç”¨æ—¶ï¼ŒæŒ‡å‘æ‰€æœ‰é¡µé¢ã€‚
 	 */
 	skb_frag_t	frags[MAX_SKB_FRAGS];
 };
@@ -251,62 +251,62 @@ struct skb_shared_info {
  */
 
 /**
- * ½ÓÊÕ»ò·¢ËÍÊı¾İ°üµÄÔªĞÅÏ¢.
- * Õâ¸ö½á¹¹±»²»Í¬µÄÍøÂç²ã£¨MAC »òÕßÆäËû¶ş²ãÁ´Â·Ğ­Òé£¬Èı²ãµÄ IP£¬ËÄ²ãµÄ TCP »òUDPµÈ£©Ê¹ÓÃ£¬²¢ÇÒÆäÖĞµÄ³ÉÔ±±äÁ¿ÔÚ½á¹¹´ÓÒ»²ãÏòÁíÒ»²ã´«µİÊ±¸Ä±ä
+ * æ¥æ”¶æˆ–å‘é€æ•°æ®åŒ…çš„å…ƒä¿¡æ¯.
+ * è¿™ä¸ªç»“æ„è¢«ä¸åŒçš„ç½‘ç»œå±‚ï¼ˆMAC æˆ–è€…å…¶ä»–äºŒå±‚é“¾è·¯åè®®ï¼Œä¸‰å±‚çš„ IPï¼Œå››å±‚çš„ TCP æˆ–UDPç­‰ï¼‰ä½¿ç”¨ï¼Œå¹¶ä¸”å…¶ä¸­çš„æˆå‘˜å˜é‡åœ¨ç»“æ„ä»ä¸€å±‚å‘å¦ä¸€å±‚ä¼ é€’æ—¶æ”¹å˜
  */
 struct sk_buff {
 	/* These two members must be first. */
 	/**
-	 * ½«½á¹¹Á´ÈëË«ÏòÁ´±íµÄÖ¸Õë¡£
-	 * Ë«ÏòÁ´±íÍ·Ö¸ÕëÊÇÒ»¸ö¶ÀÁ¢µÄsk_buff_head¡£
+	 * å°†ç»“æ„é“¾å…¥åŒå‘é“¾è¡¨çš„æŒ‡é’ˆã€‚
+	 * åŒå‘é“¾è¡¨å¤´æŒ‡é’ˆæ˜¯ä¸€ä¸ªç‹¬ç«‹çš„sk_buff_headã€‚
 	 */
 	struct sk_buff		*next;
 	struct sk_buff		*prev;
 
 	/**
-	 * Ö¸ÏòË«ÏòÁ´±íµÄÍ·½áµã¡£ÕâÊÇÎªÁË¿ìËÙÕÒµ½°üËùÔÚÍ·½áµã¡£
+	 * æŒ‡å‘åŒå‘é“¾è¡¨çš„å¤´ç»“ç‚¹ã€‚è¿™æ˜¯ä¸ºäº†å¿«é€Ÿæ‰¾åˆ°åŒ…æ‰€åœ¨å¤´ç»“ç‚¹ã€‚
 	 */
 	struct sk_buff_head	*list;
 	/**
-	 * ÕâÊÇÒ»¸öÖ¸ÏòÓµÓĞÕâ¸ösk_buffµÄsock½á¹¹µÄÖ¸Õë¡£
-	 * Õâ¸öÖ¸ÕëÔÚÍøÂç°üÓÉ±¾»ú·¢³ö»òÕßÓÉ±¾»ú½ø³Ì½ÓÊÕÊ±ÓĞĞ§£¬ÒòÎª²å¿ÚÏà¹ØµÄĞÅÏ¢±»L4£¨TCP»òUDP£©»òÕßÓÃ»§¿Õ¼ä³ÌĞòÊ¹ÓÃ¡£
-	 * Èç¹ûsk_buffÖ»ÔÚ×ª·¢ÖĞÊ¹ÓÃ£¨ÕâÒâÎ¶×Å£¬Ô´µØÖ·ºÍÄ¿µÄµØÖ·¶¼²»ÊÇ±¾»úµØÖ·£©£¬Õâ¸öÖ¸ÕëÊÇNULL¡£
+	 * è¿™æ˜¯ä¸€ä¸ªæŒ‡å‘æ‹¥æœ‰è¿™ä¸ªsk_buffçš„sockç»“æ„çš„æŒ‡é’ˆã€‚
+	 * è¿™ä¸ªæŒ‡é’ˆåœ¨ç½‘ç»œåŒ…ç”±æœ¬æœºå‘å‡ºæˆ–è€…ç”±æœ¬æœºè¿›ç¨‹æ¥æ”¶æ—¶æœ‰æ•ˆï¼Œå› ä¸ºæ’å£ç›¸å…³çš„ä¿¡æ¯è¢«L4ï¼ˆTCPæˆ–UDPï¼‰æˆ–è€…ç”¨æˆ·ç©ºé—´ç¨‹åºä½¿ç”¨ã€‚
+	 * å¦‚æœsk_buffåªåœ¨è½¬å‘ä¸­ä½¿ç”¨ï¼ˆè¿™æ„å‘³ç€ï¼Œæºåœ°å€å’Œç›®çš„åœ°å€éƒ½ä¸æ˜¯æœ¬æœºåœ°å€ï¼‰ï¼Œè¿™ä¸ªæŒ‡é’ˆæ˜¯NULLã€‚
 	 */
 	struct sock		*sk;
 	/**
-	 * Õâ¸ö±äÁ¿Ö»¶Ô½ÓÊÕµ½µÄ°üÓĞÒâÒå¡£Ëü´ú±í°ü½ÓÊÕÊ±µÄÊ±¼ä´Á£¬»òÕßÓĞÊ±´ú±í°ü×¼±¸·¢³öÊ±µÄÊ±¼ä´Á¡£
-	 * ËüÔÚnetif_rxÀïÃæÓÉº¯Êınet_timestampÉèÖÃ£¬¶ønetif_rxÊÇÉè±¸Çı¶¯ÊÕµ½Ò»¸ö°üºóµ÷ÓÃµÄº¯Êı¡£
-	 * tv_sec±»ÉèÎªLOCALLY_ENQUEUED£¬±íÊ¾·ÅÔÚ¶ÓÁĞÖĞµÄ´úÀíARPÇëÇó¡£
+	 * è¿™ä¸ªå˜é‡åªå¯¹æ¥æ”¶åˆ°çš„åŒ…æœ‰æ„ä¹‰ã€‚å®ƒä»£è¡¨åŒ…æ¥æ”¶æ—¶çš„æ—¶é—´æˆ³ï¼Œæˆ–è€…æœ‰æ—¶ä»£è¡¨åŒ…å‡†å¤‡å‘å‡ºæ—¶çš„æ—¶é—´æˆ³ã€‚
+	 * å®ƒåœ¨netif_rxé‡Œé¢ç”±å‡½æ•°net_timestampè®¾ç½®ï¼Œè€Œnetif_rxæ˜¯è®¾å¤‡é©±åŠ¨æ”¶åˆ°ä¸€ä¸ªåŒ…åè°ƒç”¨çš„å‡½æ•°ã€‚
+	 * tv_secè¢«è®¾ä¸ºLOCALLY_ENQUEUEDï¼Œè¡¨ç¤ºæ”¾åœ¨é˜Ÿåˆ—ä¸­çš„ä»£ç†ARPè¯·æ±‚ã€‚
 	 */
 	struct timeval		stamp;
 	/**
-	 * Õâ¸ö±äÁ¿´ú±íÒ»¸öÍøÂçÉè±¸¡£devµÄ×÷ÓÃÓëÕâ¸ö°üÊÇ×¼±¸·¢³öµÄ°ü»¹ÊÇ¸Õ¸Õ½ÓÊÕµÄ°üÓĞ¹Ø¡£ 
- 	 * µ±ÊÕµ½Ò»¸ö°üÊ±£¬Éè±¸Çı¶¯»á°Ñsk_buffµÄdevÖ¸ÕëÖ¸ÏòÊÕµ½Õâ¸ö°üµÄÉè±¸µÄÊı¾İ½á¹¹¡£
-	 * µ±Ò»¸ö°ü±»·¢ËÍÊ±£¬Õâ¸ö±äÁ¿´ú±í½«Òª·¢ËÍÕâ¸ö°üµÄÉè±¸¡£
-	 * ÔÚÄ³Ğ©Çé¿öÏÂ£¬Ö¸Ïò´«ÊäÉè±¸µÄÖ¸Õë»áÔÚ°ü´¦Àí¹ı³ÌÖĞ±»¸Ä±ä(µ±·¢ËÍÉè±¸ÊÇÒ»¸öĞéÄâÉè±¸Ê±)¡£
+	 * è¿™ä¸ªå˜é‡ä»£è¡¨ä¸€ä¸ªç½‘ç»œè®¾å¤‡ã€‚devçš„ä½œç”¨ä¸è¿™ä¸ªåŒ…æ˜¯å‡†å¤‡å‘å‡ºçš„åŒ…è¿˜æ˜¯åˆšåˆšæ¥æ”¶çš„åŒ…æœ‰å…³ã€‚ 
+ 	 * å½“æ”¶åˆ°ä¸€ä¸ªåŒ…æ—¶ï¼Œè®¾å¤‡é©±åŠ¨ä¼šæŠŠsk_buffçš„devæŒ‡é’ˆæŒ‡å‘æ”¶åˆ°è¿™ä¸ªåŒ…çš„è®¾å¤‡çš„æ•°æ®ç»“æ„ã€‚
+	 * å½“ä¸€ä¸ªåŒ…è¢«å‘é€æ—¶ï¼Œè¿™ä¸ªå˜é‡ä»£è¡¨å°†è¦å‘é€è¿™ä¸ªåŒ…çš„è®¾å¤‡ã€‚
+	 * åœ¨æŸäº›æƒ…å†µä¸‹ï¼ŒæŒ‡å‘ä¼ è¾“è®¾å¤‡çš„æŒ‡é’ˆä¼šåœ¨åŒ…å¤„ç†è¿‡ç¨‹ä¸­è¢«æ”¹å˜(å½“å‘é€è®¾å¤‡æ˜¯ä¸€ä¸ªè™šæ‹Ÿè®¾å¤‡æ—¶)ã€‚
 	 */
 	struct net_device	*dev;
 	/**
-	 * ÕâÊÇÊÕµ½°üµÄÍøÂçÉè±¸µÄÖ¸Õë¡£
-	 * Èç¹û°üÊÇ±¾µØÉú³ÉµÄ£¬Õâ¸öÖµÎªNULL¡£
-	 * ¶ÔÒÔÌ«ÍøÉè±¸À´Ëµ£¬Õâ¸öÖµÓÉeth_type_trans³õÊ¼»¯¡£
-	 * ËüÖ÷Òª±»Á÷Á¿¿ØÖÆ´úÂëÊ¹ÓÃ¡£ 
+	 * è¿™æ˜¯æ”¶åˆ°åŒ…çš„ç½‘ç»œè®¾å¤‡çš„æŒ‡é’ˆã€‚
+	 * å¦‚æœåŒ…æ˜¯æœ¬åœ°ç”Ÿæˆçš„ï¼Œè¿™ä¸ªå€¼ä¸ºNULLã€‚
+	 * å¯¹ä»¥å¤ªç½‘è®¾å¤‡æ¥è¯´ï¼Œè¿™ä¸ªå€¼ç”±eth_type_transåˆå§‹åŒ–ã€‚
+	 * å®ƒä¸»è¦è¢«æµé‡æ§åˆ¶ä»£ç ä½¿ç”¨ã€‚ 
 	 */
 	struct net_device	*input_dev;
 	/**
-	 * Õâ¸ö±äÁ¿Ö»¶ÔĞéÄâÉè±¸ÓĞÒâÒå£¬Ëü´ú±íÓëĞéÄâÉè±¸¹ØÁªµÄÕæÊµÉè±¸¡£
-	 * ÀıÈç£¬BondingºÍVLANÉè±¸¶¼Ê¹ÓÃËüÀ´Ö¸ÏòÊÕµ½°üµÄÕæÊµÉè±¸¡£
+	 * è¿™ä¸ªå˜é‡åªå¯¹è™šæ‹Ÿè®¾å¤‡æœ‰æ„ä¹‰ï¼Œå®ƒä»£è¡¨ä¸è™šæ‹Ÿè®¾å¤‡å…³è”çš„çœŸå®è®¾å¤‡ã€‚
+	 * ä¾‹å¦‚ï¼ŒBondingå’ŒVLANè®¾å¤‡éƒ½ä½¿ç”¨å®ƒæ¥æŒ‡å‘æ”¶åˆ°åŒ…çš„çœŸå®è®¾å¤‡ã€‚
 	 */
 	struct net_device	*real_dev;
 
 	/**
-	 * ÕâĞ©ÊÇÖ¸ÏòTCP/IP¸÷²ãĞ­ÒéÍ·µÄÖ¸Õë£º
-	 *		hÖ¸ÏòL4
-	 *		nhÖ¸ÏòL3
-	 *		macÖ¸ÏòL2¡£
-	 * Ã¿¸öÖ¸ÕëµÄÀàĞÍ¶¼ÊÇÒ»¸öÁªºÏ£¬°üº¬¶à¸öÊı¾İ½á¹¹£¬Ã¿Ò»¸öÊı¾İ½á¹¹¶¼±íÊ¾ÄÚºËÔÚÕâÒ»²ã¿ÉÒÔ½âÎöµÄĞ­Òé¡£
-	 * ÀıÈç£¬h ÊÇÒ»¸ö°üº¬ÄÚºËËùÄÜ½âÎöµÄ L4 Ğ­ÒéµÄÊı¾İ½á¹¹µÄÁªºÏ¡£
-	 * Ã¿Ò»¸öÁªºÏ¶¼ÓĞÒ»¸öraw±äÁ¿ÓÃÓÚ³õÊ¼»¯£¬ºóĞøµÄ·ÃÎÊ¶¼ÊÇÍ¨¹ıĞ­ÒéÏà¹ØµÄ±äÁ¿½øĞĞµÄ¡£ 
+	 * è¿™äº›æ˜¯æŒ‡å‘TCP/IPå„å±‚åè®®å¤´çš„æŒ‡é’ˆï¼š
+	 *		hæŒ‡å‘L4
+	 *		nhæŒ‡å‘L3
+	 *		macæŒ‡å‘L2ã€‚
+	 * æ¯ä¸ªæŒ‡é’ˆçš„ç±»å‹éƒ½æ˜¯ä¸€ä¸ªè”åˆï¼ŒåŒ…å«å¤šä¸ªæ•°æ®ç»“æ„ï¼Œæ¯ä¸€ä¸ªæ•°æ®ç»“æ„éƒ½è¡¨ç¤ºå†…æ ¸åœ¨è¿™ä¸€å±‚å¯ä»¥è§£æçš„åè®®ã€‚
+	 * ä¾‹å¦‚ï¼Œh æ˜¯ä¸€ä¸ªåŒ…å«å†…æ ¸æ‰€èƒ½è§£æçš„ L4 åè®®çš„æ•°æ®ç»“æ„çš„è”åˆã€‚
+	 * æ¯ä¸€ä¸ªè”åˆéƒ½æœ‰ä¸€ä¸ªrawå˜é‡ç”¨äºåˆå§‹åŒ–ï¼Œåç»­çš„è®¿é—®éƒ½æ˜¯é€šè¿‡åè®®ç›¸å…³çš„å˜é‡è¿›è¡Œçš„ã€‚ 
 	 */
 	union {
 		struct tcphdr	*th;
@@ -330,12 +330,12 @@ struct sk_buff {
 	} mac;
 
 	/**
-	 * Õâ¸ö±äÁ¿ÔÚÂ·ÓÉ×ÓÏµÍ³ÖĞÊ¹ÓÃ¡£
-	 * ´æ´¢Èë°ü»òÕß³ö°üµÄÂ·ÓÉ»º´æÌõÄ¿¡£
+	 * è¿™ä¸ªå˜é‡åœ¨è·¯ç”±å­ç³»ç»Ÿä¸­ä½¿ç”¨ã€‚
+	 * å­˜å‚¨å…¥åŒ…æˆ–è€…å‡ºåŒ…çš„è·¯ç”±ç¼“å­˜æ¡ç›®ã€‚
 	 */
 	struct  dst_entry	*dst;
 	/**
-	 * Õâ¸ö±äÁ¿±»IPSecĞ­ÒéÓÃÓÚ¸ú×Ù´«ÊäµÄĞÅÏ¢¡£
+	 * è¿™ä¸ªå˜é‡è¢«IPSecåè®®ç”¨äºè·Ÿè¸ªä¼ è¾“çš„ä¿¡æ¯ã€‚
 	 */
 	struct	sec_path	*sp;
 
@@ -346,79 +346,79 @@ struct sk_buff {
 	 * first. This is owned by whoever has the skb queued ATM.
 	 */
 	/**
-	 * ÕâÊÇÒ»¸ö"control buffer"£¬»òÕßËµÊÇÒ»¸öË½ÓĞĞÅÏ¢µÄ´æ´¢¿Õ¼ä£¬ÓÉÃ¿Ò»²ã×Ô¼ºÎ¬»¤²¢Ê¹ÓÃ¡£
-	 * ËüÔÚ·ÖÅäsk_buff½á¹¹Ê±·ÖÅä£¨ËüÄ¿Ç°µÄ´óĞ¡ÊÇ40×Ö½Ú£¬ÒÑ¾­×ã¹»ÎªÃ¿Ò»²ã´æ´¢±ØÒªµÄË½ÓĞĞÅÏ¢ÁË£©¡£
-	 * ÔÚÃ¿Ò»²ãÖĞ£¬·ÃÎÊÕâ¸ö±äÁ¿µÄ´úÂëÍ¨³£ÓÃºêÊµÏÖÒÔÔöÇ¿´úÂëµÄ¿É¶ÁĞÔ¡£
+	 * è¿™æ˜¯ä¸€ä¸ª"control buffer"ï¼Œæˆ–è€…è¯´æ˜¯ä¸€ä¸ªç§æœ‰ä¿¡æ¯çš„å­˜å‚¨ç©ºé—´ï¼Œç”±æ¯ä¸€å±‚è‡ªå·±ç»´æŠ¤å¹¶ä½¿ç”¨ã€‚
+	 * å®ƒåœ¨åˆ†é…sk_buffç»“æ„æ—¶åˆ†é…ï¼ˆå®ƒç›®å‰çš„å¤§å°æ˜¯40å­—èŠ‚ï¼Œå·²ç»è¶³å¤Ÿä¸ºæ¯ä¸€å±‚å­˜å‚¨å¿…è¦çš„ç§æœ‰ä¿¡æ¯äº†ï¼‰ã€‚
+	 * åœ¨æ¯ä¸€å±‚ä¸­ï¼Œè®¿é—®è¿™ä¸ªå˜é‡çš„ä»£ç é€šå¸¸ç”¨å®å®ç°ä»¥å¢å¼ºä»£ç çš„å¯è¯»æ€§ã€‚
 	 */
 	char			cb[40];
 
 	/**
-	 * ÕâÊÇ»º³åÇøÖĞÊı¾İ²¿·ÖµÄ³¤¶È¡£Ëü°üÀ¨Ö÷»º³åÇøÖĞµÄÊı¾İ³¤¶È£¨dataÖ¸ÕëÖ¸ÏòËü£©ºÍ·ÖÆ¬ÖĞµÄÊı¾İ³¤¶È¡£
-	 * ËüµÄÖµÔÚ»º³åÇø´ÓÒ»¸ö²ãÏòÁíÒ»¸ö²ã´«µİÊ±¸Ä±ä£¬ÒòÎªÍùÉÏ²ã´«µİ£¬¾ÉµÄÍ·²¿¾ÍÃ»ÓĞÓÃÁË£¬¶øÍùÏÂ²ã´«µİ£¬ĞèÒªÌí¼Ó±¾²ãµÄÍ·²¿¡£
-	 * len Í¬Ñù°üº¬ÁËĞ­ÒéÍ·µÄ³¤¶È¡£
+	 * è¿™æ˜¯ç¼“å†²åŒºä¸­æ•°æ®éƒ¨åˆ†çš„é•¿åº¦ã€‚å®ƒåŒ…æ‹¬ä¸»ç¼“å†²åŒºä¸­çš„æ•°æ®é•¿åº¦ï¼ˆdataæŒ‡é’ˆæŒ‡å‘å®ƒï¼‰å’Œåˆ†ç‰‡ä¸­çš„æ•°æ®é•¿åº¦ã€‚
+	 * å®ƒçš„å€¼åœ¨ç¼“å†²åŒºä»ä¸€ä¸ªå±‚å‘å¦ä¸€ä¸ªå±‚ä¼ é€’æ—¶æ”¹å˜ï¼Œå› ä¸ºå¾€ä¸Šå±‚ä¼ é€’ï¼Œæ—§çš„å¤´éƒ¨å°±æ²¡æœ‰ç”¨äº†ï¼Œè€Œå¾€ä¸‹å±‚ä¼ é€’ï¼Œéœ€è¦æ·»åŠ æœ¬å±‚çš„å¤´éƒ¨ã€‚
+	 * len åŒæ ·åŒ…å«äº†åè®®å¤´çš„é•¿åº¦ã€‚
 	 */
 	unsigned int		len,
 	/**
-	 * ·ÖÆ¬ÖĞÊı¾İµÄ³¤¶È.
+	 * åˆ†ç‰‡ä¸­æ•°æ®çš„é•¿åº¦.
 	 */
 				data_len,
 	/**
-	 * macÍ·µÄ³¤¶È¡£
+	 * macå¤´çš„é•¿åº¦ã€‚
 	 */
 				mac_len,
 	/**
-	 * ±íÊ¾Ğ£ÑéºÍ
-	 * µ±½ÓÊÕÒ»¸ö°üÊ±£¬csum¿ÉÄÜ°üº¬ÆäL4Ğ£ÑéºÍ¡£
-	 * µ±°ü´«Êäºó£¬csum´ú±íÖ¸Ïò»º³åÇøÄÚµÄµØµãµÄÖ¸Õë£¬²»ÔÙÊÇĞ£ÑéºÍ±¾Éí¡£¶ø´ËµØµãÊÇÓ²¼şÊÊÅä¿¨´æ·ÅĞ£ÑéºÍµÄµØ·½¡£Òò´Ë£¬ÔÚ°ü´«ÊäÆÚ¼ä£¬Ö»ÓĞµ±Ğ£ÑéºÍÊÇÔÚÓ²¼şÖĞ¼ÆËãÊ±£¬²Å»áÓÃµ½´Ë×Ö¶Î¡£
+	 * è¡¨ç¤ºæ ¡éªŒå’Œ
+	 * å½“æ¥æ”¶ä¸€ä¸ªåŒ…æ—¶ï¼Œcsumå¯èƒ½åŒ…å«å…¶L4æ ¡éªŒå’Œã€‚
+	 * å½“åŒ…ä¼ è¾“åï¼Œcsumä»£è¡¨æŒ‡å‘ç¼“å†²åŒºå†…çš„åœ°ç‚¹çš„æŒ‡é’ˆï¼Œä¸å†æ˜¯æ ¡éªŒå’Œæœ¬èº«ã€‚è€Œæ­¤åœ°ç‚¹æ˜¯ç¡¬ä»¶é€‚é…å¡å­˜æ”¾æ ¡éªŒå’Œçš„åœ°æ–¹ã€‚å› æ­¤ï¼Œåœ¨åŒ…ä¼ è¾“æœŸé—´ï¼Œåªæœ‰å½“æ ¡éªŒå’Œæ˜¯åœ¨ç¡¬ä»¶ä¸­è®¡ç®—æ—¶ï¼Œæ‰ä¼šç”¨åˆ°æ­¤å­—æ®µã€‚
 	 */
 				csum;
 	unsigned char		local_df,
 	/**
-	 * Ò»¸ö²¼¶û±ê¼Ç£¬µ±±»ÉèÖÃÊ±£¬±íÊ¾Õâ¸ö½á¹¹ÊÇÁíÒ»¸ösk_buffµÄ¿ËÂ¡¡£
+	 * ä¸€ä¸ªå¸ƒå°”æ ‡è®°ï¼Œå½“è¢«è®¾ç½®æ—¶ï¼Œè¡¨ç¤ºè¿™ä¸ªç»“æ„æ˜¯å¦ä¸€ä¸ªsk_buffçš„å…‹éš†ã€‚
 	 */
 				cloned,
 	/**
-	 * Õâ¸ö±äÁ¿±íÊ¾Ö¡µÄÀàĞÍ£¬·ÖÀàÊÇÓÉ L2 µÄÄ¿µÄµØÖ·À´¾ö¶¨µÄ¡£
-	 * ¿ÉÄÜµÄÈ¡Öµ¶¼ÔÚinclude/linux/if_packet.hÖĞ¶¨Òå¡£
-	 * ¶ÔÒÔÌ«ÍøÉè±¸À´Ëµ£¬Õâ¸ö±äÁ¿ÓÉeth_type_transº¯Êı³õÊ¼»¯¡£ 
+	 * è¿™ä¸ªå˜é‡è¡¨ç¤ºå¸§çš„ç±»å‹ï¼Œåˆ†ç±»æ˜¯ç”± L2 çš„ç›®çš„åœ°å€æ¥å†³å®šçš„ã€‚
+	 * å¯èƒ½çš„å–å€¼éƒ½åœ¨include/linux/if_packet.hä¸­å®šä¹‰ã€‚
+	 * å¯¹ä»¥å¤ªç½‘è®¾å¤‡æ¥è¯´ï¼Œè¿™ä¸ªå˜é‡ç”±eth_type_transå‡½æ•°åˆå§‹åŒ–ã€‚ 
 	 */
 				pkt_type,
 	/**
-	 * L4Ğ£ÑéºÍ×´Ì¬±ê¼Ç.
-	 * µ±IP²ãÖªµÀL4²ãĞ£ÑéºÍÊ§Ğ§Ê±£¨ÀıÈçÎ±±¨Í·ÖĞµÄÄ³¸ö×Ö¶Î±»ĞŞ¸Ä£©£¬ËüÎ¬»¤Õâ¸ö×Ö¶ÎµÄÖµ¡£
+	 * L4æ ¡éªŒå’ŒçŠ¶æ€æ ‡è®°.
+	 * å½“IPå±‚çŸ¥é“L4å±‚æ ¡éªŒå’Œå¤±æ•ˆæ—¶ï¼ˆä¾‹å¦‚ä¼ªæŠ¥å¤´ä¸­çš„æŸä¸ªå­—æ®µè¢«ä¿®æ”¹ï¼‰ï¼Œå®ƒç»´æŠ¤è¿™ä¸ªå­—æ®µçš„å€¼ã€‚
 	 */
 				ip_summed;
 	/**
-	 * Õâ¸ö±äÁ¿ÃèÊö·¢ËÍ»ò×ª·¢°üµÄQoS Àà±ğ¡£
-	 * Èç¹û°üÊÇ±¾µØÉú³ÉµÄ£¬socket ²ã»áÉèÖÃpriority±äÁ¿¡£
-	 * Èç¹û°üÊÇ½«Òª±»×ª·¢µÄ£¬rt_tos2priorityº¯Êı»á¸ù¾İipÍ·ÖĞµÄTosÓòÀ´¼ÆËã¸³¸øÕâ¸ö±äÁ¿µÄÖµ¡£
-	 * Õâ¸ö±äÁ¿µÄÖµÓëµÚ18ÕÂÃèÊöµÄ DSCP£¨DiffServ  Code Point£©Ã»ÓĞÈÎºÎ¹ØÏµ¡£
+	 * è¿™ä¸ªå˜é‡æè¿°å‘é€æˆ–è½¬å‘åŒ…çš„QoS ç±»åˆ«ã€‚
+	 * å¦‚æœåŒ…æ˜¯æœ¬åœ°ç”Ÿæˆçš„ï¼Œsocket å±‚ä¼šè®¾ç½®priorityå˜é‡ã€‚
+	 * å¦‚æœåŒ…æ˜¯å°†è¦è¢«è½¬å‘çš„ï¼Œrt_tos2priorityå‡½æ•°ä¼šæ ¹æ®ipå¤´ä¸­çš„TosåŸŸæ¥è®¡ç®—èµ‹ç»™è¿™ä¸ªå˜é‡çš„å€¼ã€‚
+	 * è¿™ä¸ªå˜é‡çš„å€¼ä¸ç¬¬18ç« æè¿°çš„ DSCPï¼ˆDiffServ  Code Pointï¼‰æ²¡æœ‰ä»»ä½•å…³ç³»ã€‚
 	 */
 	__u32			priority;
 	/**
-	 * Õâ¸ö±äÁ¿ÊÇ¸ß²ãĞ­Òé´Ó¶ş²ãÉè±¸µÄ½Ç¶ÈËù¿´µ½µÄĞ­Òé¡£ÒÔÍøÂç×Ö½ÚĞò½øĞĞ±£´æ¡£
-	 * µäĞÍµÄĞ­Òé°üÀ¨ IP£¬IPV6ºÍARP¡£
-	 * ÍêÕûµÄÁĞ±íÔÚinclude/linux/if_ether.hÖĞ¡£
-	 * ÓÉÓÚÃ¿¸öĞ­Òé¶¼ÓĞ×Ô¼ºµÄĞ­Òé´¦Àíº¯ÊıÀ´´¦Àí½ÓÊÕµ½µÄ°ü£¬Òò´Ë£¬Õâ¸öÓò±»Éè±¸Çı¶¯ÓÃÓÚÍ¨ÖªÉÏ²ãµ÷ÓÃÄÄ¸öĞ­Òé´¦Àíº¯Êı¡£
-	 * Ã¿¸öÍøÂçÇı¶¯¶¼µ÷ÓÃ netif_rx À´Í¨ÖªÉÏ²ãÍøÂçĞ­ÒéµÄĞ­Òé´¦Àíº¯Êı£¬Òò´Ëprotocol±äÁ¿±ØĞëÔÚÕâĞ©Ğ­Òé´¦Àíº¯Êıµ÷ÓÃÖ®Ç°³õÊ¼»¯¡£
+	 * è¿™ä¸ªå˜é‡æ˜¯é«˜å±‚åè®®ä»äºŒå±‚è®¾å¤‡çš„è§’åº¦æ‰€çœ‹åˆ°çš„åè®®ã€‚ä»¥ç½‘ç»œå­—èŠ‚åºè¿›è¡Œä¿å­˜ã€‚
+	 * å…¸å‹çš„åè®®åŒ…æ‹¬ IPï¼ŒIPV6å’ŒARPã€‚
+	 * å®Œæ•´çš„åˆ—è¡¨åœ¨include/linux/if_ether.hä¸­ã€‚
+	 * ç”±äºæ¯ä¸ªåè®®éƒ½æœ‰è‡ªå·±çš„åè®®å¤„ç†å‡½æ•°æ¥å¤„ç†æ¥æ”¶åˆ°çš„åŒ…ï¼Œå› æ­¤ï¼Œè¿™ä¸ªåŸŸè¢«è®¾å¤‡é©±åŠ¨ç”¨äºé€šçŸ¥ä¸Šå±‚è°ƒç”¨å“ªä¸ªåè®®å¤„ç†å‡½æ•°ã€‚
+	 * æ¯ä¸ªç½‘ç»œé©±åŠ¨éƒ½è°ƒç”¨ netif_rx æ¥é€šçŸ¥ä¸Šå±‚ç½‘ç»œåè®®çš„åè®®å¤„ç†å‡½æ•°ï¼Œå› æ­¤protocolå˜é‡å¿…é¡»åœ¨è¿™äº›åè®®å¤„ç†å‡½æ•°è°ƒç”¨ä¹‹å‰åˆå§‹åŒ–ã€‚
 	 */
 	unsigned short		protocol,
 	/**
-	 * ÕâÊÇ°üµÄ°²È«¼¶±ğ¡£Õâ¸ö±äÁ¿×î³õÓÉIPSec×ÓÏµÍ³Ê¹ÓÃ£¬µ«ÏÖÔÚÒÑ¾­×÷·ÏÁË¡£
+	 * è¿™æ˜¯åŒ…çš„å®‰å…¨çº§åˆ«ã€‚è¿™ä¸ªå˜é‡æœ€åˆç”±IPSecå­ç³»ç»Ÿä½¿ç”¨ï¼Œä½†ç°åœ¨å·²ç»ä½œåºŸäº†ã€‚
 	 */
 				security;
 
 	/**
-	 * Õâ¸öº¯ÊıÖ¸Õë¿ÉÒÔ³õÊ¼»¯³ÉÒ»¸öÔÚ»º³åÇøÊÍ·ÅÊ±Íê³ÉÄ³Ğ©¶¯×÷µÄº¯Êı¡£
-	 * Èç¹û»º³åÇø²»ÊôÓÚÒ»¸ösocket£¬Õâ¸öº¯ÊıÖ¸ÕëÍ¨³£ÊÇ²»»á±»¸³ÖµµÄ¡£
-	 * Èç¹û»º³åÇøÊôÓÚÒ»¸ösocket£¬Õâ¸öº¯ÊıÖ¸Õë»á±»¸³ÖµÎª sock_rfree »ò sock_wfree£¨·Ö±ğÓÉ skb_set_owner_r »òskb_set_owner_wº¯Êı³õÊ¼»¯£©¡£
-	 * ÕâÁ½¸ösock_xxxº¯ÊıÓÃÓÚ¸üĞÂsocketµÄ¶ÓÁĞÖĞµÄÄÚ´æÈİÁ¿¡£
+	 * è¿™ä¸ªå‡½æ•°æŒ‡é’ˆå¯ä»¥åˆå§‹åŒ–æˆä¸€ä¸ªåœ¨ç¼“å†²åŒºé‡Šæ”¾æ—¶å®ŒæˆæŸäº›åŠ¨ä½œçš„å‡½æ•°ã€‚
+	 * å¦‚æœç¼“å†²åŒºä¸å±äºä¸€ä¸ªsocketï¼Œè¿™ä¸ªå‡½æ•°æŒ‡é’ˆé€šå¸¸æ˜¯ä¸ä¼šè¢«èµ‹å€¼çš„ã€‚
+	 * å¦‚æœç¼“å†²åŒºå±äºä¸€ä¸ªsocketï¼Œè¿™ä¸ªå‡½æ•°æŒ‡é’ˆä¼šè¢«èµ‹å€¼ä¸º sock_rfree æˆ– sock_wfreeï¼ˆåˆ†åˆ«ç”± skb_set_owner_r æˆ–skb_set_owner_wå‡½æ•°åˆå§‹åŒ–ï¼‰ã€‚
+	 * è¿™ä¸¤ä¸ªsock_xxxå‡½æ•°ç”¨äºæ›´æ–°socketçš„é˜Ÿåˆ—ä¸­çš„å†…å­˜å®¹é‡ã€‚
 	 */
 	void			(*destructor)(struct sk_buff *skb);
 #ifdef CONFIG_NETFILTER
 	/**
-	 * ÕâĞ©±äÁ¿±» netfilter Ê¹ÓÃ£¨·À»ğÇ½´úÂë£©,²ßÂÔÂ·ÓÉÊ¹ÓÃ¸Ã×Ö¶ÎÀ´È·¶¨¶ÔÈëÁ÷Á¿ºÍ³öÁ÷Á¿µÄÂ·ÓÉÓ¦µ±Ê¹ÓÃÄÄÒ»ÕÅÂ·ÓÉ±í¡£
-	 * Îª0±íÊ¾²»´æÔÚ·À»ğÇ½±êÇ©¡£
+	 * è¿™äº›å˜é‡è¢« netfilter ä½¿ç”¨ï¼ˆé˜²ç«å¢™ä»£ç ï¼‰,ç­–ç•¥è·¯ç”±ä½¿ç”¨è¯¥å­—æ®µæ¥ç¡®å®šå¯¹å…¥æµé‡å’Œå‡ºæµé‡çš„è·¯ç”±åº”å½“ä½¿ç”¨å“ªä¸€å¼ è·¯ç”±è¡¨ã€‚
+	 * ä¸º0è¡¨ç¤ºä¸å­˜åœ¨é˜²ç«å¢™æ ‡ç­¾ã€‚
 	 */
         unsigned long		nfmark;
 	__u32			nfcache;
@@ -433,7 +433,7 @@ struct sk_buff {
 #endif /* CONFIG_NETFILTER */
 #if defined(CONFIG_HIPPI)
 	/**
-	 * Õâ¸öÁªºÏ½á¹¹±»¸ßĞÔÄÜ²¢ĞĞ½Ó¿Ú£¨HIPPI£©Ê¹ÓÃ¡£
+	 * è¿™ä¸ªè”åˆç»“æ„è¢«é«˜æ€§èƒ½å¹¶è¡Œæ¥å£ï¼ˆHIPPIï¼‰ä½¿ç”¨ã€‚
 	 */
 	union {
 		__u32		ifield;
@@ -441,7 +441,7 @@ struct sk_buff {
 #endif
 #ifdef CONFIG_NET_SCHED
 	/**
-	 * ÕâĞ©±äÁ¿±»Á÷Á¿¿ØÖÆ´úÂëÊ¹ÓÃ
+	 * è¿™äº›å˜é‡è¢«æµé‡æ§åˆ¶ä»£ç ä½¿ç”¨
 	 */
        __u32			tc_index;        /* traffic control index */
 #ifdef CONFIG_NET_CLS_ACT
@@ -454,24 +454,24 @@ struct sk_buff {
 
 	/* These elements must be at the end, see alloc_skb() for details.  */
 	/**
-	 * ÕâÊÇ»º³åÇøµÄ×Ü³¤¶È£¬°üÀ¨ sk_buff ½á¹¹ºÍÊı¾İ²¿·Ö¡£
-	 * Èç¹ûÉêÇëÒ»¸ö len ×Ö½ÚµÄ»º³åÇø£¬alloc_skbº¯Êı»á°ÑËü³õÊ¼»¯³Élen+sizeof(sk_buff)¡£
-	 * µ±skb->len±ä»¯Ê±£¬Õâ¸ö±äÁ¿Ò²»á±ä»¯¡£
+	 * è¿™æ˜¯ç¼“å†²åŒºçš„æ€»é•¿åº¦ï¼ŒåŒ…æ‹¬ sk_buff ç»“æ„å’Œæ•°æ®éƒ¨åˆ†ã€‚
+	 * å¦‚æœç”³è¯·ä¸€ä¸ª len å­—èŠ‚çš„ç¼“å†²åŒºï¼Œalloc_skbå‡½æ•°ä¼šæŠŠå®ƒåˆå§‹åŒ–æˆlen+sizeof(sk_buff)ã€‚
+	 * å½“skb->lenå˜åŒ–æ—¶ï¼Œè¿™ä¸ªå˜é‡ä¹Ÿä¼šå˜åŒ–ã€‚
 	 */
 	unsigned int		truesize;
 	/**
-	 * ÕâÊÇÒ»¸öÒıÓÃ¼ÆÊı£¬ÓÃÓÚ¼ÆËãÓĞ¶àÉÙÊµÌåÒıÓÃÁËÕâ¸ösk_buff»º³åÇø¡£
-	 * ËüµÄÖ÷ÒªÓÃÍ¾ÊÇ·ÀÖ¹ÊÍ·Åsk_buffºó£¬»¹ÓĞÆäËûÊµÌåÒıÓÃÕâ¸ösk_buff¡£
-	 * Òò´Ë£¬Ã¿¸öÒıÓÃÕâ¸ö»º³åÇøµÄÊµÌå¶¼±ØĞëÔÚÊÊµ±µÄÊ±ºòÔö¼Ó»ò¼õĞ¡Õâ¸ö±äÁ¿¡£
-	 * Õâ¸ö¼ÆÊıÆ÷Ö»±£»¤sk_buff½á¹¹±¾Éí£¬¶ø»º³åÇøµÄÊı¾İ²¿·ÖÓÉÀàËÆµÄ¼ÆÊıÆ÷£¨dataref£©À´±£»¤¡£ 
-	 * ÓĞÊ±¿ÉÒÔÓÃatomic_incºÍatomic_decº¯ÊıÀ´Ö±½ÓÔö¼Ó»ò¼õĞ¡users£¬µ«ÊÇ£¬Í¨³£»¹ÊÇÊ¹ÓÃº¯Êıskb_getºÍkfree_skbÀ´²Ù×÷Õâ¸ö±äÁ¿¡£
+	 * è¿™æ˜¯ä¸€ä¸ªå¼•ç”¨è®¡æ•°ï¼Œç”¨äºè®¡ç®—æœ‰å¤šå°‘å®ä½“å¼•ç”¨äº†è¿™ä¸ªsk_buffç¼“å†²åŒºã€‚
+	 * å®ƒçš„ä¸»è¦ç”¨é€”æ˜¯é˜²æ­¢é‡Šæ”¾sk_buffåï¼Œè¿˜æœ‰å…¶ä»–å®ä½“å¼•ç”¨è¿™ä¸ªsk_buffã€‚
+	 * å› æ­¤ï¼Œæ¯ä¸ªå¼•ç”¨è¿™ä¸ªç¼“å†²åŒºçš„å®ä½“éƒ½å¿…é¡»åœ¨é€‚å½“çš„æ—¶å€™å¢åŠ æˆ–å‡å°è¿™ä¸ªå˜é‡ã€‚
+	 * è¿™ä¸ªè®¡æ•°å™¨åªä¿æŠ¤sk_buffç»“æ„æœ¬èº«ï¼Œè€Œç¼“å†²åŒºçš„æ•°æ®éƒ¨åˆ†ç”±ç±»ä¼¼çš„è®¡æ•°å™¨ï¼ˆdatarefï¼‰æ¥ä¿æŠ¤ã€‚ 
+	 * æœ‰æ—¶å¯ä»¥ç”¨atomic_incå’Œatomic_decå‡½æ•°æ¥ç›´æ¥å¢åŠ æˆ–å‡å°usersï¼Œä½†æ˜¯ï¼Œé€šå¸¸è¿˜æ˜¯ä½¿ç”¨å‡½æ•°skb_getå’Œkfree_skbæ¥æ“ä½œè¿™ä¸ªå˜é‡ã€‚
 	 */
 	atomic_t		users;
 	/**
-	 * ËüÃÇ±íÊ¾»º³åÇøºÍÊı¾İ²¿·ÖµÄ±ß½ç¡£
-	 * ÔÚÃ¿Ò»²ãÉêÇë»º³åÇøÊ±£¬Ëü»á·ÖÅä±ÈĞ­ÒéÍ·»òĞ­ÒéÊı¾İ´óµÄ¿Õ¼ä¡£
-	 * headºÍendÖ¸Ïò»º³åÇøµÄÍ·²¿ºÍÎ²²¿£¬¶ødata ºÍtail Ö¸ÏòÊµ¼ÊÊı¾İµÄÍ·²¿ºÍÎ²²¿¡£
-	 * Ã¿Ò»²ã»áÔÚheadºÍdataÖ®¼äÌî³äĞ­ÒéÍ·£¬»òÕßÔÚtail ºÍ end Ö®¼äÌí¼ÓĞÂµÄĞ­ÒéÊı¾İ¡£
+	 * å®ƒä»¬è¡¨ç¤ºç¼“å†²åŒºå’Œæ•°æ®éƒ¨åˆ†çš„è¾¹ç•Œã€‚
+	 * åœ¨æ¯ä¸€å±‚ç”³è¯·ç¼“å†²åŒºæ—¶ï¼Œå®ƒä¼šåˆ†é…æ¯”åè®®å¤´æˆ–åè®®æ•°æ®å¤§çš„ç©ºé—´ã€‚
+	 * headå’ŒendæŒ‡å‘ç¼“å†²åŒºçš„å¤´éƒ¨å’Œå°¾éƒ¨ï¼Œè€Œdata å’Œtail æŒ‡å‘å®é™…æ•°æ®çš„å¤´éƒ¨å’Œå°¾éƒ¨ã€‚
+	 * æ¯ä¸€å±‚ä¼šåœ¨headå’Œdataä¹‹é—´å¡«å……åè®®å¤´ï¼Œæˆ–è€…åœ¨tail å’Œ end ä¹‹é—´æ·»åŠ æ–°çš„åè®®æ•°æ®ã€‚
 	 */
 	unsigned char		*head,
 				*data,
@@ -504,7 +504,7 @@ extern struct sk_buff *skb_copy_expand(const struct sk_buff *skb,
 				       int priority);
 extern struct sk_buff *		skb_pad(struct sk_buff *skb, int pad);
 /**
- * Óëdev_alloc_skb¶ÔÓ¦£¬´Ë´¦½ö½ö¼òµ¥µÄµ÷ÓÃkfree_skb
+ * ä¸dev_alloc_skbå¯¹åº”ï¼Œæ­¤å¤„ä»…ä»…ç®€å•çš„è°ƒç”¨kfree_skb
  */
 #define dev_kfree_skb(a)	kfree_skb(a)
 extern void	      skb_over_panic(struct sk_buff *skb, int len,
@@ -514,7 +514,7 @@ extern void	      skb_under_panic(struct sk_buff *skb, int len,
 
 /* Internal */
 /**
- * sk_buff¶ÔÓ¦µÄskb_shared_info½á¹¹µÄÖ¸Õë,ÓÉendÖ¸Ïò
+ * sk_buffå¯¹åº”çš„skb_shared_infoç»“æ„çš„æŒ‡é’ˆ,ç”±endæŒ‡å‘
  */
 #define skb_shinfo(SKB)		((struct skb_shared_info *)((SKB)->end))
 
@@ -555,20 +555,20 @@ static inline struct sk_buff *skb_get(struct sk_buff *skb)
  *	hit zero.
  */
 /**
- * ÊÍ·Åsk_buff£¬µ±ËüµÄÒıÓÃ¼ÆÊı±ä³É0Ê±¡£
- * kfree_skb¿ÉÒÔÖ±½Óµ÷ÓÃ£¬Ò²¿ÉÒÔÍ¨¹ı°ü×°º¯Êı dev_kfree_skb µ÷ÓÃ
+ * é‡Šæ”¾sk_buffï¼Œå½“å®ƒçš„å¼•ç”¨è®¡æ•°å˜æˆ0æ—¶ã€‚
+ * kfree_skbå¯ä»¥ç›´æ¥è°ƒç”¨ï¼Œä¹Ÿå¯ä»¥é€šè¿‡åŒ…è£…å‡½æ•° dev_kfree_skb è°ƒç”¨
  */
 static inline void kfree_skb(struct sk_buff *skb)
 {
 	/**
-	 * Èç¹ûµ±Ç°ÒıÓÃ¼ÆÊıÎª1£¬ÔòÕæÕıÊÍ·ÅÒıÓÃ¼ÆÊı¡£
+	 * å¦‚æœå½“å‰å¼•ç”¨è®¡æ•°ä¸º1ï¼Œåˆ™çœŸæ­£é‡Šæ”¾å¼•ç”¨è®¡æ•°ã€‚
 	 */
 	if (likely(atomic_read(&skb->users) == 1))
 		smp_rmb();
-	else if (likely(!atomic_dec_and_test(&skb->users))) /* µ±Ç°ÒıÓÃ¼ÆÊı²»Îª1£¬Ôò½øĞĞµİ¼õ¡£Èç¹ûµİ¼õºó½á¹û²»Îª0£¬ÔòÍË³ö¡£ */
+	else if (likely(!atomic_dec_and_test(&skb->users))) /* å½“å‰å¼•ç”¨è®¡æ•°ä¸ä¸º1ï¼Œåˆ™è¿›è¡Œé€’å‡ã€‚å¦‚æœé€’å‡åç»“æœä¸ä¸º0ï¼Œåˆ™é€€å‡ºã€‚ */
 		return;
 	/**
-	 * ÒıÓÃ¼ÆÊıÎª0£¬ĞèÒªÊÍ·Åsk_buffÕ¼ÓÃµÄÄÚ´æ£¬Í¬Ê±»¹»áÊÍ·ÅÏà¹ØµÄÊı¾İ½á¹¹Èçdst_entry.
+	 * å¼•ç”¨è®¡æ•°ä¸º0ï¼Œéœ€è¦é‡Šæ”¾sk_buffå ç”¨çš„å†…å­˜ï¼ŒåŒæ—¶è¿˜ä¼šé‡Šæ”¾ç›¸å…³çš„æ•°æ®ç»“æ„å¦‚dst_entry.
 	 */
 	__kfree_skb(skb);
 }
@@ -582,7 +582,7 @@ static inline void kfree_skb(struct sk_buff *skb)
  *	shared data so must not be written to under normal circumstances.
  */
 /**
- * ²âÊÔskbµÄ¿ËÂ¡×´Ì¬¡£
+ * æµ‹è¯•skbçš„å…‹éš†çŠ¶æ€ã€‚
  */
 static inline int skb_cloned(const struct sk_buff *skb)
 {
@@ -615,7 +615,7 @@ static inline int skb_shared(const struct sk_buff *skb)
  *	NULL is returned on a memory allocation failure.
  */
 /**
- * ¼ì²éÒıÓÃ¼ÆÊı skb->users£¬Èç¹û users ±äÁ¿±íÃ÷ skb ÊÇ±»¹²ÏíµÄ£¬Ôò¿ËÂ¡Ò»¸öĞÂµÄsk_buff¡£
+ * æ£€æŸ¥å¼•ç”¨è®¡æ•° skb->usersï¼Œå¦‚æœ users å˜é‡è¡¨æ˜ skb æ˜¯è¢«å…±äº«çš„ï¼Œåˆ™å…‹éš†ä¸€ä¸ªæ–°çš„sk_buffã€‚
  */
 static inline struct sk_buff *skb_share_check(struct sk_buff *skb, int pri)
 {
@@ -713,7 +713,7 @@ static inline __u32 skb_queue_len(const struct sk_buff_head *list_)
 }
 
 /**
- * ³õÊ¼»¯sk_buff_head½á¹¹£¬´´½¨Ò»¸ö¿Õ¶ÓÁĞ¡£
+ * åˆå§‹åŒ–sk_buff_headç»“æ„ï¼Œåˆ›å»ºä¸€ä¸ªç©ºé˜Ÿåˆ—ã€‚
  */
 static inline void skb_queue_head_init(struct sk_buff_head *list)
 {
@@ -872,7 +872,7 @@ static inline struct sk_buff *__skb_dequeue_tail(struct sk_buff_head *list)
 }
 
 /**
- * ²âÊÔÒ»¸ö»º³åÇøÊÇ·ñÊÇ·ÖÆ¬µÄ
+ * æµ‹è¯•ä¸€ä¸ªç¼“å†²åŒºæ˜¯å¦æ˜¯åˆ†ç‰‡çš„
  */
 static inline int skb_is_nonlinear(const struct sk_buff *skb)
 {
@@ -880,8 +880,8 @@ static inline int skb_is_nonlinear(const struct sk_buff *skb)
 }
 
 /**
- * ¶ÔÓÚÖ¸¶¨Ä³¸ö»º³åÇø£¬·µ»ØÖ÷Òª»º³åÇøÖĞµÄÊı¾İÁ¿£¨¼´²»¼ÆËãfragsÆ¬¶Î£¬Ò²²»¿¼ÂÇfrag_listÁĞ±í£©¡£
- * ±ğ°Ñskb_headlenÎóÂëÈÏÎªskb_headroom¡£Skb_headroom·µ»ØµÄÊÇ½éÓÚskb->headºÍskb->dataÖ®¼äµÄ¿ÉÓÃ¿Õ¼ä¡£
+ * å¯¹äºæŒ‡å®šæŸä¸ªç¼“å†²åŒºï¼Œè¿”å›ä¸»è¦ç¼“å†²åŒºä¸­çš„æ•°æ®é‡ï¼ˆå³ä¸è®¡ç®—fragsç‰‡æ®µï¼Œä¹Ÿä¸è€ƒè™‘frag_liståˆ—è¡¨ï¼‰ã€‚
+ * åˆ«æŠŠskb_headlenè¯¯ç è®¤ä¸ºskb_headroomã€‚Skb_headroomè¿”å›çš„æ˜¯ä»‹äºskb->headå’Œskb->dataä¹‹é—´çš„å¯ç”¨ç©ºé—´ã€‚
  */
 static inline unsigned int skb_headlen(const struct sk_buff *skb)
 {
@@ -889,7 +889,7 @@ static inline unsigned int skb_headlen(const struct sk_buff *skb)
 }
 
 /**
- * ·ÖÆ¬»º³åÇøµÄ³ß´ç¡£»á°ÑÖ÷»º³åÇøÖĞµÄÊı¾İÒÔ¼°fragsÆ¬¶ÎÖĞµÄÊı¾İ¼ÆËã½øÀ´£¬µ«ÊÇ²»¿¼ÂÇÈÎºÎÁ´½Óµ½frag_listÁĞ±íµÄ»º³åÇø¡£
+ * åˆ†ç‰‡ç¼“å†²åŒºçš„å°ºå¯¸ã€‚ä¼šæŠŠä¸»ç¼“å†²åŒºä¸­çš„æ•°æ®ä»¥åŠfragsç‰‡æ®µä¸­çš„æ•°æ®è®¡ç®—è¿›æ¥ï¼Œä½†æ˜¯ä¸è€ƒè™‘ä»»ä½•é“¾æ¥åˆ°frag_liståˆ—è¡¨çš„ç¼“å†²åŒºã€‚
  */
 static inline int skb_pagelen(const struct sk_buff *skb)
 {
@@ -937,15 +937,15 @@ static inline unsigned char *__skb_put(struct sk_buff *skb, unsigned int len)
  *	first byte of the extra data is returned.
  */
 /**
- * ÔÚ»º³åÇøµÄÄ©Î²¼ÓÈëÒ»¿éÊı¾İ¡£
- * Óëskb_reserveÀàËÆ£¬²»»áÕæµÄÍù»º³åÇøÖĞÌí¼ÓÊı¾İ
+ * åœ¨ç¼“å†²åŒºçš„æœ«å°¾åŠ å…¥ä¸€å—æ•°æ®ã€‚
+ * ä¸skb_reserveç±»ä¼¼ï¼Œä¸ä¼šçœŸçš„å¾€ç¼“å†²åŒºä¸­æ·»åŠ æ•°æ®
  */
 static inline unsigned char *skb_put(struct sk_buff *skb, unsigned int len)
 {
 	unsigned char *tmp = skb->tail;
 	SKB_LINEAR_ASSERT(skb);
 	/**
-	 * ºóÒÆ»º³åÇøÖ¸Õë£¬²¢Ôö¼Ó»º³åÇø³¤¶È¡£
+	 * åç§»ç¼“å†²åŒºæŒ‡é’ˆï¼Œå¹¶å¢åŠ ç¼“å†²åŒºé•¿åº¦ã€‚
 	 */
 	skb->tail += len;
 	skb->len  += len;
@@ -971,16 +971,16 @@ static inline unsigned char *__skb_push(struct sk_buff *skb, unsigned int len)
  *	panic. A pointer to the first byte of the extra data is returned.
  */
 /**
- * ÔÚ»º³åÇøµÄ¿ªÍ·¼ÓÈëÒ»¿éÊı¾İ
+ * åœ¨ç¼“å†²åŒºçš„å¼€å¤´åŠ å…¥ä¸€å—æ•°æ®
  */
 static inline unsigned char *skb_push(struct sk_buff *skb, unsigned int len)
 {
 	/**
-	 * ÏòÇ°ÒÆ¶¯»º³åÇøÍ·²¿¡£
+	 * å‘å‰ç§»åŠ¨ç¼“å†²åŒºå¤´éƒ¨ã€‚
 	 */
 	skb->data -= len;
 	/**
-	 * Ôö¼Ó»º³åÇø³¤¶È¡£
+	 * å¢åŠ ç¼“å†²åŒºé•¿åº¦ã€‚
 	 */
 	skb->len  += len;
 	if (unlikely(skb->data<skb->head))
@@ -1006,7 +1006,7 @@ static inline unsigned char *__skb_pull(struct sk_buff *skb, unsigned int len)
  *	the old data.
  */
 /**
- * Í¨¹ı°Ñ head Ö¸ÕëÍùÇ°ÒÆÀ´ÔÚ»º³åÇøµÄÍ·²¿É¾³ıÒ»¿éÊı¾İ
+ * é€šè¿‡æŠŠ head æŒ‡é’ˆå¾€å‰ç§»æ¥åœ¨ç¼“å†²åŒºçš„å¤´éƒ¨åˆ é™¤ä¸€å—æ•°æ®
  */
 static inline unsigned char *skb_pull(struct sk_buff *skb, unsigned int len)
 {
@@ -1036,418 +1036,18 @@ static inline int pskb_may_pull(struct sk_buff *skb, unsigned int len)
 	if (unlikely(len > skb->len))
 		return 0;
 	return __pskb_pull_tail(skb, len-skb_headlen(skb)) != NULL;
+} += len;
+	return tmp;
 }
 
 /**
- *	skb_headroom - bytes at buffer head
- *	@skb: buffer to check
+ *	skb_put - add data to a buffer
+ *	@skb: buffer to use
+ *	@len: amount of data to add
  *
- *	Return the number of bytes of free space at the head of an &sk_buff.
- */
-static inline int skb_headroom(const struct sk_buff *skb)
-{
-	return skb->data - skb->head;
-}
-
-/**
- *	skb_tailroom - bytes at buffer end
- *	@skb: buffer to check
- *
- *	Return the number of bytes of free space at the tail of an sk_buff
- */
-static inline int skb_tailroom(const struct sk_buff *skb)
-{
-	return skb_is_nonlinear(skb) ? 0 : skb->end - skb->tail;
-}
-
-/**
- *	skb_reserve - adjust headroom
- *	@skb: buffer to alter
- *	@len: bytes to move
- *
- *	Increase the headroom of an empty &sk_buff by reducing the tail
- *	room. This is only allowed for an empty buffer.
+ *	This function extends the used data area of the buffer. If this would
+ *	exceed the total buffer size the kernel will panic. A pointer to the
+ *	first byte of the extra data is returned.
  */
 /**
- * skb_reserve¿ÉÒÔÔÚ»º³åÇøµÄÍ·²¿Ô¤ÁôÒ»¶¨µÄ¿Õ¼ä£¬ËüÍ¨³£±»ÓÃÀ´ÔÚ»º³åÇøÖĞ²åÈëĞ­ÒéÍ·»òÕßÔÚÄ³¸ö±ß½çÉÏ¶ÔÆë
- */
-static inline void skb_reserve(struct sk_buff *skb, unsigned int len)
-{
-	/**
-	 * Õâ¸öº¯Êı¸Ä±ädataºÍtailÖ¸Õë£¬¶ødataºÍtailÖ¸Õë·Ö±ğÖ¸Ïò¸ºÔØµÄ¿ªÍ·ºÍ½áÎ²
-	 */
-	skb->data += len;
-	skb->tail += len;
-}
-
-/*
- * CPUs often take a performance hit when accessing unaligned memory
- * locations. The actual performance hit varies, it can be small if the
- * hardware handles it or large if we have to take an exception and fix it
- * in software.
- *
- * Since an ethernet header is 14 bytes network drivers often end up with
- * the IP header at an unaligned offset. The IP header can be aligned by
- * shifting the start of the packet by 2 bytes. Drivers should do this
- * with:
- *
- * skb_reserve(NET_IP_ALIGN);
- *
- * The downside to this alignment of the IP header is that the DMA is now
- * unaligned. On some architectures the cost of an unaligned DMA is high
- * and this cost outweighs the gains made by aligning the IP header.
- * 
- * Since this trade off varies between architectures, we allow NET_IP_ALIGN
- * to be overridden.
- */
-#ifndef NET_IP_ALIGN
-#define NET_IP_ALIGN	2
-#endif
-
-extern int ___pskb_trim(struct sk_buff *skb, unsigned int len, int realloc);
-
-static inline void __skb_trim(struct sk_buff *skb, unsigned int len)
-{
-	if (!skb->data_len) {
-		skb->len  = len;
-		skb->tail = skb->data + len;
-	} else
-		___pskb_trim(skb, len, 0);
-}
-
-/**
- *	skb_trim - remove end from a buffer
- *	@skb: buffer to alter
- *	@len: new length
- *
- *	Cut the length of a buffer down by removing data from the tail. If
- *	the buffer is already under the length specified it is not modified.
- */
-static inline void skb_trim(struct sk_buff *skb, unsigned int len)
-{
-	if (skb->len > len)
-		__skb_trim(skb, len);
-}
-
-
-static inline int __pskb_trim(struct sk_buff *skb, unsigned int len)
-{
-	if (!skb->data_len) {
-		skb->len  = len;
-		skb->tail = skb->data+len;
-		return 0;
-	}
-	return ___pskb_trim(skb, len, 1);
-}
-
-static inline int pskb_trim(struct sk_buff *skb, unsigned int len)
-{
-	return (len < skb->len) ? __pskb_trim(skb, len) : 0;
-}
-
-/**
- *	skb_orphan - orphan a buffer
- *	@skb: buffer to orphan
- *
- *	If a buffer currently has an owner then we call the owner's
- *	destructor function and make the @skb unowned. The buffer continues
- *	to exist but is no longer charged to its former owner.
- */
-static inline void skb_orphan(struct sk_buff *skb)
-{
-	if (skb->destructor)
-		skb->destructor(skb);
-	skb->destructor = NULL;
-	skb->sk		= NULL;
-}
-
-/**
- *	__skb_queue_purge - empty a list
- *	@list: list to empty
- *
- *	Delete all buffers on an &sk_buff list. Each buffer is removed from
- *	the list and one reference dropped. This function does not take the
- *	list lock and the caller must hold the relevant locks to use it.
- */
-extern void skb_queue_purge(struct sk_buff_head *list);
-static inline void __skb_queue_purge(struct sk_buff_head *list)
-{
-	struct sk_buff *skb;
-	while ((skb = __skb_dequeue(list)) != NULL)
-		kfree_skb(skb);
-}
-
-/**
- *	__dev_alloc_skb - allocate an skbuff for sending
- *	@length: length to allocate
- *	@gfp_mask: get_free_pages mask, passed to alloc_skb
- *
- *	Allocate a new &sk_buff and assign it a usage count of one. The
- *	buffer has unspecified headroom built in. Users should allocate
- *	the headroom they think they need without accounting for the
- *	built in space. The built in space is used for optimisations.
- *
- *	%NULL is returned in there is no free memory.
- */
-#ifndef CONFIG_HAVE_ARCH_DEV_ALLOC_SKB
-/**
- * dev_alloc_skbÓëalloc_skbÏàËÆ£¬Ò²ÊÇÒ»¸ö»º³åÇø·ÖÅäº¯Êı£¬ËüÖ÷Òª±»Éè±¸Çı¶¯Ê¹ÓÃ£¬Í¨³£ÓÃÔÚÖĞ¶ÏÉÏÏÂÎÄÖĞ¡£
- * ËüµÄ·ÖÅäÒªÇóÊ¹ÓÃÔ­×Ó²Ù×÷£¨GFP_ATOMIC£©£¬ÕâÊÇÒòÎªËüÊÇÔÚÖĞ¶Ï´¦Àíº¯ÊıÖĞ±»µ÷ÓÃµÄ¡£ 
- */
-static inline struct sk_buff *__dev_alloc_skb(unsigned int length,
-					      int gfp_mask)
-{
-	/**
-	 * ÔÚÇëÇó·ÖÅäµÄ´óĞ¡ÉÏÔö¼Ó16×Ö½ÚµÄ¿Õ¼äÒÔÓÅ»¯»º³åÇøµÄ¶ÁĞ´Ğ§ÂÊ
-	 */
-	struct sk_buff *skb = alloc_skb(length + 16, gfp_mask);
-	/**
-	 * ÒÆ¶¯Êı¾İÖ¸Õë16¸ö×Ö½Ú£¬½«±£ÁôµÄ16×Ö½ÚÓÃÓÚÌá¸ß¶ÁĞ´Ğ§ÂÊ¡£
-	 */
-	if (likely(skb))
-		skb_reserve(skb, 16);
-	return skb;
-}
-#else
-extern struct sk_buff *__dev_alloc_skb(unsigned int length, int gfp_mask);
-#endif
-
-/**
- *	dev_alloc_skb - allocate an skbuff for sending
- *	@length: length to allocate
- *
- *	Allocate a new &sk_buff and assign it a usage count of one. The
- *	buffer has unspecified headroom built in. Users should allocate
- *	the headroom they think they need without accounting for the
- *	built in space. The built in space is used for optimisations.
- *
- *	%NULL is returned in there is no free memory. Although this function
- *	allocates memory it can be called from an interrupt.
- */
-/**
- * dev_alloc_skbÓëalloc_skbÏàËÆ£¬Ò²ÊÇÒ»¸ö»º³åÇø·ÖÅäº¯Êı£¬ËüÖ÷Òª±»Éè±¸Çı¶¯Ê¹ÓÃ£¬Í¨³£ÓÃÔÚÖĞ¶ÏÉÏÏÂÎÄÖĞ¡£
- * ÕâÊÇÒ»¸öalloc_skbº¯ÊıµÄ°ü×°º¯Êı£¬Ëü»áÔÚÇëÇó·ÖÅäµÄ´óĞ¡ÉÏÔö¼Ó16×Ö½ÚµÄ¿Õ¼äÒÔÓÅ»¯»º³åÇøµÄ¶ÁĞ´Ğ§ÂÊ£¬ËüµÄ·ÖÅäÒªÇóÊ¹ÓÃÔ­×Ó²Ù×÷£¨GFP_ATOMIC£©£¬ÕâÊÇÒòÎªËüÊÇÔÚÖĞ¶Ï´¦Àíº¯ÊıÖĞ±»µ÷ÓÃµÄ¡£ 
- */
-static inline struct sk_buff *dev_alloc_skb(unsigned int length)
-{
-	return __dev_alloc_skb(length, GFP_ATOMIC);
-}
-
-/**
- *	skb_cow - copy header of skb when it is required
- *	@skb: buffer to cow
- *	@headroom: needed headroom
- *
- *	If the skb passed lacks sufficient headroom or its data part
- *	is shared, data is reallocated. If reallocation fails, an error
- *	is returned and original skb is not changed.
- *
- *	The result is skb with writable area skb->head...skb->tail
- *	and at least @headroom of space at head.
- */
-static inline int skb_cow(struct sk_buff *skb, unsigned int headroom)
-{
-	int delta = (headroom > 16 ? headroom : 16) - skb_headroom(skb);
-
-	if (delta < 0)
-		delta = 0;
-
-	if (delta || skb_cloned(skb))
-		return pskb_expand_head(skb, (delta + 15) & ~15, 0, GFP_ATOMIC);
-	return 0;
-}
-
-/**
- *	skb_padto	- pad an skbuff up to a minimal size
- *	@skb: buffer to pad
- *	@len: minimal length
- *
- *	Pads up a buffer to ensure the trailing bytes exist and are
- *	blanked. If the buffer already contains sufficient data it
- *	is untouched. Returns the buffer, which may be a replacement
- *	for the original, or NULL for out of memory - in which case
- *	the original buffer is still freed.
- */
- 
-static inline struct sk_buff *skb_padto(struct sk_buff *skb, unsigned int len)
-{
-	unsigned int size = skb->len;
-	if (likely(size >= len))
-		return skb;
-	return skb_pad(skb, len-size);
-}
-
-static inline int skb_add_data(struct sk_buff *skb,
-			       char __user *from, int copy)
-{
-	const int off = skb->len;
-
-	if (skb->ip_summed == CHECKSUM_NONE) {
-		int err = 0;
-		unsigned int csum = csum_and_copy_from_user(from,
-							    skb_put(skb, copy),
-							    copy, 0, &err);
-		if (!err) {
-			skb->csum = csum_block_add(skb->csum, csum, off);
-			return 0;
-		}
-	} else if (!copy_from_user(skb_put(skb, copy), from, copy))
-		return 0;
-
-	__skb_trim(skb, off);
-	return -EFAULT;
-}
-
-static inline int skb_can_coalesce(struct sk_buff *skb, int i,
-				   struct page *page, int off)
-{
-	if (i) {
-		struct skb_frag_struct *frag = &skb_shinfo(skb)->frags[i - 1];
-
-		return page == frag->page &&
-		       off == frag->page_offset + frag->size;
-	}
-	return 0;
-}
-
-/**
- *	skb_linearize - convert paged skb to linear one
- *	@skb: buffer to linarize
- *	@gfp: allocation mode
- *
- *	If there is no free memory -ENOMEM is returned, otherwise zero
- *	is returned and the old skb data released.
- */
-extern int __skb_linearize(struct sk_buff *skb, int gfp);
-static inline int skb_linearize(struct sk_buff *skb, int gfp)
-{
-	return __skb_linearize(skb, gfp);
-}
-
-static inline void *kmap_skb_frag(const skb_frag_t *frag)
-{
-#ifdef CONFIG_HIGHMEM
-	BUG_ON(in_irq());
-
-	local_bh_disable();
-#endif
-	return kmap_atomic(frag->page, KM_SKB_DATA_SOFTIRQ);
-}
-
-static inline void kunmap_skb_frag(void *vaddr)
-{
-	kunmap_atomic(vaddr, KM_SKB_DATA_SOFTIRQ);
-#ifdef CONFIG_HIGHMEM
-	local_bh_enable();
-#endif
-}
-
-/**
- * °´Ë³Ğò±éÀú¶ÓÁĞÖĞµÄÃ¿Ò»¸öÔªËØ¡£
- */
-#define skb_queue_walk(queue, skb) \
-		for (skb = (queue)->next;					\
-		     prefetch(skb->next), (skb != (struct sk_buff *)(queue));	\
-		     skb = skb->next)
-
-
-extern struct sk_buff *skb_recv_datagram(struct sock *sk, unsigned flags,
-					 int noblock, int *err);
-extern unsigned int    datagram_poll(struct file *file, struct socket *sock,
-				     struct poll_table_struct *wait);
-extern int	       skb_copy_datagram_iovec(const struct sk_buff *from,
-					       int offset, struct iovec *to,
-					       int size);
-extern int	       skb_copy_and_csum_datagram_iovec(const
-							struct sk_buff *skb,
-							int hlen,
-							struct iovec *iov);
-extern void	       skb_free_datagram(struct sock *sk, struct sk_buff *skb);
-extern unsigned int    skb_checksum(const struct sk_buff *skb, int offset,
-				    int len, unsigned int csum);
-extern int	       skb_copy_bits(const struct sk_buff *skb, int offset,
-				     void *to, int len);
-extern unsigned int    skb_copy_and_csum_bits(const struct sk_buff *skb,
-					      int offset, u8 *to, int len,
-					      unsigned int csum);
-extern void	       skb_copy_and_csum_dev(const struct sk_buff *skb, u8 *to);
-extern void	       skb_split(struct sk_buff *skb,
-				 struct sk_buff *skb1, const u32 len);
-
-static inline void *skb_header_pointer(const struct sk_buff *skb, int offset,
-				       int len, void *buffer)
-{
-	int hlen = skb_headlen(skb);
-
-	if (offset + len <= hlen)
-		return skb->data + offset;
-
-	if (skb_copy_bits(skb, offset, buffer, len) < 0)
-		return NULL;
-
-	return buffer;
-}
-
-extern void skb_init(void);
-extern void skb_add_mtu(int mtu);
-
-struct skb_iter {
-	/* Iteration functions set these */
-	unsigned char *data;
-	unsigned int len;
-
-	/* Private to iteration */
-	unsigned int nextfrag;
-	struct sk_buff *fraglist;
-};
-
-/* Keep iterating until skb_iter_next returns false. */
-extern void skb_iter_first(const struct sk_buff *skb, struct skb_iter *i);
-extern int skb_iter_next(const struct sk_buff *skb, struct skb_iter *i);
-/* Call this if aborting loop before !skb_iter_next */
-extern void skb_iter_abort(const struct sk_buff *skb, struct skb_iter *i);
-
-#ifdef CONFIG_NETFILTER
-static inline void nf_conntrack_put(struct nf_conntrack *nfct)
-{
-	if (nfct && atomic_dec_and_test(&nfct->use))
-		nfct->destroy(nfct);
-}
-static inline void nf_conntrack_get(struct nf_conntrack *nfct)
-{
-	if (nfct)
-		atomic_inc(&nfct->use);
-}
-static inline void nf_reset(struct sk_buff *skb)
-{
-	nf_conntrack_put(skb->nfct);
-	skb->nfct = NULL;
-#ifdef CONFIG_NETFILTER_DEBUG
-	skb->nf_debug = 0;
-#endif
-}
-static inline void nf_reset_debug(struct sk_buff *skb)
-{
-#ifdef CONFIG_NETFILTER_DEBUG
-	skb->nf_debug = 0;
-#endif
-}
-
-#ifdef CONFIG_BRIDGE_NETFILTER
-static inline void nf_bridge_put(struct nf_bridge_info *nf_bridge)
-{
-	if (nf_bridge && atomic_dec_and_test(&nf_bridge->use))
-		kfree(nf_bridge);
-}
-static inline void nf_bridge_get(struct nf_bridge_info *nf_bridge)
-{
-	if (nf_bridge)
-		atomic_inc(&nf_bridge->use);
-}
-#endif /* CONFIG_BRIDGE_NETFILTER */
-#else /* CONFIG_NETFILTER */
-static inline void nf_reset(struct sk_buff *skb) {}
-#endif /* CONFIG_NETFILTER */
-
-#endif	/* __KERNEL__ */
-#endif	/* _LINUX_SKBUFF_H */
+ * é¦ã„§ç´¦éæ’å°¯é¨å‹¬æ¹¯çæƒ§å§éãƒ¤ç«´é§æ¥æšŸé¹î†º
